@@ -65,6 +65,6 @@ class ZinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def zine_params
-      params.require(:zine).permit(:title, :price, :size, :pages, :description, :cover_image)
+      params.require(:zine).permit(:title, :price, :size, :pages, :description, :cover_image, :background_image)
     end
 end
