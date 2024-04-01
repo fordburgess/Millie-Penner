@@ -12,6 +12,7 @@ module.exports = {
       fontFamily: {
         kameron: ['Kameron'],
         lexendZetta: ['Lexend Zetta'],
+        windowsRegular: ['Windows Regular'],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
