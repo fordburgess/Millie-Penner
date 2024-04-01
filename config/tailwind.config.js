@@ -10,6 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        kameron: ['Kameron'],
+        lexendZetta: ['Lexend Zetta'],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
