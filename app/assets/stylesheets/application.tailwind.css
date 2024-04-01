@@ -2,8 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Kameron:wght@400..700&family=Lexend+Zetta:wght@100..900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Kameron:wght@400..700&family=Lexend+Zetta:wght@100..900&display=swap');
 
+@font-face {
+  font-family: 'Windows Regular';
+  src: url('/assets/WindowsRegular.ttf') format('truetype');
+}
+
+@layer components {
+  .add-to-cart {
+    background-color: rgb(208, 208, 208);    
+    font-family: 'Windows Regular';
+    color: black;
+    padding: 5px 12px;
+    border-top: solid 2px rgb(255, 255, 255);
+    border-left: solid 2px rgb(255, 255, 255);
+    border-right: solid 2px rgb(20, 20, 20);
+    border-bottom: solid 2px rgb(20, 20, 20);
+    /* @apply bg-gray-200 font-sans text-black px-6 py-2 */
+  }
+}
 /*
 
 @layer components {
