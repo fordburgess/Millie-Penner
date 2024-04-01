@@ -1,14 +1,56 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Zines</h1>
-    <%= link_to "New zine", new_zine_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
-
-  <div id="zines" class="min-w-full">
-    <%= render @zines %>
+<div class="w-full h-screen" style="background-image: url('<%= image_url('zines-index-bg.png')%>');">
+  <div class="w-full h-screen overflow-y-scroll py-12 px-28 text-white">
+    <section class="flex flex-col items-center mb-6">
+      <h1 class="font-kameron text-4xl font-medium mb-4">ZINES</h1>
+      <h3 class="font-kameron text-2xl font-medium mb-4">Friend Application</h3>
+      <h6 class="font-kameron text-2xl">Self illustrated, written, photographed, published, and distributed</h6>
+    </section>
+    <section class="mb-12">    
+      <%= render partial: "zine_latest", locals: { zines: @zines } %>
+    </section>
+    <section class="pl-16">
+      <h3 class="font-lexendZetta text-xl mb-6">Distributed at...</h3>
+      <div class="w-full flex flex-wrap justify-between font-lexendZetta text-base">
+        <div class="w-1/2 mb-6">
+          <p>Donlon Books <br/>75 Broadway Market, E8 4PH</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Rye Books <br/>47 N Cross Rd, SE22 9ET</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>BOOKS <br/>20 Maxted Rd, SE15 4FL</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>All Ages Records <br/>27A Pratt St, NW1 0BG</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Waste Store <br/>270 Hackney Road, E2 7SD</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Flashback Records<br/>26 Topsfield Parade, N8 8PT</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Houseman&apos;s <br/>5 Caledonian Rd, N1 9DY</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Jam Books <br/>61A Hackney Rd, E2 7NX</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Boom Cat Books <br/>70 Camden Lock, NW1 8AF</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Freedom Press <br/>84b Whitechapel High St, E1 7QX</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Review Bookshop <br/>131 Bellend Road, SE15</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Chener Books <br/>14 Lordship Ln, SE22 8HN</p>
+        </div>
+        <div class="w-1/2 mb-6">
+          <p>Burley Fischer <br/>400 Kingsland Rd, E8 4AA</p>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
