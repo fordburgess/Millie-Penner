@@ -1,0 +1,2 @@
+class Zine < ApplicationRecord
+end
