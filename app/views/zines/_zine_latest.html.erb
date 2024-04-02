@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'zine_latest.css' %>
-<div class="container w-full mb-12 bg-red-200">
+<div class="container w-full flex flex-col items-center lg:flex-row mb-12 bg-red-200">
     <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.1" } %>
         <% zine_vol_one = zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.1" } %>
         <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full flex flex-col items-center justify-end">
