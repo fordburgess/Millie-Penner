@@ -1,0 +1,10 @@
+.container {
+    height: auto;    
+}
+
+@media (min-width: 1024px) {
+
+    .container {
+        height: 35rem;
+    }
+}
