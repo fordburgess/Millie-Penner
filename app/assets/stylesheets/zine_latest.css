@@ -1,9 +1,9 @@
 .container {
-    height: auto;    
+    height: 50rem;    
+    width: 100%;    
 }
 
 @media (min-width: 1024px) {
-
     .container {
         height: 35rem;
     }
