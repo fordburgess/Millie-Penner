@@ -41,9 +41,14 @@
     <%= form.file_field :cover_image, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="mt-5 mb-8">
+  <div class="mt-5 mb-5">
     <%= form.label :background_image, class: "font-windowsRegular text-xl" %>
     <%= form.file_field :background_image, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="mt-5 mb-8">
+    <%= form.label "Zine PDF", class: "font-windowsRegular text-xl" %>
+    <%= form.file_field :zine_pdf, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
