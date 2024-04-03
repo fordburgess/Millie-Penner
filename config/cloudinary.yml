@@ -1,0 +1,11 @@
+development: 
+  cloud_name: "ds6jhdll9"
+  api_key: "277292899974916"
+  api_secret: "Fr8Jn02wIv0akonOIvVbZLSticY"
+  secure: true
+
+production:
+  cloud_name: "ds6jhdll9"
+  api_key: "277292899974916"
+  api_secret: "Fr8Jn02wIv0akonOIvVbZLSticY"
+  secure: true
