@@ -7,7 +7,7 @@ class ZinesController < ApplicationController
   end
 
   # GET /zines/1 or /zines/1.json
-  def show
+  def show    
   end
 
   # GET /zines/new
