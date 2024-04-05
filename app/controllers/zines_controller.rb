@@ -29,8 +29,7 @@ class ZinesController < ApplicationController
         pdf_url = @zine.zine_pdf.url
         PdfToImageConverter.new(pdf_url, @zine).convert_to_images
 
-        format.html { redirect_to zine_url(@zine), notice: "Zine was successfully created." }
-        # format.json { render :show, status: :created, location: @zine }
+        format.html { redirect_to zine_url(@zine), notice: "Zine was successfully created." }        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @zine.errors, status: :unprocessable_entity }
