@@ -1,5 +1,7 @@
 class Admin::AdminController < ApplicationController  
     def dashboard
         render 'admin/dashboard'
-    end    
+    end
+    
+    before_action :authenticate_user!
 end
