@@ -7,7 +7,11 @@ class ZinesController < ApplicationController
   end
 
   # GET /zines/1 or /zines/1.json
-  def show    
+  def show
+    @zine = Zine.find(params[:id]);
+    pdf_url = @zine.zine_pdf.url
+
+    # PdfToImageConverter.new(pdf_url, @zine).convert_to_images    
   end
 
   # GET /zines/new
