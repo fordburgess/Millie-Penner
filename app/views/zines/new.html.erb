@@ -1,7 +1,5 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New zine</h1>
-
+<div class="w-full h-screen overflow-y-scroll py-28 px-60 text-white" style="background-image: url('<%= image_url('dashboard-bg.jpeg')%>');">
+  <h1 class="font-bold text-4xl font-lexendZetta">New zine</h1>
   <%= render "form", zine: @zine %>
-
-  <%= link_to "Back to zines", zines_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <a href="/dashboard"><button class="classic-button-2 cursor-pointer">Back</button></a>  
 </div>

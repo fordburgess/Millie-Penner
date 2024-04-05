@@ -8,6 +8,7 @@ class ZinesController < ApplicationController
 
   # GET /zines/1 or /zines/1.json
   def show
+    @zine = Zine.find(params[:id]);    
   end
 
   # GET /zines/new
@@ -25,8 +26,10 @@ class ZinesController < ApplicationController
 
     respond_to do |format|
       if @zine.save
-        format.html { redirect_to zine_url(@zine), notice: "Zine was successfully created." }
-        format.json { render :show, status: :created, location: @zine }
+        pdf_url = @zine.zine_pdf.url
+        PdfToImageConverter.new(pdf_url, @zine).convert_to_images
+
+        format.html { redirect_to zine_url(@zine), notice: "Zine was successfully created." }        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @zine.errors, status: :unprocessable_entity }
@@ -65,6 +68,6 @@ class ZinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def zine_params
-      params.require(:zine).permit(:title, :price, :size, :pages, :description, :cover_image, :background_image)
+      params.require(:zine).permit(:title, :price, :size, :pages, :description, :cover_image, :background_image, :zine_pdf)
     end
 end

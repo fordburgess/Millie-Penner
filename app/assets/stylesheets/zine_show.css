@@ -1,0 +1,10 @@
+.book {
+    display: flex;
+    perspective: 1200px;
+}
+
+.page {
+    position: relative;
+    width: 50%;
+    height: 100%;
+}

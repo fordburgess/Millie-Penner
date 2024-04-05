@@ -12,41 +12,46 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :title, class: "font-windowsRegular text-xl" %>
+    <%= form.text_field :title, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :price %>
-    <%= form.text_field :price, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :price, class: "font-windowsRegular text-xl" %>
+    <%= form.text_field :price, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :size %>
-    <%= form.text_field :size, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :size, class: "font-windowsRegular text-xl" %>
+    <%= form.text_field :size, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :pages %>
-    <%= form.number_field :pages, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :pages, class: "font-windowsRegular text-xl" %>
+    <%= form.number_field :pages, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :description %>
-    <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :description, class: "font-windowsRegular text-xl" %>
+    <%= form.text_area :description, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :cover_image %>
-    <%= form.file_field :cover_image, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :cover_image, class: "font-windowsRegular text-xl" %>
+    <%= form.file_field :cover_image, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :background_image %>
-    <%= form.file_field :background_image, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  <div class="mt-5 mb-5">
+    <%= form.label :background_image, class: "font-windowsRegular text-xl" %>
+    <%= form.file_field :background_image, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="mt-5 mb-8">
+    <%= form.label "Zine PDF", class: "font-windowsRegular text-xl" %>
+    <%= form.file_field :zine_pdf, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "classic-button-1 mr-4 cursor-pointer" %>
   </div>
 <% end %>

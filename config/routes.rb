@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :zines  
+  resources :zines, except: [:edit]
 
   root to: 'pages#home'
 
-  get "/dashboard", to: 'pages#dashboard'
+  namespace :admin do 
+    root to: 'pages#dashboard'
+    resources :zines
+
+  end
   
 end
