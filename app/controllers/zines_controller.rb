@@ -8,10 +8,7 @@ class ZinesController < ApplicationController
 
   # GET /zines/1 or /zines/1.json
   def show
-    @zine = Zine.find(params[:id]);
-    pdf_url = @zine.zine_pdf.url
-
-    # PdfToImageConverter.new(pdf_url, @zine).convert_to_images    
+    @zine = Zine.find(params[:id]);    
   end
 
   # GET /zines/new
@@ -29,8 +26,11 @@ class ZinesController < ApplicationController
 
     respond_to do |format|
       if @zine.save
+        pdf_url = @zine.zine_pdf.url
+        PdfToImageConverter.new(pdf_url, @zine).convert_to_images
+
         format.html { redirect_to zine_url(@zine), notice: "Zine was successfully created." }
-        format.json { render :show, status: :created, location: @zine }
+        # format.json { render :show, status: :created, location: @zine }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @zine.errors, status: :unprocessable_entity }
