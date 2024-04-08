@@ -29,6 +29,8 @@ class Admin::ZinesController < ApplicationController
     def update
         @zine = Zine.find(params[:id])
 
+        puts "HELLO HELLO"
+
         respond_to do |format|
             if @zine.update(zine_params)
                 format.html { redirect_to "/zines/#{@zine.id}", notice: "Zine was successfully updated." }
