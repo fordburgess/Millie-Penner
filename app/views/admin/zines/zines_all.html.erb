@@ -1,7 +1,10 @@
 <div class="w-screen h-screen" style="background-image: url('<%= image_url('star-bg.jpeg')%>');">
-    <section class="p-20 h-full overflow-y-scroll">
-        <h1 class="font-lexendZetta text-white text-3xl mb-12">All Zines</h1>
-        <div class="w-full flex flex-col text-white font-kameron">
+    <section class="px-20 h-full flex-col text-white">
+        <div class="h-1/5 flex items-center">
+            <h1 class="font-lexendZetta text-white text-3xl mr-8">All Zines</h1>
+            <%= link_to "Back to dashboard", admin_root_path, class: "underline font-windowsRegular" %>
+        </div>
+        <div class="w-full h-4/5 flex-col text-white font-kameron overflow-y-scroll box-border">
             <% @zines.each do |zine| %>
                 <div class="w-full flex mb-8">
                     <%= image_tag zine.cover_image, class: "mr-8", style: "max-height: 15rem; max-width: 10rem" %>
@@ -12,7 +15,7 @@
                         </div>
                         <div class="flex">
                             <%= link_to "Edit Zine", edit_admin_zine_path(zine), class: "classic-button-1 mr-4" %>
-                            <%= link_to "View Shop Page", "/zines/#{zine.id}", class: "classic-button-1" %>                                                      
+                            <%= link_to "View Shop Page", "/zines/#{zine.id}", class: "classic-button-1 mr-4" %>                            
                         </div>
                     </div>
                 </div>
