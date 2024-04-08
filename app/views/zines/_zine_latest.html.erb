@@ -12,7 +12,7 @@
     <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.3" } %>
         <% zine_vol_three = zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.3" } %>
         <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full">
-            <a href="/zines/<%= zine_vol_three.id %>" class="w-full flex h-full flex-col justify-end items-center">
+            <a href="/zines/<%= zine_vol_three.id %>" class="w-full flex h-full flex-col justify-start items-center">
                 <%= image_tag zine_vol_three.cover_image, style: "height: 28rem; width: 20rem" %>
                 <h1 class="font-kameron text-xl">Vol. 3</h1>
             </a>
