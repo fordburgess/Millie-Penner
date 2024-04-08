@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  # resources :zines, except: [:edit, :new]
-
-  get '/zines', to: 'zines#index'
-  get '/zines/:id', to: 'zines#show'
+  resources :zines, only: [:index, :show]  
 
   root to: 'pages#home'
 

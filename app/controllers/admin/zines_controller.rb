@@ -28,10 +28,10 @@ class Admin::ZinesController < ApplicationController
      # PATCH/PUT /zines/1 or /zines/1.json
     def update
         @zine = Zine.find(params[:id])
-        
+
         respond_to do |format|
             if @zine.update(zine_params)
-                format.html { redirect_to zine_url(@zine), notice: "Zine was successfully updated." }
+                format.html { redirect_to "/zines/#{@zine.id}", notice: "Zine was successfully updated." }
                 format.json { render :show, status: :ok, location: @zine }
             else
                 format.html { render :edit, status: :unprocessable_entity }
