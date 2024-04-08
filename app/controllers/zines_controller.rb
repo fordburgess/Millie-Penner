@@ -13,7 +13,6 @@ class ZinesController < ApplicationController
 
   # GET /zines/new
   def new
-    
   end
 
   # GET /zines/1/edit

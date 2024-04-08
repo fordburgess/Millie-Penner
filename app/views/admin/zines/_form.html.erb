@@ -1,4 +1,4 @@
-<%= form_with(model: zine, class: "contents") do |form| %>
+<%= form_with(model: zine, url: admin_zine_path(zine), class: "contents") do |form| %>
   <% if zine.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(zine.errors.count, "error") %> prohibited this zine from being saved:</h2>
@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="my-5">
     <%= form.label :title, class: "font-windowsRegular text-xl" %>
     <%= form.text_field :title, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
