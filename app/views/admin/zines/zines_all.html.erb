@@ -1,0 +1,22 @@
+<div class="w-screen h-screen" style="background-image: url('<%= image_url('star-bg.jpeg')%>');">
+    <section class="p-20 h-full overflow-y-scroll">
+        <h1 class="font-lexendZetta text-white text-3xl mb-12">All Zines</h1>
+        <div class="w-full flex flex-col text-white font-kameron">
+            <% @zines.each do |zine| %>
+                <div class="w-full flex mb-8">
+                    <%= image_tag zine.cover_image, class: "mr-8", style: "max-height: 15rem; max-width: 10rem" %>
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl"><%= zine.title %></h2>
+                            <h3 class="text-xl">Created: <%= zine.created_at.strftime('%d/%m/%Y') %></h3>
+                        </div>
+                        <div class="flex">
+                            <%= link_to "Edit Zine", edit_admin_zine_path(zine), class: "classic-button-1 mr-4" %>
+                            <%= link_to "View Shop Page", "/zines/#{zine.id}", class: "classic-button-1" %>                                                      
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </section>
+</div>
