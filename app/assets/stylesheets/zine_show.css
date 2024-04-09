@@ -8,3 +8,16 @@
     width: 50%;
     height: 100%;
 }
+
+.zine-container {
+    height: 50%;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (min-width: 1024px) {
+    .zine-container {
+        height: 100%;
+    }
+}
