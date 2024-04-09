@@ -5,8 +5,9 @@ class ApplicationController < ActionController::Base
     def display_cart
         @display_cart = request.path.include?("zines")        
     end
+    
 
-    private 
+    private
         def current_cart
             if session[:cart_id]
                 cart = Cart.find_by(:id => session[:cart_id])
