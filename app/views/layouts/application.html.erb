@@ -13,6 +13,7 @@
 
   <body>
     <main class="w-screen">
+      <%= render partial: "/shared/cart" if @display_cart %>  
       <%= yield %>
     </main>
   </body>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :zines, only: [:index, :show]  
+  resources :carts, only: [:show]
 
   root to: 'pages#home'
 
