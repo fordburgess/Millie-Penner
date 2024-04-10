@@ -12,6 +12,10 @@ class CartsController < ApplicationController
         current_cart.remove_item(params[:product_id])
     end
 
+    def empty_cart
+        current_cart.empty_items()
+    end
+
     def destroy
 
     end

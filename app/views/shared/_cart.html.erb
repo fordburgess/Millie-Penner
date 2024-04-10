@@ -16,10 +16,12 @@
                         </div>
                     <% end %>
                 </div>
-                <div class="flex flex-col">
-                    <button class="classic-button-1 w-full mb-4">Checkout</button>
-                    <button class="classic-button-1 w-full bg-black text-white">Clear all</button>
-                </div>
+                <% if @current_cart.zines.length > 0 %>
+                    <div class="flex flex-col">
+                        <button class="classic-button-1 w-full mb-4">Checkout</button>                    
+                        <%= button_to "Clear all", empty_cart_path, :method => :delete, class: "classic-button-1 w-full bg-black text-white" %>
+                    </div>
+                <% end %>
             </div>
         </div>
     </div>

@@ -24,6 +24,14 @@ class Cart < ApplicationRecord
         if product
             zines.delete(product)
         end
+    end
 
+    def empty_items
+        if zines.length() > 0
+            zines.clear()
+        end
+
+        puts "HELLO HELLO"
+        puts zines
     end
 end
