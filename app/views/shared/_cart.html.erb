@@ -12,7 +12,7 @@
                                 <h2 class="mt-0 mb-4"><%= zine.title %></h2>
                                 <p>Price: £<%= zine.price %></p>
                             </div>
-                            <%= button_to "X", remove_from_cart_path(zine), :method => :delete, class: "absolute bottom-0 right-0 hover:cursor-pointer" %>
+                            <%= button_to "X", remove_from_cart_path(zine), :method => :delete, class: "absolute top-0 right-0 hover:cursor-pointer" %>
                         </div>
                     <% end %>
                 </div>
