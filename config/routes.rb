@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  post '/add_to_cart/:product_id' => 'carts#add_to_cart', :as => 'add_to_cart'
+
   namespace :admin do 
     root to: 'admin#dashboard'
     get '/zines/all', to: 'admin#zines_all'

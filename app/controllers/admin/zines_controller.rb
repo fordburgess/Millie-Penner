@@ -27,9 +27,7 @@ class Admin::ZinesController < ApplicationController
 
      # PATCH/PUT /zines/1 or /zines/1.json
     def update
-        @zine = Zine.find(params[:id])
-
-        puts "HELLO HELLO"
+        @zine = Zine.find(params[:id])        
 
         respond_to do |format|
             if @zine.update(zine_params)
