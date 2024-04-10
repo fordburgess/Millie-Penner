@@ -8,6 +8,10 @@ class CartsController < ApplicationController
         current_cart.add_item(params[:product_id])        
     end
 
+    def remove_from_cart
+        current_cart.remove_item(params[:product_id])
+    end
+
     def destroy
 
     end
