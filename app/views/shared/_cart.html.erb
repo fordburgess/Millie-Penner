@@ -10,7 +10,7 @@
                             <%= image_tag zine.cover_image, class: "mr-4", style: "max-height: 10rem; max-width: 5rem" %>
                             <div class="font-kameron">
                                 <h2 class="mt-0 mb-4"><%= zine.title %></h2>
-                                <p>Price: £<%= zine.price %></p>
+                                <p>Price: £<%= sprintf('%.2f', zine.price) %></p>
                             </div>
                             <%= button_to "X", remove_from_cart_path(zine), :method => :delete, class: "absolute top-0 right-0 hover:cursor-pointer" %>
                         </div>

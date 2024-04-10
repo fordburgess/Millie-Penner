@@ -34,4 +34,8 @@ class Cart < ApplicationRecord
         puts "HELLO HELLO"
         puts zines
     end
+
+    def cart_total
+        zines.sum(&:price)
+    end
 end
