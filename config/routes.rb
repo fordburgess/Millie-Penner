@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  # one off pages
+  get '/pages/makeup-art' => 'pages#makeup_art'
+
   # cart functionality
   post '/add_to_cart/:product_id' => 'carts#add_to_cart', :as => 'add_to_cart'
   delete '/remove_from_cart/:product_id' => 'carts#remove_from_cart', :as => 'remove_from_cart'

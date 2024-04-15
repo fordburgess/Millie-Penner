@@ -1,0 +1,29 @@
+<div class="h-screen w-screen bg-cover bg-center" style="background-image: url('<%= image_url('makeup-art-bg.webp')%>');">
+  <div class="h-full w-full flex justify-center items-center">
+    <%= video_tag "FacesMUA.mov", size: "400x932", autoplay: true, muted: true, loop: :loop, id: 'makeup-video' %>       
+  </div>
+</div>
+
+<script>
+    window.onload = function () {
+        var makeupVideo = document.getElementById("makeup-video");
+  
+        window.addEventListener("click", function () {
+            if (makeupVideo.paused == true) {
+                makeupVideo.play();
+            } else {
+                makeupVideo.pause();
+            }
+        });
+
+        window.addEventListener("keyup", function (e) {
+            if (e.code == "Space") {
+                if (makeupVideo.paused == true) {
+                    makeupVideo.play();
+                } else {
+                    makeupVideo.pause();
+                }
+            }
+        })
+    }
+</script>
