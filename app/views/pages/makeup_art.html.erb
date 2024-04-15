@@ -1,6 +1,9 @@
-<div class="h-screen w-screen bg-cover bg-center" style="background-image: url('<%= image_url('makeup-art-bg.webp')%>');">
-  <div class="h-full w-full flex justify-center items-center">
-    <%= video_tag "FacesMUA.mov", size: "400x932", autoplay: true, muted: true, loop: :loop, id: 'makeup-video' %>       
+<div class="h-auto w-screen bg-cover" style="background-image: url('<%= image_url('makeup-art-bg.webp')%>');">
+  <div class="h-full w-full flex flex-col justify-center items-center pt-[53vh] pb-28">
+    <section class="font-playfair">
+        <h1 class="text-4xl mb-24">Press spacebar to pause on a look. Press again to continue slides.</h1>
+    </section>
+    <%= video_tag "FacesMUA.mov", size: "400x930", autoplay: true, muted: true, loop: :loop, id: 'makeup-video' %>       
   </div>
 </div>
 

@@ -13,6 +13,7 @@ module.exports = {
         kameron: ['Kameron'],
         lexendZetta: ['Lexend Zetta'],
         windowsRegular: ['Windows Regular'],
+        playfair: ['Playfair Display'],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
