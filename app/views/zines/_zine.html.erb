@@ -1,18 +1,22 @@
 <%= stylesheet_link_tag 'zine_show.css' %>
-
 <div id="<%= dom_id zine %>" class="h-screen w-full p-16 flex flex-col lg:flex-row relative">
   <%= link_to "<-- All Zines", zines_path, class: "absolute top-5 left-7 underline font-windowsRegular" %>
-  <div class="w-full flex justify-center items-center h-1/2 lg:h-auto lg:w-2/3">          
-    <%= image_tag zine.pdf_images[1], class: "h-96 w-72" %>
-    <%= image_tag zine.pdf_images[2], class: "h-96 w-72" %>        
+  <div class="zine-container w-full lg:w-2/3 px-10">
+    <div class="flex mb-8 h-full lg:h-3/4 pt-14 lg:pt-0">
+      <%= image_tag zine.pdf_images[1], class: "h-1/2 w-1/2 lg:h-full" %>
+      <%= image_tag zine.pdf_images[2], class: "h-1/2 w-1/2 lg:h-full" %>
+    </div>
+    <div class="flex justify-center">
+      <button class="classic-button-1 mr-8 px-20 bg-black text-white">See full zine</button>
+      <%= button_to "Add to Cart", add_to_cart_path(zine), :method => :post, class: "classic-button-1 lg:px-20", id: "add-to-cart-button" %>
+    </div>
   </div>
   <div class="w-full lg:w-1/3 font-lexendZetta">
     <h1 class="text-2xl lg:text-4xl font-thin mb-8"><%= zine.title %></h1>
-    <p class="mb-8 text-base lg:text-xl">Price: <%= zine.price %> GBP</p>
+    <p class="mb-8 text-base lg:text-xl">Price: <%= sprintf('%.2f', zine.price) %> GBP</p>
     <p class="mb-8 text-base lg:text-xl">Size: <%= zine.size %></p>
     <p class="mb-8 text-base lg:text-xl">Pages: <%= zine.pages %></p>
     <p class="mb-8 text-base lg:text-xl">Includes:<br/><%= zine.description %></p>
-    <button class="classic-button-1">Add to Cart</button>
   </div>
 
   <% if action_name != "show" %>

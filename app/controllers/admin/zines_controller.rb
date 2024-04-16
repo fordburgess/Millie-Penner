@@ -27,9 +27,7 @@ class Admin::ZinesController < ApplicationController
 
      # PATCH/PUT /zines/1 or /zines/1.json
     def update
-        @zine = Zine.find(params[:id])
-
-        puts "HELLO HELLO"
+        @zine = Zine.find(params[:id])        
 
         respond_to do |format|
             if @zine.update(zine_params)
@@ -44,11 +42,15 @@ class Admin::ZinesController < ApplicationController
 
   # DELETE /zines/1 or /zines/1.json
     def destroy
-        @zine.destroy!
+        @zine = Zine.find(params[:id])
+
+        if @zine.present?
+            @zine.destroy!
+        end
 
         respond_to do |format|
-        format.html { redirect_to zines_url, notice: "Zine was successfully destroyed." }
-        format.json { head :no_content }
+            format.html { redirect_to admin_zines_all_path, notice: "Zine was successfully destroyed." }
+            format.json { head :no_content }
         end
     end
 

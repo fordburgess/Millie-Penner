@@ -1,0 +1,26 @@
+<div class="h-screen w-screen flex justify-center text-white overflow-hidden" style="background-image: url('<%= image_url('film-strip.jpeg')%>');">
+  <div class="h-full w-full absolute top-0 right-0 bg-black bg-opacity-40 z-0"></div>
+  <section class="w-3/4 h-full py-8 px-4 z-10">
+    <h1 class="text-4xl text-white font-lexendZetta">Checkout</h1>
+    <div class="flex w-full h-full">
+      <div class="w-1/2 mr-8">
+        <%= render "form", order: @order %>    
+      </div>
+      <div class="test-1 w-1/2 h-1/2 ml-8" style="display: flex; flex-direction: column; justify-content: space-between">
+        <div>
+          <h1 class="font-kameron font-extrabold text-3xl mb-4">Cart</h1>
+          <% @current_cart.zines.each do |zine| %>
+            <div class="w-full flex justify-between text-white mb-4 font-kameron"> 
+              <h2 class="mt-0 text-xl"><%= zine.title %></h2>
+              <p class="font-extrabold text-xl">£<%= sprintf('%.2f', zine.price) %></p>            
+            </div>
+          <% end %>
+        </div>
+        <div class="test-2 border-t-2 border-white w-full flex justify-between">
+          <h1 class="font-kameron font-extrabold text-3xl">Total: </h1>
+          <h1 class="font-kameron font-extrabold text-3xl">£<%= sprintf('%.2f', @current_cart.cart_total) %></h1>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
