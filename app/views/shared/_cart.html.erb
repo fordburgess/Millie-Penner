@@ -33,6 +33,7 @@
         var cartSidebarContainer = document.getElementById("sidebar-container");
     
         cartIcon.addEventListener('click', () => {
+            console.log("Hello")
             if (cartSidebarContainer.style.display == 'none') {
                 cartSidebarContainer.style.display = 'block';
                 cartSidebarContainer.addEventListener('click', (e) => {
