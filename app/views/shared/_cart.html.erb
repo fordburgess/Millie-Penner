@@ -4,8 +4,7 @@
             <p><%= @current_cart.zines.length %></p>
         <% end %>
         <%= image_tag "cart.png", id: "cart-icon", class: "h-8 w-8 hover:cursor-pointer" %>
-    </div>
-    <div id="overlay" class="h-screen w-screen absolute top-0 left-0" style="display: none; z-index: 50"></div>
+    </div>    
     <div id="cart-sidebar" class="h-screen w-[33vw] absolute right-0 bg-zinc-800 p-8 bg-opacity-90" style="transform: translateX(100%);">
         <div id="inner-cart" class="h-full flex flex-col justify-between">
             <div>
@@ -33,27 +32,26 @@
 
 <script type="text/javascript">
     document.addEventListener('turbo:load', () => {
-        var cartIcon = document.getElementById("cart-icon");
-        var overlay = document.getElementById("overlay");
+        var cartIcon = document.getElementById("cart-icon");        
         var cartSidebar = document.getElementById("cart-sidebar");
-    
-        cartIcon.addEventListener('click', () => {
-            console.log(overlay.style)
-            if (overlay.style.display == 'none') {
-                overlay.style.display = 'block'
-            }
+        var cartOpen = false;
 
+        cartIcon.addEventListener('click', (e) => {    
+            e.stopPropagation();
+        
             if (cartSidebar.style.transform == 'translateX(100%)') {
-                cartSidebar.style.transform = 'translateX(0%)';            
-            }     
-            
-            overlay.addEventListener('click', (e) => {
-                console.log(e)
-                if (!cartSidebar.contains(e.target)) {
-                    overlay.style.display = 'none';
+                cartSidebar.style.transform = 'translateX(0%)';   
+                cartOpen = true;         
+            }
+        })
+
+        document.addEventListener('click', (e) => {
+            if (cartOpen) {
+                if (!cartSidebar.contains(e.target)) {                    
                     cartSidebar.style.transform = 'translateX(100%)'
+                    cartOpen = false;
                 }
-            })
+            }
         })
     })
 </script>
