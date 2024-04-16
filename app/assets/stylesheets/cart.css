@@ -3,6 +3,7 @@
 }
 
 #cart-sidebar {
-    transition: transform 0.3s;
-    transform: translateX(100%);
+    transition: transform 0.2s;    
+    z-index: 100;
+    backdrop-filter: blur(8px);
 }

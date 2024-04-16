@@ -5,57 +5,55 @@
         <% end %>
         <%= image_tag "cart.png", id: "cart-icon", class: "h-8 w-8 hover:cursor-pointer" %>
     </div>
-    <div id="sidebar-container" class="h-screen w-screen bg-black bg-opacity-50 absolute top-0 right-0" style="display: none; z-index: 50">
-        <div id="cart-sidebar" class="h-screen w-[33vw] absolute right-0 bg-zinc-800 p-8">
-            <div id="inner-cart" class="h-full flex flex-col justify-between">
-                <div>
-                    <h1 class="font-lexendZetta text-3xl font-bold text-white mb-8">My Cart</h1>            
-                    <% @current_cart.zines.each do |zine| %>
-                        <div class="flex text-white mb-6 relative">
-                            <%= image_tag zine.cover_image, class: "mr-4", style: "max-height: 10rem; max-width: 5rem" %>
-                            <div class="font-kameron">
-                                <h2 class="mt-0 mb-4"><%= zine.title %></h2>
-                                <p>Price: £<%= sprintf('%.2f', zine.price) %></p>
-                            </div>
-                            <%= button_to "X", remove_from_cart_path(zine), :method => :delete, class: "absolute top-0 right-0 hover:cursor-pointer" %>
+    <div id="overlay" class="h-screen w-screen absolute top-0 left-0" style="display: none; z-index: 50"></div>
+    <div id="cart-sidebar" class="h-screen w-[33vw] absolute right-0 bg-zinc-800 p-8 bg-opacity-90" style="transform: translateX(100%);">
+        <div id="inner-cart" class="h-full flex flex-col justify-between">
+            <div>
+                <h1 class="font-lexendZetta text-3xl font-bold text-white mb-8">My Cart</h1>            
+                <% @current_cart.zines.each do |zine| %>
+                    <div class="flex text-white mb-6 relative">
+                        <%= image_tag zine.cover_image, class: "mr-4", style: "max-height: 10rem; max-width: 5rem" %>
+                        <div class="font-kameron">
+                            <h2 class="mt-0 mb-4"><%= zine.title %></h2>
+                            <p>Price: £<%= sprintf('%.2f', zine.price) %></p>
                         </div>
-                    <% end %>
-                </div>
-                <% if @current_cart.zines.length > 0 %>
-                    <div class="flex flex-col">
-                        <%= link_to "Checkout", new_order_path, class: 'classic-button-1 w-full mb-4 text-center' %>                               
-                        <%= button_to "Clear all", empty_cart_path, :method => :delete, class: "classic-button-1 w-full bg-black text-white" %>
+                        <%= button_to "X", remove_from_cart_path(zine), :method => :delete, class: "absolute top-0 right-0 hover:cursor-pointer" %>
                     </div>
                 <% end %>
             </div>
+            <% if @current_cart.zines.length > 0 %>
+                <div class="flex flex-col">
+                    <%= link_to "Checkout", new_order_path, class: 'classic-button-1 w-full mb-4 text-center' %>                               
+                    <%= button_to "Clear all", empty_cart_path, :method => :delete, class: "classic-button-1 w-full bg-black text-white" %>
+                </div>
+            <% end %>
         </div>
-    </div>
+    </div>    
 </div>
 
 <script type="text/javascript">
     document.addEventListener('turbo:load', () => {
         var cartIcon = document.getElementById("cart-icon");
-        var cartSidebarContainer = document.getElementById("sidebar-container");
-        var cartSidebar = document.getElementById("cart-sidebar")
+        var overlay = document.getElementById("overlay");
+        var cartSidebar = document.getElementById("cart-sidebar");
     
-        cartIcon.addEventListener('click', () => {            
-            if (cartSidebarContainer.style.display == 'none') {
-                cartSidebarContainer.style.display = 'block';
-                
-                if (cartSidebar.style.transform === 'translateX(-100%)') {
-                    cartSidebar.style.transform = 'translateX(100%)';
-                } else {
-                    cartSidebar.style.transform = 'translateX(0%)';
-                }
+        cartIcon.addEventListener('click', () => {
+            console.log(overlay.style)
+            if (overlay.style.display == 'none') {
+                overlay.style.display = 'block'
+            }
 
-                cartSidebarContainer.addEventListener('click', (e) => {
-                    if (!cartSidebar.contains(e.target)) {
-                        console.log(e)
-                        cartSidebarContainer.style.display = 'none';
-                        cartSidebar.style.transform = 'translateX(100%)'
-                    }
-                })
-            }                       
+            if (cartSidebar.style.transform == 'translateX(100%)') {
+                cartSidebar.style.transform = 'translateX(0%)';            
+            }     
+            
+            overlay.addEventListener('click', (e) => {
+                console.log(e)
+                if (!cartSidebar.contains(e.target)) {
+                    overlay.style.display = 'none';
+                    cartSidebar.style.transform = 'translateX(100%)'
+                }
+            })
         })
     })
 </script>
