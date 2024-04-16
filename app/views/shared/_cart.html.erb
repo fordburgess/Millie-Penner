@@ -41,10 +41,18 @@
         cartIcon.addEventListener('click', () => {            
             if (cartSidebarContainer.style.display == 'none') {
                 cartSidebarContainer.style.display = 'block';
+                
+                if (cartSidebar.style.transform === 'translateX(-100%)') {
+                    cartSidebar.style.transform = 'translateX(100%)';
+                } else {
+                    cartSidebar.style.transform = 'translateX(0%)';
+                }
+
                 cartSidebarContainer.addEventListener('click', (e) => {
                     if (!cartSidebar.contains(e.target)) {
                         console.log(e)
                         cartSidebarContainer.style.display = 'none';
+                        cartSidebar.style.transform = 'translateX(100%)'
                     }
                 })
             }                       
