@@ -5,11 +5,19 @@ class CartsController < ApplicationController
     end
 
     def add_to_cart 
-        current_cart.add_item(params[:product_id])        
+        current_cart.add_item(params[:product_id])
+
+        respond_to do|format|
+            format.json { render json: current_cart.zines }
+        end
     end
 
     def remove_from_cart
         current_cart.remove_item(params[:product_id])
+
+        respond_to do|format|
+            format.json { render json: current_cart.zines }
+        end
     end
 
     def empty_cart
