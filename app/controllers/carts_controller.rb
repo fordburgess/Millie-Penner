@@ -8,7 +8,7 @@ class CartsController < ApplicationController
         current_cart.add_item(params[:product_id])
 
         respond_to do|format|
-            format.json { render json: current_cart.zines }
+            format.js
         end
     end
 
