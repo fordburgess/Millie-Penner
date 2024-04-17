@@ -1,7 +1,7 @@
 databases:
   - name: millie_penner_pgdb
     databaseName: millie_penner_production
-    user: MilliePenner
+    user: millie_penner
     plan: free
     
 services:
