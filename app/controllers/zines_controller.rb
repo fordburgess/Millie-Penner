@@ -8,7 +8,12 @@ class ZinesController < ApplicationController
 
   # GET /zines/1 or /zines/1.json
   def show
-    @zine = Zine.find(params[:id]);    
+    @zine = Zine.find(params[:id])  
+  end
+
+  def zines_ajax
+    @zine = Zine.find(params[:id])
+    render json: { zine: @zine, cover_image: url_for(@zine.cover_image) }
   end
 
   # GET /zines/new

@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   # one off pages
   get '/pages/makeup-art' => 'pages#makeup_art'
+  
+
+  # for ajax requests
+  get '/zines/ajax/:id' => 'zines#zines_ajax'
 
   # cart functionality
   post '/add_to_cart/:product_id' => 'carts#add_to_cart', :as => 'add_to_cart'

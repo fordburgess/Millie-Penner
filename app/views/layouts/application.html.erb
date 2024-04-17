@@ -12,7 +12,7 @@
     <%= javascript_include_tag 'update_cart' %>
   </head>
 
-  <body>
+  <body class="overflow-x-hidden">
     <main class="w-screen">
       <%= render partial: "/shared/cart" if @display_cart %>  
       <%= yield %>
