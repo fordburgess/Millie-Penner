@@ -1,12 +1,12 @@
 databases:
-  - name: MilliePenner_pgdb
-    databaseName: MilliePenner_production
+  - name: millie_penner_pgdb
+    databaseName: millie_penner_production
     user: MilliePenner
     plan: free
     
 services:
   - type: web
-    name: MilliePenner_web
+    name: millie_penner_web
     runtime: ruby
     plan: free
     buildCommand: "./bin/render-build.sh"
@@ -15,7 +15,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: MilliePenner_pgdb
+          name: millie_penner_pgdb
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
