@@ -1,11 +1,10 @@
 <%= form_for [:admin, @zine] do |form| %>
   <% if zine.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
-      <h2><%= pluralize(zine.errors.count, "error") %> prohibited this zine from being saved:</h2>
-
+    <div id="error_explanation" class="bg-white bg-opacity-90 text-red-500 px-3 py-2">
+      <h2 class="text-lg font-lexendZetta"><%= pluralize(zine.errors.count, "error") %>:</h2>
       <ul>
         <% zine.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="text-sm font-lexendZetta">- <%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
