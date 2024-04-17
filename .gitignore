@@ -39,3 +39,6 @@
 
 # node modules
 node_modules
+
+# key
+master.key
