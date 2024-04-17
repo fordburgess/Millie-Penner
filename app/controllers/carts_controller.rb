@@ -10,9 +10,6 @@ class CartsController < ApplicationController
         respond_to do|format|
             format.json { render json: current_cart.zines }
         end
-        # respond_to do |format|
-        #     format.js
-        # end
     end
 
     def remove_from_cart        

@@ -3,7 +3,7 @@
     <div class="flex items-center" style="z-index: 30; position: absolute; top: 10px; right: 10px;">
         <% if @current_cart.zines.length > 0 %>
             <p><%= @current_cart.zines.length %></p>
-        <% end %>
+        <% end %>        
         <%= image_tag "cart.png", id: "cart-icon", class: "h-8 w-8 hover:cursor-pointer" %>
     </div>    
     <div id="cart-sidebar" class="h-screen w-[70vw] lg:w-[33vw] absolute right-0 bg-zinc-800 p-8 bg-opacity-90" style="transform: translateX(100%);">
