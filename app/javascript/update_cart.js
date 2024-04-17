@@ -34,23 +34,23 @@ document.addEventListener('turbo:load', function () {
             newElement.innerHTML = newElementContent;
             cartItems.appendChild(newElement);            
         })
-    })
-
-    var deleteButton = document.getElementById('delete-button');
-    var zineIdDelete = deleteButton.getAttribute('data-zine-id');            
+    })            
     
-    // cartItems.addEventListener('click', (e) => {
-    //     e.preventDefault();
+    cartItems.addEventListener('click', (e) => {        
 
-    //     // if (e.target.id == 'delete-button') {
-    //     //     var zineToRemove = document.getElementById(`zine-${zineIdDelete}`);                   
+        if (e.target.id == 'delete-button') {            
+            var zineIdDelete = e.target.getAttribute('data-id');
+            var zineToRemove = document.getElementById(`zine-${zineIdDelete}`);                   
               
-    //     //     cartItems.removeChild(zineToRemove);
+            cartItems.removeChild(zineToRemove);
 
-    //     //     // fetch(`/remove_from_cart/${zineId}`, {
-    //     //     //     method: 'DELETE',
-    //     //     //     headers: { 'Content-Type' : 'application/json' }
-    //     //     // })            
-    //     // }
-    // })
+            fetch(`/remove_from_cart/${zineId}`, {
+                method: 'DELETE',
+                headers: { 
+                    'Content-Type' : 'application/json', 
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
+                }
+            })         
+        }
+    })
 })
