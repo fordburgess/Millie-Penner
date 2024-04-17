@@ -4,4 +4,6 @@ class Zine < ApplicationRecord
     has_one_attached :zine_pdf
     has_many_attached :pdf_images
     has_and_belongs_to_many :cart
+
+    validates_presence_of :title, :price, :size, :pages, :description    
 end
