@@ -1,4 +1,21 @@
 <div class="w-full h-screen overflow-y-scroll px-10 py-28 lg:px-60 text-white" style="background-image: url('<%= image_url('star-bg.jpeg')%>');">
-  <h1 class="font-bold text-4xl font-lexendZetta mb-6">New zine</h1>
-  <%= render "form", zine: @zine %>  
+  <h1 class="font-bold text-4xl font-lexendZetta mb-6" id="title">New zine</h1>
+  <%= render "form", zine: @zine %>
+  <div class="w-full h-full flex flex-col items-center justify-center hidden" id="loading-div">
+    <%= image_tag "cool-loading-animation.gif", style: "height: 7rem; width: 7rem; margin-bottom: 2rem" %>
+    <p class="text-md">Loading: Converting Zine PDF pages to images, this may take a while</p>
+  </div>  
 </div>
+<script>
+  document.addEventListener('turbo:load', function () {
+    var form = document.getElementById("zine-form");
+    var title = document.getElementById("title")
+    var loadingDiv = document.getElementById("loading-div")    
+    
+    form.addEventListener('submit', () => {
+      form.style.display = 'none'
+      title.style.display = 'none'
+      loadingDiv.style.display = 'flex'
+    })
+  })
+</script>
