@@ -22,6 +22,6 @@ class CartsController < ApplicationController
     end
 
     def destroy
-
+        current_cart.destroy()
     end
 end

@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: 'Windows Regular';
-  src: url('/assets/WindowsRegular.ttf') format('truetype');
+  src: asset_url('/assets/WindowsRegular.ttf') format('truetype');
 }
 
 @layer components {
