@@ -1,4 +1,4 @@
-<%= form_for [:admin, @zine] do |form| %>
+<%= form_for [:admin, @zine], html: { id: 'zine-form' } do |form| %>
   <% if zine.errors.any? %>
     <div id="error_explanation" class="bg-white bg-opacity-90 text-red-500 px-3 py-2">
       <h2 class="text-lg font-lexendZetta"><%= pluralize(zine.errors.count, "error") %>:</h2>
@@ -46,11 +46,36 @@
 
   <div class="mt-5 mb-8">
     <%= form.label "Zine PDF", class: "font-windowsRegular text-xl" %>
-    <%= form.file_field :zine_pdf, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.file_field :zine_pdf, rows: 4, id: "zine-input", class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+    <div class="bg-white bg-opacity-90 text-red-500 px-3 py-2 mt-4 font-lexendZetta hidden" id="zine-size-error">
+      <p class="text-sm">Error: file too large, please ensure that your file is less than 10MB</p>
+    </div>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "classic-button-1 mr-4 cursor-pointer" %>
+    <%= form.submit class: "classic-button-1 mr-4 cursor-pointer", id: 'submit-button' %>
     <%= link_to "Back to zines", "/admin/zines/all", class: "classic-button-2 mr-4", style: "padding: 10px 20px;" %>    
   </div>
 <% end %>
+
+<script>
+  document.addEventListener('turbo:load', function () {
+    var zineInput = document.getElementById("zine-input");
+    var zineError = document.getElementById("zine-size-error")
+    var submitButton = document.getElementById("submit-button")
+
+    zineInput.addEventListener('change', (e) => {
+      var file = zineInput.files[0]
+      if (file && file.size > 10 * 1024 * 1024) {
+        zineError.style.display = 'block';
+        submitButton.disabled = true;
+        submitButton.style.color = 'rgb(131, 131, 131)';
+      }
+      else if (file && file.size < 10 * 1024 * 1024 && zineError.style.display == 'block') {
+        zineError.style.display = 'none'
+        submitButton.disabled = false;
+        submitButton.style.color = '#000000'
+      }
+    })
+  })
+</script>
