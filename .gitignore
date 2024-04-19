@@ -44,4 +44,4 @@ node_modules
 master.key
 
 #stripe keys
-./config/local_env
+local_env.yml
