@@ -42,3 +42,6 @@ node_modules
 
 # master key
 master.key
+
+#stripe keys
+/config/local_env
