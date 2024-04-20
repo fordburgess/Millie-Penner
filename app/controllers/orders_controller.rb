@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        head :no_content
+        format.json { head :no_content }
         # format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
         # format.json { render :show, status: :created, location: @order }
       else

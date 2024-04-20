@@ -2,13 +2,15 @@ class PaymentIntentsController < ApplicationController
     Stripe.api_key = ''
 
     def create        
-        data = JSON.parse(request.body.read)       
+        data = JSON.parse(request.body.read)   
         
-        puts "HELLO HELLO"
-        puts Stripe.api_key
+        def calculate_total
+            total = @current_cart.cart_total * 100
+            total.to_i
+        end
 
         payment_intent = Stripe::PaymentIntent.create(
-            amount: 1400,
+            amount: calculate_total,
             currency: 'gbp',            
             # In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
             automatic_payment_methods: {

@@ -9,9 +9,11 @@ let elements;
 initialize();
 checkStatus();
 
-// document
-//   .querySelector("#payment-form")
-//   .addEventListener("submit", handleSubmit);
+document.addEventListener("turbo:load", () => {
+    document
+      .getElementById("payment-form")
+      .addEventListener("submit", handleSubmit);
+})
 
 // Fetches a payment intent and captures the client secret
 async function initialize() {    
@@ -94,9 +96,7 @@ async function initialize() {
     layout: "tabs",
   };
 
-  const paymentElement = elements.create("payment", paymentElementOptions);
-
-  console.log(paymentElement)
+  const paymentElement = elements.create("payment", paymentElementOptions);  
 
   paymentElement.mount("#payment-element");
 }
