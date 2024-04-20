@@ -1,12 +1,75 @@
+<%= stylesheet_link_tag 'checkout.css' %>
 <%= javascript_include_tag "checkout.js" %>
 <div class="h-screen w-screen flex justify-center text-white overflow-hidden py-16" style="background-image: url('<%= image_url('film-strip.jpeg')%>');">
-    <form id="payment-form">
-        <div id="payment-element">    
+    <div class="h-screen w-screen absolute top-0 left-0 bg-black bg-opacity-30"></div>
+    <section class="w-3/4 h-full z-10">
+        <h1 class="text-4xl text-white font-lexendZetta mb-6">Checkout</h1>
+        <div class="flex">
+            <div class="flex w-1/2 h-full flex flex-col justify-start">
+                <form id="payment-form">
+                    <div id="payment-element"></div>
+                    <button id="submit">
+                        <div class="spinner hidden" id="spinner"></div>
+                        <span id="button-text">Pay now</span>
+                    </button>
+                    <div id="payment-message" class="hidden"></div>
+                </form>
+                <form id="info-form">
+                  <h1 class="text-xl mb-6">Personal Info</h1>
+                  <div class="w-full flex justify-between mb-4">
+                    <div class="w-[45%]">
+                      <label>First Name</label>
+                      <input />
+                    </div>
+                    <div class="w-[45%]">
+                      <label>Last Name</label>
+                      <input />
+                    </div>
+                  </div>
+                  <div class="w-full mb-4">
+                    <label>Email</label>
+                    <input />
+                  </div>
+                  <div class="w-full mb-4">
+                    <h2 class="text-xl mb-2">Address</h2>
+                    <div class="mb-4">
+                      <label>Country</label>
+                      <input/>
+                    </div>
+                    <div class="mb-4">
+                      <label>Street Address</label>
+                      <input />
+                    </div>
+                    <div class="mb-4">
+                      <label>Postal Code</label>
+                      <input />
+                    </div>
+                  </div>
+                </form>
+            </div>
+            <div class="test-1 w-1/2 h-1/2 ml-8" style="display: flex; flex-direction: column; justify-content: space-between">
+                <div>
+                    <h1 class="font-kameron font-extrabold text-3xl mb-4">Cart</h1>
+                    <% @current_cart.zines.each do |zine| %>
+                        <div class="w-full flex justify-between text-white mb-4 font-kameron"> 
+                        <h2 class="mt-0 text-xl"><%= zine.title %></h2>
+                        <p class="font-extrabold text-xl">£<%= sprintf('%.2f', zine.price) %></p>            
+                        </div>
+                    <% end %>
+                </div>
+                <div class="test-2 border-t-2 border-white w-full flex justify-between">
+                    <h1 class="font-kameron font-extrabold text-3xl">Total: </h1>
+                    <h1 class="font-kameron font-extrabold text-3xl">£<%= sprintf('%.2f', @current_cart.cart_total) %></h1>
+                </div>
+            </div>
         </div>
-        <button id="submit">
-        <div class="spinner hidden" id="spinner"></div>
-        <span id="button-text">Pay now</span>
-        </button>
-        <div id="payment-message" class="hidden"></div>
-    </form>
+    </section>    
 </div>
+
+<script>
+ document.addEventListener("turbo:load", () => {
+    var paymentForm = document.getElementById("payment-form");
+
+    paymentForm.style.display = 'none'
+ })
+</script>

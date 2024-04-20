@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :zines, only: [:index, :show]  
   resources :carts, only: [:show]  
   resources :orders
-  resources :payment_intent
+  resources :payment_intents
 
   root to: 'pages#home'
 
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   delete '/empty_cart' => 'carts#empty_cart', :as => 'empty_cart'
 
   # order functionality
-  
 
   namespace :admin do 
     root to: 'admin#dashboard'
