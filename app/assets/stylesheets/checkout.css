@@ -58,7 +58,7 @@
   }
   
   /* Buttons and links */
-  #submit {
+  #submit, #info-form button {
     background: #8f99ca;
     font-family: Arial, sans-serif;
     color: #ffffff;    

@@ -19,32 +19,34 @@
                   <div class="w-full flex justify-between mb-4">
                     <div class="w-[45%]">
                       <label>First Name</label>
-                      <input />
+                      <input id="first-name" type="text" />
                     </div>
                     <div class="w-[45%]">
                       <label>Last Name</label>
-                      <input />
+                      <input id="last-name" type="text" />
                     </div>
                   </div>
                   <div class="w-full mb-4">
                     <label>Email</label>
-                    <input />
+                    <input id="email" type="text" />
                   </div>
-                  <div class="w-full mb-4">
+                  <div class="w-full mb-6">
                     <h2 class="text-xl mb-2">Address</h2>
                     <div class="mb-4">
                       <label>Country</label>
-                      <input/>
+                      <input id="country" type="text"/>
                     </div>
                     <div class="mb-4">
-                      <label>Street Address</label>
-                      <input />
+                      <label>Street Address (Include City)</label>
+                      <input id="street-address" type="text" />
                     </div>
                     <div class="mb-4">
                       <label>Postal Code</label>
-                      <input />
+                      <input id="post-code" />
                     </div>
-                  </div>
+                   </div>
+                   <h2 class="text-lg text-red-500 mb-4 hidden" id="error-message">Please fill out all the fields</h2>
+                   <button type="submit">Proceed to Payment</button>
                 </form>
             </div>
             <div class="test-1 w-1/2 h-1/2 ml-8" style="display: flex; flex-direction: column; justify-content: space-between">
@@ -67,9 +69,47 @@
 </div>
 
 <script>
- document.addEventListener("turbo:load", () => {
+  document.addEventListener("turbo:load", () => {
     var paymentForm = document.getElementById("payment-form");
+    var infoForm = document.getElementById("info-form");
+    var errorMessage = document.getElementById("error-message");
 
-    paymentForm.style.display = 'none'
+    paymentForm.style.display = "none";
+
+    document.addEventListener("submit", (e) => {
+        e.preventDefault();
+        var firstName = document.getElementById("first-name").value;
+        var lastName = document.getElementById("last-name").value;
+        var email = document.getElementById("email").value;
+        var country = document.getElementById("country").value;
+        var streetAddress = document.getElementById("street-address").value;
+        var postCode = document.getElementById("post-code").value;
+
+        if (firstName == "" || lastName == "" || email == "" || country == "" || streetAddress == "" || postCode == "") {
+            errorMessage.style.display = "block"
+        }
+        else {
+            var name = `${firstName} ${lastName}`;
+            var address = `${streetAddress}, ${postCode} ${country}`;
+
+            var formData = {
+                name: name,
+                email: email,
+                address: address,
+            }
+
+            fetch(`/orders`, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type' : 'application/json', 
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: JSON.stringify(formData)
+            }) 
+
+            infoForm.style.display = "none";
+            paymentForm.style.display = "block";
+        }
+    })
  })
 </script>
