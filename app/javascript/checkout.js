@@ -5,11 +5,59 @@ const stripe = Stripe("");
 const items = [{ id: "xl-tshirt" }];
 
 let elements;
+let orderId;
 
 initialize();
 checkStatus();
 
 document.addEventListener("turbo:load", () => {
+    var paymentForm = document.getElementById("payment-form");
+    var infoForm = document.getElementById("info-form");
+    var errorMessage = document.getElementById("error-message");
+
+    paymentForm.style.display = "none";
+
+    document.addEventListener("submit", (e) => {
+        e.preventDefault();
+        var firstName = document.getElementById("first-name").value;
+        var lastName = document.getElementById("last-name").value;
+        var email = document.getElementById("email").value;
+        var country = document.getElementById("country").value;
+        var streetAddress = document.getElementById("street-address").value;
+        var postCode = document.getElementById("post-code").value;
+
+        if (firstName == "" || lastName == "" || email == "" || country == "" || streetAddress == "" || postCode == "") {
+            errorMessage.style.display = "block"
+        }
+        else {
+            var name = `${firstName} ${lastName}`;
+            var address = `${streetAddress}, ${postCode} ${country}`;
+
+            var formData = {
+                name: name,
+                email: email,
+                address: address,
+            }
+
+            fetch(`/orders`, {
+                method: 'POST',
+                headers: { 
+                    'Accept': 'application/json',
+                    'Content-Type' : 'application/json', 
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: JSON.stringify(formData)
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                orderId = data;
+            })
+
+            infoForm.style.display = "none";
+            paymentForm.style.display = "block";
+        }
+    })
+
     document
       .getElementById("payment-form")
       .addEventListener("submit", handleSubmit);
@@ -109,7 +157,7 @@ async function handleSubmit(e) {
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: "http://localhost:3000/orders/confirmation",
+      return_url: `http://localhost:3000/orders/${orderId}`,
     },
   });
 

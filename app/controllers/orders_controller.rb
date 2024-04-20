@@ -49,10 +49,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def confirmation
-    render 'orders/confirmation'
-  end
-
   # DELETE /orders/1 or /orders/1.json
   def destroy
     @order.destroy!

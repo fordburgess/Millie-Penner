@@ -1,15 +1,21 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @order %>
-
-    <%= link_to "Edit this order", edit_order_path(@order), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this order", order_path(@order), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+<div class="min-h-screen w-screen flex justify-center text-white overflow-hidden py-16" style="background-image: url('<%= image_url('purple-rose.png')%>');">
+  <div class="h-screen w-screen absolute top-0 left-0 bg-black bg-opacity-30"></div>
+  <div class="mx-auto z-50 flex w-3/4">
+    <div class="w-1/2">
+      <div class="flex">
+        <h1 class="text-4xl font-extrabold text-white font-lexendZetta mb-2 mr-4">Order <br />confirmed!</h1>
+        <%= image_tag "dancer.gif", style: "height: 5rem; width: 3rem;" %>
+      </div>
+      <p class="font-lexendZetta mb-36">I hope my wares bring you great joy.</p>
+      <div>
+        <h1 class="font-lexendZetta text-2xl font-extrabold mb-2">Billing Info</h1>
+        <p class="font-lexendZetta">We have sent confirmation email to <strong class="text-blue-700 underline"><%= @order.email %></strong> and your package will be in the snail mail soon.</p>
+      </div>
     </div>
-    <%= link_to "Back to orders", orders_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="w-1/2">
+
+    </div>
   </div>
+
+  <%= image_tag "mushroom.gif", style: "height: 7rem; width: 7rem;", class: "absolute bottom-0 left-10" %>
 </div>

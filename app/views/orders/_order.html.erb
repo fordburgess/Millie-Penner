@@ -1,7 +1,7 @@
 <div id="<%= dom_id order %>">
   <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
-    <%= order.name, class: "bg-transparent" %>
+    <%= order.name %>
   </p>
 
   <p class="my-5">
@@ -10,24 +10,10 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1">Product:</strong>
-    <%= order.product %>
-  </p>
-
-  <p class="my-5">
     <strong class="block font-medium mb-1">Address:</strong>
     <%= order.address %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Pay method:</strong>
-    <%= order.pay_method %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Total:</strong>
-    <%= order.total %>
-  </p>
 
   <% if action_name != "show" %>
     <%= link_to "Show this order", order, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
