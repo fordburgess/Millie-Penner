@@ -105,11 +105,11 @@ async function handleSubmit(e) {
   e.preventDefault();
   setLoading(true);
 
-  const { error } = await stripe.confirmPayment({
+  const { error } = await stripe.confirmPayment({    
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: "http://localhost:4242/checkout.html",
+      return_url: "http://localhost:3000/orders/confirmation",
     },
   });
 

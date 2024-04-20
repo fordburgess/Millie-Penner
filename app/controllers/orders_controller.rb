@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.json { head :no_content }
+        format.json { render json: @order.id }
         # format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
         # format.json { render :show, status: :created, location: @order }
       else
@@ -47,6 +47,10 @@ class OrdersController < ApplicationController
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def confirmation
+    render 'orders/confirmation'
   end
 
   # DELETE /orders/1 or /orders/1.json

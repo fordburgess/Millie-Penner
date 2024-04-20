@@ -54,10 +54,14 @@
                     <h1 class="font-kameron font-extrabold text-3xl mb-4">Cart</h1>
                     <% @current_cart.zines.each do |zine| %>
                         <div class="w-full flex justify-between text-white mb-4 font-kameron"> 
-                        <h2 class="mt-0 text-xl"><%= zine.title %></h2>
-                        <p class="font-extrabold text-xl">£<%= sprintf('%.2f', zine.price) %></p>            
+                          <h2 class="mt-0 text-xl"><%= zine.title %></h2>
+                          <p class="font-extrabold text-xl">£<%= sprintf('%.2f', zine.price) %></p>            
                         </div>
                     <% end %>
+                </div>
+                <div class="w-full flex justify-between text-white font-kameron">
+                  <h2 class="mt-0 text-xl">Shipping</h2>
+                  <p class="font-extrabold text-xl">£3.00</p>
                 </div>
                 <div class="test-2 border-t-2 border-white w-full flex justify-between">
                     <h1 class="font-kameron font-extrabold text-3xl">Total: </h1>
@@ -101,11 +105,16 @@
             fetch(`/orders`, {
                 method: 'POST',
                 headers: { 
+                    'Accept': 'application/json',
                     'Content-Type' : 'application/json', 
                     'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 },
                 body: JSON.stringify(formData)
-            }) 
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            })
 
             infoForm.style.display = "none";
             paymentForm.style.display = "block";
