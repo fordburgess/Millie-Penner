@@ -1,19 +1,24 @@
 <div class="min-h-screen w-screen flex justify-center text-white overflow-hidden py-16" style="background-image: url('<%= image_url('purple-rose.png')%>');">
   <div class="h-screen w-screen absolute top-0 left-0 bg-black bg-opacity-30"></div>
-  <div class="mx-auto z-50 flex w-3/4">
+  <div class="mx-auto z-50 flex justify-between w-4/5">
     <div class="w-1/2">
       <div class="flex">
         <h1 class="text-4xl font-extrabold text-white font-lexendZetta mb-2 mr-4">Order <br />confirmed!</h1>
         <%= image_tag "dancer.gif", style: "height: 5rem; width: 3rem;" %>
       </div>
-      <p class="font-lexendZetta mb-36">I hope my wares bring you great joy.</p>
+      <p class="font-kameron text-xl mb-36">I hope my wares bring you great joy.</p>
       <div>
         <h1 class="font-lexendZetta text-2xl font-extrabold mb-2">Billing Info</h1>
-        <p class="font-lexendZetta">We have sent confirmation email to <strong class="text-blue-700 underline"><%= @order.email %></strong> and your package will be in the snail mail soon.</p>
+        <p class="font-kameron mb-4 text-xl">We have sent a confirmation email to <strong class="text-blue-700 underline"><%= @order.email %></strong> and your package will be in the snail mail soon.</p>
+        <ul class="font-lexendZetta text-sm">
+          <li class="mb-2"><p><strong class="font-extrabold">Name:</strong> <%= @order.name %></p></li
+          <li class="mb-2"><p><strong class="font-extrabold">Address:</strong> <%= @order.address %></p></li
+        </ul>
       </div>
     </div>
-    <div class="w-1/2">
-
+    <div class="w-1/3">
+      <h1 class="text-2xl font-extrabold text-white font-lexendZetta mb-2 mr-4 text-center">Order Summary</h1>
+      
     </div>
   </div>
 

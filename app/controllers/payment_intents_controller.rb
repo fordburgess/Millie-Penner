@@ -18,6 +18,6 @@ class PaymentIntentsController < ApplicationController
             },
         )
 
-        render json: { clientSecret: payment_intent.client_secret }        
+        render json: { clientSecret: payment_intent.client_secret }
     end
 end
