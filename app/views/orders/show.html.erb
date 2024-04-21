@@ -1,7 +1,7 @@
-<div class="min-h-screen w-screen flex justify-center text-white overflow-hidden py-16" style="background-image: url('<%= image_url('purple-rose.png')%>');">
+<div class="min-h-screen w-screen flex justify-center text-white overflow-hidden py-16 px-28" style="background-image: url('<%= image_url('purple-rose.png')%>');">
   <div class="h-screen w-screen absolute top-0 left-0 bg-black bg-opacity-30"></div>
-  <div class="mx-auto z-50 flex justify-between w-4/5">
-    <div class="w-1/2">
+  <div class="mx-auto z-50 flex justify-between w-screen">
+    <div class="w-1/3">
       <div class="flex">
         <h1 class="text-4xl font-extrabold text-white font-lexendZetta mb-2 mr-4">Order <br />confirmed!</h1>
         <%= image_tag "dancer.gif", style: "height: 5rem; width: 3rem;" %>
@@ -17,11 +17,10 @@
         </ul>
       </div>
     </div>
-    <div class="w-1/3">
-      <h1 class="text-2xl font-extrabold text-white font-lexendZetta mb-2 mr-4 text-center">Order Summary</h1>
-
+    <div class="w-[40%]">
+      <h1 class="text-2xl font-extrabold text-white font-lexendZetta mb-2 mr-4">Order Summary</h1>
+      
     </div>
   </div>
-
   <%= image_tag "mushroom.gif", style: "height: 7rem; width: 7rem;", class: "absolute bottom-0 left-10" %>
 </div>

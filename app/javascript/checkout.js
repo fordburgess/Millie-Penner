@@ -11,15 +11,16 @@ let shipping = 300;
 // initialize();
 // checkStatus();
 
-document.addEventListener("turbo:load", () => {
-    console.log("Hello")
+document.addEventListener("turbo:load", () => {    
     var paymentForm = document.getElementById("payment-form");
     var infoForm = document.getElementById("info-form");
     var errorMessage = document.getElementById("error-message");
     var country = document.getElementById("country");
     var shippingDiv = document.getElementById("shipping");    
     var cartTotal = document.getElementById("cart-total");
-    var cartValue = parseFloat(cartTotal.getAttribute("data"));    
+    var cartValue = parseFloat(cartTotal.getAttribute("data"));  
+    
+    cartTotal.textContent = `£${(cartValue + 3).toFixed(2)}`
 
     country.addEventListener('change', (e) => {
         var val = e.target.value;
@@ -48,6 +49,7 @@ document.addEventListener("turbo:load", () => {
         var country = document.getElementById("country").value;
         var streetAddress = document.getElementById("street-address").value;
         var postCode = document.getElementById("post-code").value;
+        var total = cartValue + (shipping / 100);
 
         if (firstName == "" || lastName == "" || email == "" || country == "" || streetAddress == "" || postCode == "") {
             errorMessage.style.display = "block"
@@ -55,11 +57,13 @@ document.addEventListener("turbo:load", () => {
         else {
             var name = `${firstName} ${lastName}`;
             var address = `${streetAddress}, ${postCode} ${country}`;
+            console.log(total)
 
             var formData = {
                 name: name,
                 email: email,
                 address: address,
+                total: total
             }
 
             fetch(`/orders`, {
