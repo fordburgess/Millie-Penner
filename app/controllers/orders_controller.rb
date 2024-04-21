@@ -23,6 +23,10 @@ class OrdersController < ApplicationController
   def create    
     @order = Order.new(order_params)
 
+    @current_cart.zines.each do |zine|
+      @order.zines << zine
+    end
+
     respond_to do |format|
       if @order.save
         format.json { render json: @order.id }
