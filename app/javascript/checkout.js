@@ -6,18 +6,41 @@ const items = [{ id: "xl-tshirt" }];
 
 let elements;
 let orderId;
+let shipping = 300;
 
-initialize();
-checkStatus();
+// initialize();
+// checkStatus();
 
 document.addEventListener("turbo:load", () => {
+    console.log("Hello")
     var paymentForm = document.getElementById("payment-form");
     var infoForm = document.getElementById("info-form");
     var errorMessage = document.getElementById("error-message");
+    var country = document.getElementById("country");
+    var shippingDiv = document.getElementById("shipping");    
+    var cartTotal = document.getElementById("cart-total");
+    var cartValue = parseFloat(cartTotal.getAttribute("data"));    
+
+    country.addEventListener('change', (e) => {
+        var val = e.target.value;
+
+        if (val == 'United Kingdom') {
+          let grandTotal = (cartValue + 3).toFixed(2);
+          shippingDiv.textContent = "£3.00"
+          shipping = 300;
+          cartTotal.textContent = `£${grandTotal}`
+        }
+        else {            
+            let grandTotal = (cartValue + 4.5).toFixed(2); 
+            shippingDiv.textContent = "£4.50"
+            shipping = 450;
+            cartTotal.textContent = `£${grandTotal}`
+        }
+    })
 
     paymentForm.style.display = "none";
 
-    document.addEventListener("submit", (e) => {
+    infoForm.addEventListener("submit", (e) => {
         e.preventDefault();
         var firstName = document.getElementById("first-name").value;
         var lastName = document.getElementById("last-name").value;
@@ -51,10 +74,12 @@ document.addEventListener("turbo:load", () => {
             .then((res) => res.json())
             .then((data) => {
                 orderId = data;
+                initialize();
+                checkStatus();            
+                infoForm.style.display = "none";
+                paymentForm.style.display = "block";
             })
 
-            infoForm.style.display = "none";
-            paymentForm.style.display = "block";
         }
     })
 
@@ -73,7 +98,7 @@ async function initialize() {
         "Content-Type": "application/json",
         "X-CSRF-Token": csrfToken
     },
-    body: JSON.stringify({ items }),
+    body: JSON.stringify({ shipping }),
   });
 
   const { clientSecret } = await response.json();  

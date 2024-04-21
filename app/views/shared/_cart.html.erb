@@ -1,3 +1,4 @@
+<%= javascript_include_tag "display_cart.js" %>
 <div>
     <%= content_tag :div, id: 'cart-id', data: { cart_id: @current_cart.id } do %><% end %>
     <div class="flex items-center" style="z-index: 30; position: absolute; top: 10px; right: 10px;">
@@ -30,29 +31,3 @@
         </div>
     </div>    
 </div>
-
-<script type="text/javascript">
-    document.addEventListener('turbo:load', () => {
-        var cartIcon = document.getElementById("cart-icon");        
-        var cartSidebar = document.getElementById("cart-sidebar");
-        var cartOpen = false;
-
-        cartIcon.addEventListener('click', (e) => {    
-            e.stopPropagation();
-        
-            if (cartSidebar.style.transform == 'translateX(100%)') {
-                cartSidebar.style.transform = 'translateX(0%)';   
-                cartOpen = true;         
-            }
-        })
-
-        document.addEventListener('click', (e) => {
-            if (cartOpen) {            
-                if (!cartSidebar.contains(e.target) && e.target.id !== 'delete-button') {                    
-                    cartSidebar.style.transform = 'translateX(100%)'
-                    cartOpen = false;
-                }
-            }
-        })
-    })
-</script>
