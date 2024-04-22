@@ -1,0 +1,53 @@
+.table {    
+    background-color: rgba(43, 43, 43, 0.68);    
+}
+
+.header-row {    
+    /* border: solid 0.5px white; */    
+    display: flex;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(20px);
+}
+
+.table-row {
+    display: flex;
+    padding: 7px 0;
+    background-color: rgba(68, 68, 68, 0.68);
+}
+
+.table-row:nth-child(even) {
+    background-color: rgba(43, 43, 43, 0.68);
+}
+
+.header-cell, .cell {
+    width: 14.2%;
+    display: flex;
+    justify-content: center;
+}
+
+.cell {
+    text-align: center;
+    align-items: center;    
+}
+
+#order-id {
+    width: 7%;    
+}
+
+#address {
+    width: 21.4%;
+    padding: 0 10px;
+}
+
+.address-header {
+    font-size: 16px;
+}
+
+#address, #email, #products {
+    font-size: 0.8rem;
+}
+
+#products {
+    flex-direction: column;
+}

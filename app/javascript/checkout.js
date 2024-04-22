@@ -25,7 +25,7 @@ document.addEventListener("turbo:load", () => {
     country.addEventListener('change', (e) => {
         var val = e.target.value;
 
-        if (val == 'United Kingdom') {
+        if (val == 'UK') {
           let grandTotal = (cartValue + 3).toFixed(2);
           shippingDiv.textContent = "£3.00"
           shipping = 300;
