@@ -8,6 +8,15 @@ let shipping = 300;
 // initialize();
 // checkStatus();
 
+const stripeIFrameQuery = 'iframe[src^="https://js.stripe.com"]';
+document.addEventListener('turbo:before-render', function (event) {
+  const stripeIFrame = document.querySelector(stripeIFrameQuery);
+  const newStripeIFrame = event.detail.newBody.querySelector(stripeIFrameQuery);
+  if (stripeIFrame && !newStripeIFrame){
+    event.detail.newBody.appendChild(stripeIFrame)
+  }
+});
+
 document.addEventListener("turbo:load", () => {    
     var paymentForm = document.getElementById("payment-form");
     var infoForm = document.getElementById("info-form");

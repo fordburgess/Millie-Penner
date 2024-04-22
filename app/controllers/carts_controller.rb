@@ -7,9 +7,7 @@ class CartsController < ApplicationController
     def add_to_cart 
         current_cart.add_item(params[:product_id])
 
-        respond_to do|format|
-            format.js
-        end
+        redirect_back fallback_location: root_path
     end
 
     def remove_from_cart        
