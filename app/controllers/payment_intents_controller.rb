@@ -1,5 +1,5 @@
 class PaymentIntentsController < ApplicationController
-    Stripe.api_key = ''
+    Stripe.api_key = ""
 
     def create        
         data = JSON.parse(request.body.read)       

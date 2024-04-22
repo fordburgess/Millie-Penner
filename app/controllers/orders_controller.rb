@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    OrderMailer.order_confirmation(@order).deliver_now
   end
 
   # GET /orders/new
@@ -28,7 +29,7 @@ class OrdersController < ApplicationController
     end
 
     respond_to do |format|
-      if @order.save
+      if @order.save        
         format.json { render json: @order.id }
         # format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
         # format.json { render :show, status: :created, location: @order }

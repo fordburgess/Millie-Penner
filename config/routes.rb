@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   delete '/remove_from_cart/:product_id' => 'carts#remove_from_cart', :as => 'remove_from_cart'
   delete '/empty_cart' => 'carts#empty_cart', :as => 'empty_cart'
 
-  # order functionality  
+  # order functionality
+
+  # mailer functionality
+  get '/confirmation_email' => 'orders_mailer#confirmation_email', :as => 'confirmation_email'
 
   namespace :admin do 
     root to: 'admin#dashboard'
