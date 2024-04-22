@@ -1,8 +1,5 @@
 // This is your test publishable API key.
-const stripe = Stripe("");
-
-// The items the customer wants to buy
-const items = [{ id: "xl-tshirt" }];
+const stripe = Stripe("pk_test_51P6MwIJ2CQGfJPawyQs79TX8MU2ZHoVvFTbDjnnNwnY9ca7nFmfjWZapTKQMRUAwbesheUM9RXSVHY3GzQdALKGJ00rJVSqNNe");
 
 let elements;
 let orderId;
@@ -56,8 +53,7 @@ document.addEventListener("turbo:load", () => {
         }
         else {
             var name = `${firstName} ${lastName}`;
-            var address = `${streetAddress}, ${postCode} ${country}`;
-            console.log(total)
+            var address = `${streetAddress}, ${postCode} ${country}`;            
 
             var formData = {
                 name: name,

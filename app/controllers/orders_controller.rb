@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
-    OrderMailer.order_confirmation(@order).deliver_now
+    # OrderMailer.order_confirmation(@order).deliver_now
   end
 
   # GET /orders/new
