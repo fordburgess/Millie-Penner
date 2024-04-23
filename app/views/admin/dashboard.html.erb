@@ -4,6 +4,7 @@
         <div class="w-full flex flex-col">
             <%= link_to "Add New Zine", new_admin_zine_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>            
             <%= link_to "See All Zines", admin_zines_all_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>        
+            <%= link_to "See All Orders", admin_orders_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>        
         </div>
         <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "underline text-white font-windowsRegular" %>
     </section>

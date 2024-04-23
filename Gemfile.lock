@@ -111,6 +111,7 @@ GEM
       responders
       warden (~> 1.2.3)
     domain_name (0.6.20240107)
+    dotenv (3.1.0)
     drb (2.2.1)
     erubi (1.12.0)
     ffi (1.16.3)
@@ -290,6 +291,7 @@ DEPENDENCIES
   cloudinary
   debug
   devise
+  dotenv
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

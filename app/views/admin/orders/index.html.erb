@@ -1,0 +1,38 @@
+<div class="h-screen w-screen" style="background-image: url('<%= image_url('star-bg.jpeg')%>');">
+    <section class="h-full w-full px-16 text-white">
+        <div class="h-1/5 flex items-center">
+            <h1 class="font-lexendZetta text-white text-3xl mr-8">All Orders</h1>
+            <%= link_to "Back to dashboard", admin_root_path, class: "underline font-windowsRegular" %>
+        </div>
+        <div class="w-full h-[75%] flex-col text-white meron overflow-y-scroll box-border backdrop-blur-lg">
+            <div class="table-row header-row" style="padding: 15px 0">
+                <div class="header-cell" id="order-id"><p>Order Id</p></div>
+                <div class="header-cell"><p>Email</p></div>
+                <div class="header-cell" id="address" style="font-size: 16px"><p>Address</p></div>
+                <div class="header-cell"><p>Products</p></div>
+                <div class="header-cell"><p>Total (Shipping Incl.)</p></div>
+                <div class="header-cell"><p>Date</p></div>
+                <div class="header-cell"><p>Shipped</p></div>
+            </div>  
+            <% @orders.each do |order| %>
+                <div class="table-row">
+                    <div class="cell" id="order-id">
+                        <p class="bg-zinc-400 text-white p-1 rounded-sm text-sm" style=""><%= order.id %></p>
+                    </div>
+                    <div class="cell" id="email"><p><%= order.email %></p></div>
+                    <div class="cell" id="address"><p><%= order.address %></p></div>
+                    <div class="cell" id="products">
+                        <% order.zines.each do |zine| %>
+                            <p><%= zine.title %></p>
+                        <% end %>
+                    </div>
+                    <div class="cell"><p>£<%= sprintf('%.2f', order.total) %></p></div>
+                    <div class="cell"><p><%= order.created_at.strftime('%b %d, %Y') %></p></div>
+                    <div class="cell"><p>Shipped</p></div>
+                </div>
+            <% end %>        
+        </div>
+                   
+    </section>
+<div>
+<%= stylesheet_link_tag 'orders_table.css' %>

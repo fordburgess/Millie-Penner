@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    # OrderMailer.order_confirmation(@order).deliver_now
   end
 
   # GET /orders/new
@@ -20,13 +21,18 @@ class OrdersController < ApplicationController
   end
 
   # POST /orders or /orders.json
-  def create
+  def create    
     @order = Order.new(order_params)
 
+    @current_cart.zines.each do |zine|
+      @order.zines << zine
+    end
+
     respond_to do |format|
-      if @order.save
-        format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
-        format.json { render :show, status: :created, location: @order }
+      if @order.save        
+        format.json { render json: @order.id }
+        # format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
+        # format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -38,8 +44,9 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
-        format.html { redirect_to order_url(@order), notice: "Order was successfully updated." }
-        format.json { render :show, status: :ok, location: @order }
+        head :no_content
+        # format.html { redirect_to order_url(@order), notice: "Order was successfully updated." }
+        # format.json { render :show, status: :ok, location: @order }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -65,6 +72,7 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:name, :email, :product, :address, :pay_method, :total)
+      # params.require(:order).permit(:name, :email, :product, :address, :pay_method, :total)
+      params.require(:order).permit(:name, :email, :address, :total)
     end
 end

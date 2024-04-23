@@ -1,12 +1,286 @@
+<%= stylesheet_link_tag 'checkout.css' %>
 <%= javascript_include_tag "checkout.js" %>
-<div class="h-screen w-screen flex justify-center text-white overflow-hidden py-16" style="background-image: url('<%= image_url('film-strip.jpeg')%>');">
-    <form id="payment-form">
-        <div id="payment-element">    
+<div class="min-h-screen w-screen flex justify-center text-white overflow-hidden py-16" style="background-image: url('<%= image_url('purple-rose.png')%>');">
+    <div class="h-screen w-screen absolute top-0 left-0 bg-black bg-opacity-30"></div>
+    <section class="w-3/4 h-full z-10">
+        <h1 class="text-4xl text-white font-lexendZetta mb-6">Checkout</h1>
+        <div class="flex flex-row overflow-y-scroll h-full">
+            <div class="flex w-1/2 h-full flex flex-col justify-start">
+                <form id="payment-form">
+                    <div id="payment-element"></div>
+                    <button id="submit">
+                        <div class="spinner hidden" id="spinner"></div>
+                        <span id="button-text">Pay now</span>
+                    </button>
+                    <div id="payment-message" class="hidden"></div>
+                </form>
+                <form id="info-form">
+                  <h1 class="text-xl mb-6">Personal Info</h1>
+                  <div class="w-full flex justify-between mb-4">
+                    <div class="w-[45%]">
+                      <label>First Name</label>
+                      <input id="first-name" type="text" />
+                    </div>
+                    <div class="w-[45%]">
+                      <label>Last Name</label>
+                      <input id="last-name" type="text" />
+                    </div>
+                  </div>
+                  <div class="w-full mb-4">
+                    <label>Email</label>
+                    <input id="email" type="text" />
+                  </div>
+                  <div class="w-full mb-6">
+                    <h2 class="text-xl mb-2">Address</h2>
+                    <div class="mb-4">
+                      <label>Country</label>
+                      <select id="country"></select>
+                    </div>
+                    <div class="mb-4">
+                      <label>Street Address (Include City)</label>
+                      <input id="street-address" type="text" />
+                    </div>
+                    <div class="mb-4">
+                      <label>Postal Code</label>
+                      <input id="post-code" />
+                    </div>
+                   </div>
+                   <h2 class="text-lg text-red-500 mb-4 hidden" id="error-message">Please fill out all the fields</h2>
+                   <button type="submit">Proceed to Payment</button>
+                </form>
+            </div>
+            <div id="items" class="test-1 w-1/2 ml-8 h-80" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h1 class="font-kameron font-extrabold text-3xl mb-4">Cart</h1>
+                    <% @current_cart.zines.each do |zine| %>
+                        <div class="w-full flex justify-between text-white mb-4 font-kameron"> 
+                        <h2 class="mt-0 text-xl"><%= zine.title %></h2>
+                        <p class="font-extrabold text-xl">£<%= sprintf('%.2f', zine.price) %></p>            
+                        </div>
+                    <% end %>
+                </div>
+                <div>
+                    <div class="w-full flex justify-between text-white font-kameron">
+                        <h2 class="mt-0 text-xl">Shipping</h2>
+                        <p class="font-extrabold text-xl" id="shipping">£3.00</p>
+                    </div>
+                    <div class="test-2 border-t-2 border-white w-full flex justify-between">
+                        <h1 class="font-kameron font-extrabold text-3xl">Total: </h1>
+                        <h1 class="font-kameron font-extrabold text-3xl" id="cart-total" data="<%= @current_cart.cart_total %>">£<%= sprintf('%.2f', @current_cart.cart_total) %></h1>
+                    </div>
+                </div>
+            </div>
         </div>
-        <button id="submit">
-        <div class="spinner hidden" id="spinner"></div>
-        <span id="button-text">Pay now</span>
-        </button>
-        <div id="payment-message" class="hidden"></div>
-    </form>
+    </section>    
 </div>
+
+<script>  
+  document.addEventListener("turbo:load", () => {
+    const countries = [  
+      "UK",
+      "USA",  
+      "Canada",  
+      "Germany",
+      "France",
+      "Italy",
+      "Spain",
+      "Netherlands",
+      "Belgium",
+      "Sweden",
+      "Switzerland",
+      "Norway",
+      "Denmark",
+      "Finland",
+      "Austria",
+      "Ireland",
+      "Portugal",
+      "Greece",
+      "Czech Republic",
+      "Poland",  
+      "Afghanistan",
+      "Albania",
+      "Algeria",
+      "Andorra",
+      "Angola",
+      "Antigua and Barbuda",
+      "Argentina",
+      "Armenia",
+      "Australia",
+      "Azerbaijan",
+      "Bahamas",
+      "Bahrain",
+      "Bangladesh",
+      "Barbados",
+      "Belarus",
+      "Belize",
+      "Benin",
+      "Bhutan",
+      "Bolivia",
+      "Bosnia and Herzegovina",
+      "Botswana",
+      "Brazil",
+      "Brunei",
+      "Bulgaria",
+      "Burkina Faso",
+      "Burundi",
+      "Côte d'Ivoire",
+      "Cabo Verde",
+      "Cambodia",
+      "Cameroon",
+      "Central African Republic",
+      "Chad",
+      "Chile",
+      "China",
+      "Colombia",
+      "Comoros",
+      "Congo (Congo-Brazzaville)",
+      "Costa Rica",
+      "Croatia",
+      "Cuba",
+      "Cyprus",
+      "Democratic Republic of the Congo",
+      "Djibouti",
+      "Dominica",
+      "Dominican Republic",
+      "Ecuador",
+      "Egypt",
+      "El Salvador",
+      "Equatorial Guinea",
+      "Eritrea",
+      "Estonia",
+      "Eswatini (fmr. Swaziland)",
+      "Ethiopia",
+      "Fiji",
+      "Gabon",
+      "Gambia",
+      "Georgia",
+      "Ghana",
+      "Grenada",
+      "Guatemala",
+      "Guinea",
+      "Guinea-Bissau",
+      "Guyana",
+      "Haiti",
+      "Honduras",
+      "Hungary",
+      "Iceland",
+      "India",
+      "Indonesia",
+      "Iran",
+      "Iraq",
+      "Israel",
+      "Jamaica",
+      "Japan",
+      "Jordan",
+      "Kazakhstan",
+      "Kenya",
+      "Kiribati",
+      "Kuwait",
+      "Kyrgyzstan",
+      "Laos",
+      "Latvia",
+      "Lebanon",
+      "Lesotho",
+      "Liberia",
+      "Libya",
+      "Liechtenstein",
+      "Lithuania",
+      "Luxembourg",
+      "Madagascar",
+      "Malawi",
+      "Malaysia",
+      "Maldives",
+      "Mali",
+      "Malta",
+      "Marshall Islands",
+      "Mauritania",
+      "Mauritius",
+      "Mexico",
+      "Micronesia",
+      "Moldova",
+      "Monaco",
+      "Mongolia",
+      "Montenegro",
+      "Morocco",
+      "Mozambique",
+      "Myanmar (formerly Burma)",
+      "Namibia",
+      "Nauru",
+      "Nepal",
+      "New Zealand",
+      "Nicaragua",
+      "Niger",
+      "Nigeria",
+      "North Korea",
+      "North Macedonia",
+      "Oman",
+      "Pakistan",
+      "Palau",
+      "Palestine State",
+      "Panama",
+      "Papua New Guinea",
+      "Paraguay",
+      "Peru",
+      "Philippines",
+      "Qatar",
+      "Romania",
+      "Russia",
+      "Rwanda",
+      "Saint Kitts and Nevis",
+      "Saint Lucia",
+      "Saint Vincent and the Grenadines",
+      "Samoa",
+      "San Marino",
+      "Sao Tome and Principe",
+      "Saudi Arabia",
+      "Senegal",
+      "Serbia",
+      "Seychelles",
+      "Sierra Leone",
+      "Singapore",
+      "Slovakia",
+      "Slovenia",
+      "Solomon Islands",
+      "Somalia",
+      "South Africa",
+      "South Korea",
+      "South Sudan",
+      "Sri Lanka",
+      "Sudan",
+      "Suriname",
+      "Syria",
+      "Tajikistan",
+      "Tanzania",
+      "Thailand",
+      "Timor-Leste",
+      "Togo",
+      "Tonga",
+      "Trinidad and Tobago",
+      "Tunisia",
+      "Turkey",
+      "Turkmenistan",
+      "Tuvalu",
+      "Uganda",
+      "Ukraine",
+      "United Arab Emirates",
+      "Uruguay",
+      "Uzbekistan",
+      "Vanuatu",
+      "Venezuela",
+      "Vietnam",
+      "Yemen",
+      "Zambia",
+      "Zimbabwe"
+    ];
+
+    var countrySelect = document.getElementById("country");
+
+    countries.map(country => {
+      const option = document.createElement('option');
+      option.value = country;
+      option.textContent = country;
+      countrySelect.appendChild(option);
+    })
+  })
+</script>
+
