@@ -18,6 +18,8 @@ module.exports = {
         unifrakturcook: ['UnifrakturCook'],
         questrial: ['Questrial'],
         reenie: ['Reenie Beanie'],
+        righteous: ['Righteous'],
+        roboto: ['Roboto Mono'],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },

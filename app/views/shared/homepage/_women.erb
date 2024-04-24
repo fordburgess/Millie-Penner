@@ -1,2 +1,40 @@
 <div class="h-screen w-screen bg-cover bg-center" style="background-image: url('<%= image_url('millie-women.png')%>');">
+    <section id="link-container-lg" class="w-full h-full flex flex-col items-center justify-center pt-24 font-roboto">
+        <div class="w-[64%] flex justify-between mb-20 mt-10">
+            <%= link_to zines_path do %>
+                <div class="relative flex justify-center items-center bg-white h-[6rem] w-[6rem]">
+                    <p class="absolute top-0 left-0 text-xl">Zines</p>
+                </div>
+            <% end %>
+            <%= link_to pages_makeup_art_path do %>
+                <div class="relative flex justify-center items-center bg-white h-[6rem] w-[6rem]">                
+                    <p class="absolute top-0 left-0 text-xl">MUA</p>
+                </div>
+            <% end %>
+        </div>
+        <div class="w-[57%] flex justify-between mb-20">
+            <%= link_to zines_path do %>
+                <div class="relative flex justify-center items-center bg-white h-[6rem] w-[6rem]">                
+                    <p class="absolute top-0 left-0 text-xl">Jewellery</p>
+                </div>
+            <% end %>
+            <%= link_to zines_path do %>
+                <div class="relative flex justify-center items-center bg-white h-[6rem] w-[6rem]">                
+                    <p class="absolute top-0 left-0 text-xl">Resume</p>
+                </div>
+            <% end %>
+        </div>
+        <div class="w-[45%] flex justify-between mb-20">
+            <%= link_to zines_path do %>
+                <div class="relative flex justify-center items-center bg-white h-[6rem] w-[6rem]">                
+                    <p class="absolute top-0 left-0 text-xl">Writing</p>
+                </div>
+            <% end %>
+            <%= link_to zines_path do %>
+                <div class="relative flex justify-center items-center bg-white h-[6rem] w-[6rem]">                
+                    <p class="absolute top-0 left-0 text-xl">Modelling</p>
+                </div>
+            <% end %>
+        </div>
+    </section>
 </div>
