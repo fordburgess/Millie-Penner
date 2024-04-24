@@ -17,6 +17,7 @@ module.exports = {
         playfair: ['Playfair Display'],
         unifrakturcook: ['UnifrakturCook'],
         questrial: ['Questrial'],
+        reenie: ['Reenie Beanie'],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
