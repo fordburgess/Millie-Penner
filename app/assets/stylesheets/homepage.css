@@ -1,0 +1,9 @@
+#link-container-lg {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    #link-container-lg {
+        display: flex;
+    }
+}
