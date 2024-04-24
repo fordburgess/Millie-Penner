@@ -1,5 +1,5 @@
 class PaymentIntentsController < ApplicationController
-    Stripe.api_key = ENV["STRIPE_SECRET_KEY_TEST"]
+    Stripe.api_key = ENV["STRIPE_SECRET_KEY"]
 
     def create        
         data = JSON.parse(request.body.read)       
