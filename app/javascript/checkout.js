@@ -5,8 +5,8 @@ let elements;
 let orderId;
 let shipping = 300;
 
-// initialize();
-// checkStatus();
+initialize();
+checkStatus();
 
 const stripeIFrameQuery = 'iframe[src^="https://js.stripe.com"]';
 document.addEventListener('turbo:before-render', function (event) {
@@ -45,7 +45,8 @@ document.addEventListener("turbo:load", () => {
         }
     })
 
-    paymentForm.style.display = "none";
+    // paymentForm.style.display = "none";
+    infoForm.style.display = "none";
 
     infoForm.addEventListener("submit", (e) => {
         e.preventDefault();
