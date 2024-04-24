@@ -191,7 +191,7 @@ async function handleSubmit(e) {
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: `http://localhost:3000/orders/${orderId}`,
+      return_url: `https://millicentpenner.xyz/orders/${orderId}`,
     },
   });
 
