@@ -3,7 +3,7 @@ class PaymentIntentsController < ApplicationController
 
     def create        
         data = JSON.parse(request.body.read)       
-        @shipping = data["shipping"]          
+        @shipping = data["shipping"]
         
         def calculate_total
             initial_total = @current_cart.cart_total * 100
