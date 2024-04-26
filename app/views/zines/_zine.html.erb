@@ -7,7 +7,7 @@
       <%= image_tag zine.pdf_images[2], class: "h-1/2 w-1/2 lg:h-full" %>
     </div>
     <div class="flex justify-center">
-      <button class="classic-button-1 mr-8 px-20 bg-black text-white">See full zine</button>
+      <a target="_blank" href="<%= @zine.pdf_url %>" class="classic-button-1 mr-8 px-20 bg-black text-white">See full zine</a>
       <%= button_to "Add to Cart", add_to_cart_path(zine), :method => :post, class: "classic-button-1 lg:px-20", id: "add-to-cart-button", data: { zine_id: zine.id } %>
     </div>
   </div>
