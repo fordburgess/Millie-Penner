@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'zine_latest.css' %>
 <div class="h-auto lg:h-[35rem] lg:flex justify-center w-full mb-12">
-    <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.1" } %>
+    <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol. 1" } %>
         <% zine_vol_one = zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.1" } %>
         <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full" style="height: 100%;">
             <a href="/zines/<%= zine_vol_one.id %>" class="w-full flex h-full flex-col justify-end items-center">
@@ -18,7 +18,7 @@
             </a>
         </div>
     <% end %>
-    <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.2" } %>        
+    <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol. 2" } %>        
         <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full">
             <% zine_vol_two = zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.2" } %>
             <a href="/zines/<%= zine_vol_two.id %>" class="w-full flex h-full flex-col justify-end items-center">
