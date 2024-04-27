@@ -8,8 +8,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
-    # OrderMailer.order_confirmation(@order).deliver_now
-    allowed_referer = 'https://millicentpenner.xyz/orders/new'
+    OrderMailer.order_confirmation(@order).deliver_now
+    allowed_referer = 'http://localhost:3000/orders/new'
     if request.referer.present? && request.referer == allowed_referer
       current_cart.empty_items()
       render 'orders/show'
