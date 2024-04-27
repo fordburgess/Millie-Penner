@@ -1,4 +1,5 @@
 <div class="h-screen w-screen bg-cover bg-center" style="background-image: url('<%= image_url('black-and-white.webp')%>');">
+    <h1 id="title-white" class="title m-0">Millie Penner</h1>
     <section id="link-container-lg" class="w-full h-full flex flex-col items-center justify-center pt-24 font-roboto">
         <div class="w-[64%] flex justify-between mb-20 mt-10">
             <%= link_to zines_path do %>
@@ -36,5 +37,43 @@
                 </div>
             <% end %>
         </div>
+    </section>
+    <section id="link-container-sm" class="font-roboto">
+      <div class="w-full flex justify-between mb-10 px-2">
+        <%= link_to zines_path do %>
+            <div class="relative flex justify-center items-center bg-white h-[4rem] w-[6rem]">
+                <p class="absolute top-0 left-0 text-xl">Zines</p>
+            </div>
+        <% end %>
+        <%= link_to pages_makeup_art_path do %>
+            <div class="relative flex justify-center items-center bg-white h-[4rem] w-[6rem]">
+                <p class="absolute top-0 left-0 text-xl">MUA</p>
+            </div>
+        <% end %>
+      </div>
+      <div class="w-full flex justify-between mb-10 px-2">
+        <%= link_to zines_path do %>
+            <div class="relative flex justify-center items-center bg-white h-[4rem] w-[6rem]">
+                <p class="absolute top-0 left-0 text-xl">Jewellery</p>
+            </div>
+        <% end %>
+        <%= link_to pages_makeup_art_path do %>
+            <div class="relative flex justify-center items-center bg-white h-[4rem] w-[6rem]">
+                <p class="absolute top-0 left-0 text-xl">Resume</p>
+            </div>
+        <% end %>
+      </div>
+      <div class="w-full flex justify-between px-2">
+        <%= link_to zines_path do %>
+            <div class="relative flex justify-center items-center bg-white h-[4rem] w-[6rem]">
+                <p class="absolute top-0 left-0 text-xl">Writing</p>
+            </div>
+        <% end %>
+        <%= link_to pages_makeup_art_path do %>
+            <div class="relative flex justify-center items-center bg-white h-[4rem] w-[6rem]">
+                <p class="absolute top-0 left-0 text-xl">Modelling</p>
+            </div>
+        <% end %>
+      </div>
     </section>
 </div>
