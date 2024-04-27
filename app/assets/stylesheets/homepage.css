@@ -10,14 +10,24 @@
     width: 100%;
 }
 
-#title-orange {    
-    color: #FF8000;    
+.title {
     position: absolute;
     top: 0px;
     left: 0px;
     transform: translate(0px, 0px);
     font-size: calc(17vw);
     line-height: 55px;
+}
+
+#title-orange {    
+    color: #FF8000;    
+}
+
+#title-white {
+    color: #FFFFFF;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: calc(27vw);
+    line-height: 90px;
 }
 
 @media (min-width: 1024px) {
@@ -30,17 +40,23 @@
         display: none;
     }
 
-    #title-orange {
+    .title {
         font-size: 10rem;
         position: absolute;
         top: -35px;
         left: -30px;
         line-height: normal;        
     }
+
+    #title-white {
+        font-size: 12rem;
+        top: 5px;
+        left: -15px;
+    }
 }
 
 @media (min-width: 450px) and (max-width: 1023px) {
-    #title-orange {
+    .title {
         line-height: 100px;
     }
 }
