@@ -20,6 +20,7 @@ module.exports = {
         reenie: ['Reenie Beanie'],
         righteous: ['Righteous'],
         roboto: ['Roboto Mono'],
+        archivoBlack: ['Archivo Black'],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },

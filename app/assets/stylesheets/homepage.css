@@ -2,8 +2,31 @@
     display: none;
 }
 
+#title-orange {    
+    color: #FF8000;    
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: calc(17vw);
+    line-height: 55px;
+}
+
 @media (min-width: 1024px) {
     #link-container-lg {
         display: flex;
+    }
+
+    #title-orange {
+        font-size: 10rem;
+        position: absolute;
+        top: -35px;
+        left: -30px;
+        line-height: normal;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 1023px) {
+    #title-orange {
+        line-height: 100px;
     }
 }
