@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+  </head>
+  <body style="margin: 0; padding: 0; background-color: #f4f4f4;">
+    <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center" valign="top">
+            <table role="presentation" width="600" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff;">
+                <tr>
+                    <td style="background-color: #FFE0FB; padding: 20px 40px;">
+                      <div style="width: 100%; display: flex; justify-content: flex-start; align-items: center;">
+                        <img style="height: 5rem; width: 7rem; margin-right: -30px" src='https://res.cloudinary.com/ds6jhdll9/image/upload/v1714321457/2_1_iobrrr.png' />
+                        <a style="height: 5rem; line-height: 5rem; color: #000000; text-decoration: none; margin: 0; font-family: Bradley Hand, cursive; font-size: 25px; text-align: left;">millicentpenner.xyz</a>
+                      </div>
+                      <div style="width: 100%; text-align: center;">
+                        <h1 style="margin: 0 0 10px; font-family: 'Courier New', Courier, monospace">THANK YOU!</h1>
+                        <img style="height: 10rem; width: 15rem" src="https://res.cloudinary.com/ds6jhdll9/image/upload/v1714320737/__57_1_wr1svq.png" />
+                      </div>
+                      <div style="font-family: 'Courier New', Courier, monospace; width: 100%;">
+                        <p>Hi <%= @order.name.split()[0] %>, </br> thank you for your purchase, and come again soon! </p>
+                        <div style="border-top: solid 1px #000000; width: 100%;">
+                          <p>You'll get an email when the following items have been shipped.</p>
+                          <div style="display: flex; justify-content: space-between;">
+                              <div style="width: 48%">
+                                <p>Items: </p>
+                                <% @order.zines.each do |zine| %>
+                                  <p style="font-weight: bold;">FRIEND APPLICATION Vol. 3</p>                         
+                                <% end %>
+                              </div>
+                              <div style="width: 48%">
+                                <p>Address: </p>
+                                <p style="font-weight: bold;"><%= @order.address %></p>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div style="text-align: right;">
+                        <h2 style="font-family: Bradley Hand, cursive; font-size: 35px;">Millie :3</h2>
+                      </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+      </tr>
+    </table>    
+  </body>
+</html>
