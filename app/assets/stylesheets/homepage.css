@@ -12,11 +12,11 @@
 
 .title {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    transform: translate(0px, 0px);
-    font-size: calc(17vw);
-    line-height: 55px;
+    top: -5px;
+    left: -5px;
+    transform: translate(-5px, -5px);
+    font-size: calc(20vw);
+    line-height: 60px;
 }
 
 #title-orange {    
@@ -35,6 +35,21 @@
     font-family: luminari, fantasy;
 }
 
+#title-green {
+    color: #51DA55;
+}
+
+#title-pink {
+    color: #FFBCF6;       
+    font-family: "M PLUS Rounded 1c"; 
+    font-weight: bold;
+}
+
+#title-red {
+    color: #D31D1D;
+    font-stretch: condensed;    
+}
+
 @media (min-width: 1024px) {
     #link-container-lg {
         display: flex;
@@ -48,20 +63,47 @@
     .title {
         font-size: 10rem;
         position: absolute;
-        top: -35px;
-        left: -30px;
-        line-height: normal;        
+        top: -10px;
+        left: -10px;
+        transform: translate(-10px, -10px);
+        line-height: 10rem;
+    }
+
+    #title-orange {
+        top: -15px;
+        left: -5px;
+        transform: translate(-5px, -15px);
     }
 
     #title-white {
-        font-size: 12rem;
+        font-size: 11rem;
         top: 5px;
-        left: -15px;
+        left: -10px;
+        transform: translate(-10px, 5px);                
+    }
+
+    #title-red {
+        font-size: 11rem;
+        top: -15px;
+        left: -10px;
+        transform: translate(-10px, -15px);        
+    }
+
+    #title-pink {
+        top: -15px;
+        left: -10px;
+        transform: translate(-15px, -10px);
+    }
+
+    #title-green {
+        top: -15px;
+        left: -10px;
+        transform: translate(-10px, -15px);
     }
 }
 
 @media (min-width: 450px) and (max-width: 1023px) {
     .title {
-        line-height: 100px;
+        line-height: 10rem !important;
     }
 }
