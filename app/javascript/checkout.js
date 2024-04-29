@@ -189,11 +189,17 @@ async function handleSubmit(e) {
 
   const { error } = await stripe.confirmPayment({    
     elements,
+    redirect: 'if_required',
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: `https://millicentpenner.xyz/orders/${orderId}`,
+      // return_url: `https://millicentpenner.xyz/orders/${orderId}`,
     },
-  });
+  })
+  .then(res => {
+    if (res.paymentIntent.status == "succeeded") {
+      window.location.href = `https://millicentpenner.xyz/orders/${orderId}`
+    }
+  })
 
   // This point will only be reached if there is an immediate error when
   // confirming the payment. Otherwise, your customer will be redirected to
