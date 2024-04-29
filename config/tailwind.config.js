@@ -21,6 +21,7 @@ module.exports = {
         righteous: ['Righteous'],
         roboto: ['Roboto Mono'],
         archivoBlack: ['Archivo Black'],
+        mPlusRounded: ['M PLUS Rounded 1c'],
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
