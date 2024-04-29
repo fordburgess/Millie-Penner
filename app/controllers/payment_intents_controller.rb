@@ -13,7 +13,7 @@ class PaymentIntentsController < ApplicationController
 
         payment_intent = Stripe::PaymentIntent.create(
             amount: 30,
-            currency: 'gbp',            
+            currency: 'gbp',      
             # In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
             automatic_payment_methods: {
                 enabled: true,
