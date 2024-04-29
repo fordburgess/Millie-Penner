@@ -43,7 +43,10 @@
                 e.stopPropagation();
             
                 if (cartSidebar.style.transform == 'translateX(100%)') {
-                    cartSidebar.style.transform = 'translateX(0%)';   
+                    cartSidebar.style.display = 'block';
+                    setTimeout(() => {
+                        cartSidebar.style.transform = 'translateX(0%)';
+                    }, 1)
                     cartOpen = true;         
                 }
             })

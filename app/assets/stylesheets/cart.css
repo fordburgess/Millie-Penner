@@ -3,6 +3,7 @@
 }
 
 #cart-sidebar {
+    display: none;
     transition: transform 0.2s;    
     z-index: 100;
     backdrop-filter: blur(8px);
