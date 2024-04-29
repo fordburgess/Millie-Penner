@@ -30,6 +30,11 @@
     line-height: 90px;
 }
 
+#title-gray {
+    color: #A0A6A9;
+    font-family: luminari, fantasy;
+}
+
 @media (min-width: 1024px) {
     #link-container-lg {
         display: flex;
