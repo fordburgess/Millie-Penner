@@ -9,15 +9,30 @@
     height: 100%;
 }
 
-.zine-container {
-    height: 50%;    
+.zine-container {   
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+form {
+    width: 120px;
+  }
+
+#second-page {
+    display: none;
+}
+
 @media (min-width: 1024px) {
     .zine-container {
         height: 100%;
+    }
+
+    form {
+        width: auto;
+    }
+
+    #second-page {
+        display: block;
     }
 }
