@@ -1,4 +1,4 @@
-<div class="h-screen w-screen relative" style="background-image: url('<%= image_url('zines-index-bg.png')%>');">
+<div class="h-auto w-screen relative" style="background-image: url('<%= image_url('zines-index-bg.png')%>');">
   <div class="w-full h-screen overflow-y-scroll py-8 lg:py-12 lg:px-28 text-white border-box">
     <section class="flex flex-col text-center items-center mb-6">
       <h1 class="font-kameron text-xl lg:text-4xl font-bold mb-4">ZINES</h1>
@@ -8,7 +8,7 @@
     <section class="h-auto w-full">     
       <%= render partial: "zine_latest", locals: { zines: @zines, images: @images } %>
     </section>
-    <section class="px-24">
+    <section class="px-10 lg:px-24">
       <h3 class="font-lexendZetta text-xl mb-6">Distributed at...</h3>
       <div class="w-full font-lexendZetta text-base">
         <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
