@@ -7,7 +7,7 @@
       <%= image_tag zine.pdf_images[2], class: "h-full w-1/2 lg:w-1/2 h-3/4 lg:h-full" %>
     </div>
     <div class="flex items-center justify-center pb-8 lg:pb-0 w-full">      
-      <a target="_blank" href="<%= @zine.pdf_url %>" class="classic-button-1 mr-2 lg:mr-8 w-1/2 lg:w-auto lg:px-20 bg-black text-white text-center">See full zine</a>      
+      <a target="_blank" href="<%= @zine.pdf_url %>" class="classic-button-1 mr-2 lg:mr-8 w-1/2 lg:w-auto lg:px-20 bg-black text-white text-center">Preview zine</a>      
       <%= button_to "Add to Cart", add_to_cart_path(zine), data: { zine_id: zine.id }, class: "classic-button-1 lg:px-20", id: "add-to-cart-button", data: { zine_id: zine.id } %>
     </div>
   </div>
@@ -28,3 +28,9 @@
     <hr class="mt-6">
   <% end %>
 </div>
+
+<style>
+  form {
+    width: 33%;
+  }
+</style>
