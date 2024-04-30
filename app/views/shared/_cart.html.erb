@@ -17,9 +17,9 @@
   }
 </style>
 <div class="flex items-center" style="z-index: 30; position: absolute; top: 10px; right: 10px;">
-    <div>
+    <div class="mr-4 font-kameron">
         <% flash.each do |key, value| %>
-            <div class="flash <%= key %>">
+            <div class="flash <%= key %> p-1 bg-white bg-opacity-80">
                 <%= value %>
             </div>
         <% end %>
