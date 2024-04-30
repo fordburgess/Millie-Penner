@@ -1,13 +1,13 @@
-<div class="min-h-screen w-screen flex justify-center text-white overflow-hidden py-16 px-36" style="background-image: url('<%= image_url('purple-rose.png')%>');">
+<div class="min-h-screen w-screen flex justify-center text-white py-16 px-8 lg:px-36" style="background-image: url('<%= image_url('purple-rose.png')%>');">
   <div class="h-screen w-screen absolute top-0 left-0 bg-black bg-opacity-30"></div>
-  <div class="mx-auto z-50 flex justify-between w-screen">
-    <div class="w-1/3">
+  <div class="inner-div z-50 w-screen">
+    <div class="w-full lg:w-1/3">
       <div class="flex">
         <h1 class="text-4xl font-extrabold text-white font-lexendZetta mb-2 mr-4">Order <br />confirmed!</h1>
         <%= image_tag "dancer.gif", style: "height: 5rem; width: 3rem;" %>
       </div>
-      <p class="font-kameron text-xl mb-20">I hope my wares bring you great joy.</p>
-      <div class="mb-20">
+      <p class="font-kameron text-xl mb-10 lg:mb-20">I hope my wares bring you great joy.</p>
+      <div class="mb-10 lg:mb-20">
         <h1 class="font-lexendZetta text-2xl font-extrabold mb-2">Billing Info</h1>
         <p class="font-kameron mb-4 text-xl">We have sent you a confirmation email and your package will be in the snail mail soon.</p>
         <ul class="font-lexendZetta text-sm">
@@ -16,15 +16,15 @@
           <li class="mb-2"><p><strong class="font-extrabold">Address:</strong> <%= @order.address %></p></li>             
         </ul>
       </div>
-      <%= link_to zines_path do %><button class="classic-button-1 w-full">Back to Home</button><% end %>
+      <%= link_to zines_path do %><button class="home-button-desktop classic-button-1 w-full">Back to Home</button><% end %>
     </div>
-    <div class="w-[40%] flex flex-col justify-between">
+    <div class="w-full lg:w-[40%] flex flex-col justify-between mb-4 lg:mb-0">
       <div>
         <h1 class="text-2xl font-extrabold text-white font-lexendZetta mb-8 mr-4">Order Summary</h1>
         <% @order.zines.each do |zine| %>
-          <div class="flex justify-between font-kameron">
+          <div class="flex justify-between font-kameron mb-4">
             <div class="flex">
-              <%= image_tag zine.cover_image, class: "mr-4", style: "max-height: 10rem; max-width: 5rem" %>
+              <%= image_tag zine.cover_image, class: "zine-image mr-4", style: "max-height: 10rem; max-width: 5rem" %>
               <h2 class="text-xl"><%= zine.title %></h2>
             </div>          
             <h2 class="text-xl">£<%= sprintf('%.2f', zine.price) %></h2>          
@@ -34,14 +34,59 @@
       <div>
         <div class="w-full flex justify-between text-xl font-kameron">
           <h2>Shipping:</h2>
-          <h2>£<%= @order.address.include?("United Kingdom") ? "3.00" : "4.50" %></h2>
+          <h2>£<%= @order.address.include?("UK") ? "3.00" : "4.50" %></h2>
         </div>
         <div class="border-t-2 border-white w-full flex justify-between font-kameron">
           <h2 class="text-2xl">Total:</h2>
           <h2 class="text-2xl">£<%= sprintf('%.2f', @order.total) %></h2>
         </div>
       </div>
+      <%= link_to zines_path do %><button class="home-button-mobile classic-button-1 w-full">Back to Home</button><% end %>
     </div>
   </div>
-  <%= image_tag "mushroom.gif", style: "height: 7rem; width: 7rem;", class: "absolute bottom-0 left-10" %>
 </div>
+
+<style type="text/css">
+  .mushroom {
+    display: none;
+  }
+
+  .zine-image {
+    display: none;
+  }
+
+  .home-button-desktop {
+    display: none;
+  }
+
+  .home-button-mobile {
+    display: block;
+  }
+
+  .inner-div {
+    box-sizing: border-box;
+  }
+
+  @media (min-width: 1024px) {
+    .inner-div {
+      display: flex;
+      justify-content: space-between;      
+    }
+
+    .mushroom {
+      display: block;
+    }
+
+    .zine-image {
+      display: block;
+    }
+
+    .home-button-desktop {
+      display: block;
+    }
+
+    .home-button-mobile {
+      display: none;
+    }
+  }
+</style>
