@@ -1,10 +1,15 @@
 <div class="h-screen w-screen" style="background-image: url('<%= image_url('star-bg.jpeg')%>');">
     <section class="p-20">
         <h1 class="font-lexendZetta text-white text-3xl mb-8">Millie&apos;s Dashboard</h1>
-        <div class="w-full flex flex-col">
-            <%= link_to "Add New Zine", new_admin_zine_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>            
-            <%= link_to "See All Zines", admin_zines_all_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>        
-            <%= link_to "See All Orders", admin_orders_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>        
+        <div class="w-full flex">
+            <div class="flex flex-col mr-16">
+                <%= link_to "Add New Zine", new_admin_zine_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>            
+                <%= link_to "See All Zines", admin_zines_all_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>        
+                <%= link_to "See All Orders", admin_orders_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>
+            </div>
+            <div class="flex flex-col">
+               <%= link_to "Add New Article", new_admin_article_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>
+            </div>
         </div>
         <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "underline text-white font-windowsRegular" %>
     </section>

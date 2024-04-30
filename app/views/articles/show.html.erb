@@ -1,0 +1,13 @@
+<div class="h-auto w-screen p-8" style="background-color: #<%= @article.background_color %> ">
+  <section class="w-3/4" style="color: #<%= @article.accent_color %>">
+    <h1 class="text-9xl mb-4"><%= @article.title %></h1>
+    <h2 class="text-5xl mb-4"><%= @article.subtitle %></h2>
+    <h5 class="text-3xl mb-4">By <%= @article.author %></h5>
+  </section>
+  <section class="w-3/4" style="color: #<%= @article.accent_color %>; font-family: Times New Roman">
+    <%= @article.content %>
+  </section>
+  <section class="w-full text-center" style="font-family: Times New Roman">
+    <p class="text-red-400 text-xl">Fin</p>
+  </section>
+</div>

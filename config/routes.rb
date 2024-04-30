@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :zines, only: [:index, :show]  
-  resources :carts, only: [:show]  
+  resources :carts, only: [:show]
+  resources :articles, only: [:index, :show]
   resources :orders
   resources :payment_intents
 
@@ -29,6 +30,7 @@ Rails.application.routes.draw do
     get '/zines/all', to: 'admin#zines_all'
     resources :zines, except: [:show, :index]
     resources :orders, only: [:show, :index]
+    resources :articles, except: [:show, :index]
   end
   
 end
