@@ -49,7 +49,7 @@ class Admin::ArticlesController < ApplicationController
         end
 
         respond_to do |format|
-            format.html { redirect_to admin_articles_all_path, notice: "Article was successfully destroyed." }
+            format.html { redirect_to admin_articles_path, notice: "Article was successfully destroyed." }
             format.json { head :no_content }
         end
     end
