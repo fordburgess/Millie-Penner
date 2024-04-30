@@ -13,7 +13,7 @@
                     <div class="flex">
                         <%= link_to "Edit Article", edit_admin_article_path(article), class: "classic-button-1 mr-4" %>
                         <%= link_to "View", "/articles/#{article.id}", class: "classic-button-1 mr-4" %>
-                        <%= button_to "Delete Article", admin_article_path(article), :method => :delete, class: "underline text-white font-windowsRegular" %>
+                        <%= link_to "Delete Article", admin_article_path(article), :method => :delete, class: "underline text-white font-windowsRegular" %>
                     </div>
                 </div>
             <% end %>
