@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'zine_show.css' %>
-<div id="<%= dom_id zine %>" class="h-screen w-screen py-24 lg:p-16 flex flex-col lg:flex-row relative overflow-y-scroll border-box bg-cover">
+<div id="<%= dom_id zine %>" class="h-screen w-screen py-24 lg:p-16 flex flex-col lg:flex-row relative border-box bg-cover overflow-y-scroll" style="box-sizing: border-box">
   <%= link_to "<-- All Zines", zines_path, class: "absolute top-5 left-7 underline font-windowsRegular" %>
   <div class="zine-container w-full h-full lg:h-full lg:w-2/3 lg:mr-8 border-box">
     <div class="flex justify-center items-end lg:items-center mb-4 lg:mb-8 h-full w-full lg:h-3/4 px-6 lg:px-0 lg:py-0">

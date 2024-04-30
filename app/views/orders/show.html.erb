@@ -1,12 +1,12 @@
-<div class="min-h-screen w-screen flex justify-center text-white overflow-hidden py-16 px-36" style="background-image: url('<%= image_url('purple-rose.png')%>');">
+<div class="min-h-screen w-screen flex justify-center text-white overflow-y-scroll lg:overflow-hidden py-16 px-36" style="background-image: url('<%= image_url('purple-rose.png')%>');">
   <div class="h-screen w-screen absolute top-0 left-0 bg-black bg-opacity-30"></div>
-  <div class="mx-auto z-50 flex justify-between w-screen">
-    <div class="w-1/3">
+  <div class="mx-auto z-50 lg:flex justify-between w-screen">
+    <div class="w-full lg:w-1/3">
       <div class="flex">
         <h1 class="text-4xl font-extrabold text-white font-lexendZetta mb-2 mr-4">Order <br />confirmed!</h1>
         <%= image_tag "dancer.gif", style: "height: 5rem; width: 3rem;" %>
       </div>
-      <p class="font-kameron text-xl mb-20">I hope my wares bring you great joy.</p>
+      <p class="font-kameron text-xl mb-10 lg:mb-20">I hope my wares bring you great joy.</p>
       <div class="mb-20">
         <h1 class="font-lexendZetta text-2xl font-extrabold mb-2">Billing Info</h1>
         <p class="font-kameron mb-4 text-xl">We have sent you a confirmation email and your package will be in the snail mail soon.</p>
@@ -18,7 +18,7 @@
       </div>
       <%= link_to zines_path do %><button class="classic-button-1 w-full">Back to Home</button><% end %>
     </div>
-    <div class="w-[40%] flex flex-col justify-between">
+    <div class="w-full lg:w-[40%] flex flex-col justify-between">
       <div>
         <h1 class="text-2xl font-extrabold text-white font-lexendZetta mb-8 mr-4">Order Summary</h1>
         <% @order.zines.each do |zine| %>
@@ -43,5 +43,17 @@
       </div>
     </div>
   </div>
-  <%= image_tag "mushroom.gif", style: "height: 7rem; width: 7rem;", class: "absolute bottom-0 left-10" %>
+  <%= image_tag "mushroom.gif", style: "height: 7rem; width: 7rem;", class: "mushroom absolute bottom-0 left-10" %>
 </div>
+
+<style type="text/css">
+  .mushroom {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .mushroom {
+      display: block;
+    }
+  }
+</style>

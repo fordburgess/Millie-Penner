@@ -9,13 +9,13 @@ class OrdersController < ApplicationController
   # GET /orders/1 or /orders/1.json
   def show
     OrderMailer.order_confirmation(@order).deliver_now
-    allowed_referer = 'https://millicentpenner.xyz/orders/new'
-    if request.referer.present? && request.referer == allowed_referer
+    # allowed_referer = 'https://millicentpenner.xyz/orders/new'
+    # if request.referer.present? && request.referer == allowed_referer
       current_cart.empty_items()
       render 'orders/show'
-    else      
-      render plain: "Unauthorized access", status: :unauthorized
-    end
+    # else      
+    #   render plain: "Unauthorized access", status: :unauthorized
+    # end
   end
 
   # GET /orders/new
