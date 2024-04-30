@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     get '/zines/all', to: 'admin#zines_all'
     resources :zines, except: [:show, :index]
     resources :orders, only: [:show, :index]
-    resources :articles, except: [:show, :index]
+    resources :articles, except: [:show]
   end
   
 end

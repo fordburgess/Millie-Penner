@@ -15,7 +15,7 @@
                         </div>
                         <div class="flex">
                             <%= link_to "Edit Zine", edit_admin_zine_path(zine), class: "classic-button-1 mr-4" %>
-                            <%= link_to "View Shop Page", "/zines/#{zine.id}", class: "classic-button-1 mr-4" %>                            
+                            <%= link_to "View Shop Page", "/zines/#{zine.id}", class: "classic-button-1 mr-4" %>
                             <%= button_to "Delete Zine", admin_zine_path(zine), :method => :delete, class: "underline text-white font-windowsRegular" %>
                         </div>
                     </div>

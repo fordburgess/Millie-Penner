@@ -9,6 +9,7 @@
             </div>
             <div class="flex flex-col">
                <%= link_to "Add New Article", new_admin_article_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>
+               <%= link_to "See All Articles", admin_articles_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>
             </div>
         </div>
         <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "underline text-white font-windowsRegular" %>
