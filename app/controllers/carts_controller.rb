@@ -7,6 +7,8 @@ class CartsController < ApplicationController
     def add_to_cart 
         current_cart.add_item(params[:product_id])
 
+        flash[:notice] = "Item added"
+
         redirect_back fallback_location: root_path
     end
 
