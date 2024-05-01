@@ -1,0 +1,34 @@
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+<style type="text/css">
+    .navbar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        background-color: rgb(27, 29, 30);
+    }
+
+    .navbar-container img {
+        height: 1.2rem;
+        width: 1.2rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+</style>
+<div class="navbar-container w-screen">
+    <div class="w-full flex items-center justify-around text-white p-0 text-xl" style="font-family: Cute Font">
+        <%= link_to "Zines", zines_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "MUA", pages_makeup_art_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "Jewelry", pages_makeup_art_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "Resume", pages_makeup_art_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "Writing", articles_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "Modelling", pages_makeup_art_path %>
+    </div>    
+</div>
