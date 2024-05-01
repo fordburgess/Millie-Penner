@@ -14,6 +14,7 @@
  *= require_self
  */
 
- :root {
-    --body-bg-color: red;
- }
+:root {
+   --body-bg-color: red;
+}
+

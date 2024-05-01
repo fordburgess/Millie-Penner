@@ -1,1 +1,37 @@
-<p>articles page</p>
+<style type="text/css">
+    body {
+        background-image: url('<%= image_url('articles-bg.webp')%>');
+        background-position: top;
+        background-size: cover;
+        padding: 5rem;        
+        box-sizing: border-box;
+    }
+
+    .batman {
+        position: absolute;
+        top: 10;
+        right: 100px;
+        width: 10rem;
+        height: 7rem;
+        transform: rotate(-20deg);
+    }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
+
+<%= image_tag "batman.gif", class: 'batman' %>
+<section class="w-screen px-16">
+    <h1 class="text-7xl mb-8" style="font-family: Niconne">Writing</h1>
+    <div class="flex flex-wrap justify-start">
+        <% @articles.each do |article| %>
+            <%= link_to article_path(article), class: "w-[33%]" do %>
+                <div class="w-full flex flex-col items-center">                
+                    <%= image_tag article.cover_photo, class: "h-80 w-[75%] object-cover" %>
+                    <div class="bg-black w-[75%] p-2 text-white">
+                        <p style="font-family: Poor Story"><%= article.title %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</section>
