@@ -1,38 +1,43 @@
-<%= content_tag :div, id: 'cart-id', data: { cart_id: @current_cart.id } do %><% end %>
-<div class="flex items-center" style="z-index: 30; position: absolute; top: 30px; right: 10px;">
-    <div class="mr-4 font-kameron">
-        <% flash.each do |key, value| %>
-            <div class="flash <%= key %> p-1 bg-white bg-opacity-80">
-                <%= value %>
-            </div>
-        <% end %>
-    </div>       
+<link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+<style type="text/css">
+    .navbar-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        box-sizing: border-box;
+        background-color: rgb(27, 29, 30);
+    }
+
+    .navbar-container img {
+        height: 1.2rem;
+        width: 1.2rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    .cart-icon:hover {
+        cursor: pointer;
+    }
+</style>
+<div class="navbar-container w-screen">
+    <div class="w-full flex items-center justify-around text-white p-0 text-xl" style="font-family: Cute Font">
+        <%= link_to "Zines", zines_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "MUA", pages_makeup_art_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "Jewelry", pages_makeup_art_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "Resume", pages_makeup_art_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "Writing", articles_path %>
+        <%= image_tag "ufo.png" %>
+        <%= link_to "Modelling", pages_makeup_art_path %>
+        <%= image_tag "ufo.png" %>
+        <p class="cart-icon" id="cart-icon">Cart (<%= @current_cart.zines.length %>)</p>
+    </div>    
 </div>
-<div id="cart-sidebar" class="h-screen w-[70vw] lg:w-[33vw] absolute right-0 bg-zinc-800 p-8 bg-opacity-90" style="transform: translateX(100%);">
-    <div id="inner-cart" class="h-full flex flex-col justify-between">
-        <div>
-        <h1 class="font-lexendZetta text-3xl font-bold text-white mb-8">My Cart</h1>            
-            <div id="cart-items">
-                <% @current_cart.zines.each do |zine| %>
-                    <div class="flex text-white mb-6 relative" id="zine-<%= zine.id %>" data="<%= zine.id %>">
-                        <%= image_tag zine.cover_image, class: "mr-4", style: "max-height: 10rem; max-width: 5rem" %>
-                        <div class="font-kameron">
-                            <h2 class="mt-0 mb-4"><%= zine.title %></h2>
-                            <p>Price: £<%= sprintf('%.2f', zine.price) %></p>
-                        </div>
-                        <%= button_to "X", remove_from_cart_path(zine), :method => :delete, id: "delete-button", data: { id: zine.id }, class: "absolute top-0 right-0 hover:cursor-pointer" %>
-                    </div>
-                <% end %>
-            </div>
-        </div>
-        <% if @current_cart.zines.length > 0 %>
-            <div class="flex flex-col">
-                <%= link_to "Checkout", new_order_path, class: 'classic-button-1 w-full mb-4 text-center' %>                               
-                <%= link_to "Clear all", empty_cart_path,:method => :delete, id: "clear-all-button", class: "classic-button-1 w-full bg-black text-white text-center" %>
-            </div>
-        <% end %>
-    </div>
-</div>    
 <script>
     document.addEventListener('turbo:load', () => {
         var cartIcon = document.getElementById("cart-icon");        

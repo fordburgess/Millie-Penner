@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag 'zine_show.css' %>
 <div id="<%= dom_id zine %>" class="h-screen w-screen py-24 lg:p-16 flex flex-col lg:flex-row relative border-box bg-cover overflow-y-scroll" style="box-sizing: border-box">
-  <%= link_to "<-- All Zines", zines_path, class: "absolute top-5 left-7 underline font-windowsRegular" %>
+  <%= link_to "<-- All Zines", zines_path, class: "absolute top-10 left-7 underline font-windowsRegular" %>
   <div class="zine-container w-full h-full lg:h-full lg:w-2/3 lg:mr-8 border-box">
     <div class="flex justify-center items-end lg:items-center mb-4 lg:mb-8 h-full w-full lg:h-3/4 px-6 lg:px-0 lg:py-0">
       <%= image_tag zine.pdf_images[1], class: "h-full w-3/4 lg:w-1/2 h-3/4 lg:h-full" %>
@@ -18,7 +18,7 @@
     <p class="mb-4 lg:mb-8 text-base lg:text-xl"><strong>Pages:</strong> <%= zine.pages %></p>
     <p class="mb-2 lg:mb-0 text-base lg:text-xl"><strong>Includes:</strong></p>
     <% zine.description.split(",").each do |string| %>
-      <p class="mb-2 font-medium"><%= string %></p>
+      <p class="mb-2 text-base font-normal"><%= string %></p>
     <% end %>
   </div>
 
