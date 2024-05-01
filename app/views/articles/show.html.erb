@@ -3,9 +3,9 @@
   <section class="w-full lg:w-3/4" style="color: #<%= @article.accent_color %>">
     <h1 class="text-5xl lg:text-7xl mb-4" style="font-family: Porter Sans Block"><%= @article.title %></h1>
     <h2 class="text-2xl lg:text-3xl mb-4" style="font-family: Porter Sans Block"><%= @article.subtitle %></h2>
-    <h5 class="text-xl lg:text-1xl mb-4" style="font-family: Porter Sans Block">By <%= @article.author %></h5>
+    <h5 class="text-xl lg:text-1xl mb-8" style="font-family: Porter Sans Block"><%= @article.author %></h5>
   </section>
-  <section class="w-full lg:w-3/4" style="color: #<%= @article.accent_color %>; font-family: Times New Roman">
+  <section class="article-content w-full lg:w-3/4" style="color: #<%= @article.accent_color %>; font-family: Times New Roman; font-size: 1.2rem;">
     <%= @article.content %>
   </section>
   <section class="w-full text-center" style="font-family: Times New Roman">
