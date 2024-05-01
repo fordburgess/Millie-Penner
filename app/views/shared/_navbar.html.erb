@@ -23,17 +23,13 @@
 </style>
 <div class="navbar-container w-screen">
     <div class="w-full flex items-center justify-around text-white p-0 text-xl" style="font-family: Cute Font">
-        <%= link_to "Zines", zines_path %>
+        <%= link_to "Home", root_path %>                
         <%= image_tag "ufo.png" %>
-        <%= link_to "MUA", pages_makeup_art_path %>
+        <%= link_to "Zines", zines_path %>                
         <%= image_tag "ufo.png" %>
         <%= link_to "Jewelry", pages_makeup_art_path %>
         <%= image_tag "ufo.png" %>
-        <%= link_to "Resume", pages_makeup_art_path %>
-        <%= image_tag "ufo.png" %>
-        <%= link_to "Writing", articles_path %>
-        <%= image_tag "ufo.png" %>
-        <%= link_to "Modelling", pages_makeup_art_path %>
+        <%= link_to "Contact", pages_makeup_art_path %>
         <%= image_tag "ufo.png" %>
         <p class="cart-icon" id="cart-icon">Cart (<%= @current_cart.zines.length %>)</p>
     </div>    
