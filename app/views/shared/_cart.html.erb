@@ -1,21 +1,4 @@
 <%= content_tag :div, id: 'cart-id', data: { cart_id: @current_cart.id } do %><% end %>
-<style type="text/css">
-  .cart-image-container {
-    background-position: center;
-    background-size: contain;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .cart-image-container:hover {
-    cursor: pointer;
-  }
-
-  .cart-count {
-    margin-top: -1px;
-  }
-</style>
 <div class="flex items-center" style="z-index: 30; position: absolute; top: 30px; right: 10px;">
     <div class="mr-4 font-kameron">
         <% flash.each do |key, value| %>
@@ -23,12 +6,7 @@
                 <%= value %>
             </div>
         <% end %>
-    </div>
-    <div id="cart-icon" class="cart-image-container flex items-center h-10 w-10" style="background-image: url('<%= image_url('cart.png')%>');">
-        <% if @current_cart.zines.length > 0 %>
-            <p class="cart-count text-white font-kameron"><%= @current_cart.zines.length %></p>
-        <% end %>      
-    </div>    
+    </div>       
 </div>
 <div id="cart-sidebar" class="h-screen w-[70vw] lg:w-[33vw] absolute right-0 bg-zinc-800 p-8 bg-opacity-90" style="transform: translateX(100%);">
     <div id="inner-cart" class="h-full flex flex-col justify-between">

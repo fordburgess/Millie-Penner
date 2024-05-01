@@ -16,6 +16,10 @@
     p {
         font-size: 1.2rem;
     }
+
+    .cart-icon:hover {
+        cursor: pointer;
+    }
 </style>
 <div class="navbar-container w-screen">
     <div class="w-full flex items-center justify-around text-white p-0 text-xl" style="font-family: Cute Font">
@@ -31,6 +35,67 @@
         <%= image_tag "ufo.png" %>
         <%= link_to "Modelling", pages_makeup_art_path %>
         <%= image_tag "ufo.png" %>
-        <%= link_to "Cart" %>
+        <p class="cart-icon" id="cart-icon">Cart (<%= @current_cart.zines.length %>)</p>
     </div>    
 </div>
+<script>
+    document.addEventListener('turbo:load', () => {
+        var cartIcon = document.getElementById("cart-icon");        
+        var cartSidebar = document.getElementById("cart-sidebar");
+        var clearAllButton = document.getElementById("clear-all-button");
+        var cartItems = document.getElementById("cart-items")
+        var cartOpen = false;
+
+        if (cartIcon) {
+            cartIcon.addEventListener('click', (e) => {    
+                e.stopPropagation();
+            
+                if (cartSidebar.style.transform == 'translateX(100%)') {
+                    cartSidebar.style.display = 'block';
+                    setTimeout(() => {
+                        cartSidebar.style.transform = 'translateX(0%)';
+                    }, 1)
+                    cartOpen = true;         
+                }
+            })
+
+            document.addEventListener('click', (e) => {
+                if (cartOpen) {            
+                    if (!cartSidebar.contains(e.target) && e.target.id !== 'delete-button') {                    
+                        cartSidebar.style.transform = 'translateX(100%)'
+                        cartOpen = false;
+                    }
+                }
+            })
+        }
+
+        if (clearAllButton) {
+            clearAllButton.addEventListener('click', () => {
+                cartItems.innerHTML = '';
+            })
+        }
+    })  
+
+    document.addEventListener('turbo:load', function () {
+        var cartItems = document.getElementById('cart-items');
+        
+        if (cartItems) {
+            cartItems.addEventListener('click', (e) => {        
+                if (e.target.id == 'delete-button') {            
+                    var zineIdDelete = e.target.getAttribute('data-id');
+                    var zineToRemove = document.getElementById(`zine-${zineIdDelete}`);                   
+                    
+                    cartItems.removeChild(zineToRemove);
+    
+                    fetch(`/remove_from_cart/${zineIdDelete}`, {
+                        method: 'DELETE',
+                        headers: { 
+                            'Content-Type' : 'application/json', 
+                            'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
+                        }
+                    })         
+                }
+            })
+        }
+    })
+</script>
