@@ -39,5 +39,15 @@
                 </div>
             <% end %>
         <% end %>
+        <% @pdf_articles.each do |article| %>
+            <%= link_to article_path(article), class: "w-1/2 lg:w-[33%]" do %>
+                <div class="w-full flex flex-col items-center mb-8">                
+                    <%= image_tag article.cover_image, class: "h-80 w-[98%] lg:w-[75%] object-cover" %>
+                    <div class="bg-black w-[98%] lg:w-[75%] p-2 text-white">
+                        <p style="font-family: Poor Story"><%= article.title %></p>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
     </div>
 </section>

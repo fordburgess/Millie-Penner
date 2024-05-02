@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :zines, except: [:show, :index]
     resources :orders, only: [:show, :index]
     resources :articles, except: [:show]
+    resources :pdf_articles, except: [:show]
     resources :jewelry_items, except: [:show]
   end
   
