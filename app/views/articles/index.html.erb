@@ -8,26 +8,32 @@
     }
 
     .batman {
-        position: absolute;
-        top: 10;
-        right: 100px;
-        width: 10rem;
-        height: 7rem;
-        transform: rotate(-20deg);
+        display: none;
     }
+
+    @media (min-width: 1024px) {
+        .batman {
+            position: absolute;
+            top: 10;
+            right: 100px;
+            width: 10rem;
+            height: 7rem;
+            transform: rotate(-20deg);
+        }
+    }
+
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
-
 <%= image_tag "batman.gif", class: 'batman' %>
-<section class="w-screen px-16">
-    <h1 class="text-7xl mb-8" style="font-family: Niconne">Writing</h1>
+<section class="w-screen px-8 lg:px-16">
+    <h1 class="text-5xl lg:text-7xl mb-8" style="font-family: Niconne">Writing</h1>
     <div class="flex flex-wrap justify-start">
         <% @articles.each do |article| %>
-            <%= link_to article_path(article), class: "w-[33%]" do %>
-                <div class="w-full flex flex-col items-center">                
-                    <%= image_tag article.cover_photo, class: "h-80 w-[75%] object-cover" %>
-                    <div class="bg-black w-[75%] p-2 text-white">
+            <%= link_to article_path(article), class: "w-1/2 lg:w-[33%]" do %>
+                <div class="w-full flex flex-col items-center mb-8">                
+                    <%= image_tag article.cover_photo, class: "h-80 w-[98%] lg:w-[75%] object-cover" %>
+                    <div class="bg-black w-[98%] lg:w-[75%] p-2 text-white">
                         <p style="font-family: Poor Story"><%= article.title %></p>
                     </div>
                 </div>
