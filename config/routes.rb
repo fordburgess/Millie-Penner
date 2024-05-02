@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :zines, only: [:index, :show]  
   resources :carts, only: [:show]
-  resources :articles, only: [:index, :show]
+  resources :articles, only: [:index, :show]  
+  resources :jewelry_items, only: [:index, :show]
   resources :orders
   resources :payment_intents
 
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
     resources :zines, except: [:show, :index]
     resources :orders, only: [:show, :index]
     resources :articles, except: [:show]
+    resources :jewelry_items, except: [:show]
   end
   
 end
