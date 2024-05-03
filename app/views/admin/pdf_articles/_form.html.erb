@@ -1,0 +1,33 @@
+<%= form_for [:admin, @pdf_article] do |form| %>
+    <% if pdf_article.errors.any? %>
+      <div id="error_explanation" class="bg-white bg-opacity-90 text-red-500 px-3 py-2">
+        <h2 class="text-lg font-lexendZetta"><%= pluralize(zine.errors.count, "error") %>:</h2>
+        <ul>
+          <% pdf_article.errors.each do |error| %>
+            <li class="text-sm font-lexendZetta">- <%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="my-5">
+        <%= form.label :title, class: "font-windowsRegular text-xl" %>
+        <%= form.text_field :title, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+        <%= form.label :link, class: "font-windowsRegular text-xl" %>
+        <%= form.text_field :link, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="my-5">
+        <%= form.label :cover_image, class: "font-windowsRegular text-xl" %>
+        <%= form.file_field :cover_image, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="inline">
+        <%= form.submit class: "classic-button-1 mr-4 cursor-pointer", id: 'submit-button' %>
+        <%= link_to "Back to Dashboard", admin_root_url, class: "classic-button-2 mr-4", style: "padding: 10px 20px;" %>    
+    </div>
+
+<% end %>

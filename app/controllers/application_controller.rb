@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :display_cart
 
     def display_cart
-        @display_cart = request.path.include?("zines") && !request.path.include?("admin")    
+        @display_cart = !request.path.include?("admin")    
     end
     
 

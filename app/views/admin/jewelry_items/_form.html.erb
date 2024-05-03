@@ -1,0 +1,38 @@
+<%= form_with(model: jewelry_item, class: "contents") do |form| %>
+  <% if jewelry_item.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(jewelry_item.errors.count, "error") %> prohibited this jewelry_item from being saved:</h2>
+
+      <ul>
+        <% jewelry_item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :title, class: "font-windowsRegular text-xl" %>
+    <%= form.text_field :title, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label "Materials (Separate with commas)", class: "font-windowsRegular text-xl" %>
+    <%= form.text_field :materials, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :description, class: "font-windowsRegular text-xl" %>
+    <%= form.text_area :description, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :price, class: "font-windowsRegular text-xl" %>
+    <%= form.text_field :price, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "classic-button-1 mr-4 cursor-pointer", id: 'submit-button' %>
+    <%= link_to "Back to dashboard", admin_root_path, class: "classic-button-2 mr-4", style: "padding: 10px 20px;" %>    
+  </div>
+<% end %>

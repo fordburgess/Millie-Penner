@@ -2,16 +2,24 @@
     <section class="p-20">
         <h1 class="font-lexendZetta text-white text-3xl mb-8">Millie&apos;s Dashboard</h1>
         <div class="w-full flex">
-            <div class="flex flex-col mr-16" style="font-family: LeviWindows">
-                <%= link_to "Add New Zine", new_admin_zine_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>            
-                <%= link_to "See All Zines", admin_zines_all_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>        
-                <%= link_to "See All Orders", admin_orders_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>
+            <div class="flex flex-col mr-16">
+                <h1 class="text-white text-xl font-bold mb-8">Zines</h1>
+                <%= link_to "Add New Zine", new_admin_zine_path, class: "text-white underline text-xl mb-4" %>            
+                <%= link_to "See All Zines", admin_zines_all_path, class: "text-white underline text-xl mb-4" %>        
+                <%= link_to "See All Orders", admin_orders_path, class: "text-white underline text-xl mb-4" %>
+                </div>
+            <div class="flex flex-col mr-16">
+                <h1 class="text-white text-xl font-bold mb-8">Jewelry</h1>
+                <%= link_to "Add New Jewelry Item", new_admin_jewelry_item_path, class: "text-white underline text-xl mb-4" %>        
             </div>
-            <div class="flex flex-col" style="font-family: LeviWindows">
-               <%= link_to "Add New Article", new_admin_article_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>
-               <%= link_to "See All Articles", admin_articles_path, class: "text-white font-windowsRegular underline text-3xl mb-4" %>
+            <div class="flex flex-col mr-16">
+               <h1 class="text-white text-xl font-bold mb-8">Articles</h1>
+               <%= link_to "Add New Article", new_admin_article_path, class: "text-white underline text-xl mb-4" %>
+               <%= link_to "See All Articles", admin_articles_path, class: "text-white underline text-xl mb-4" %>
+               <%= link_to "New PDF Article", new_admin_pdf_article_path, class: "text-white underline text-xl mb-4" %>
+               <%= link_to "See All PDF Articles", admin_pdf_articles_path, class: "text-white underline text-xl mb-4" %>
             </div>
         </div>
-        <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "underline text-white font-windowsRegular" %>
+        <%= button_to "Sign out", destroy_user_session_path, :method => :delete, class: "absolute bottom-10 left-10 underline text-white" %>
     </section>
 </div>

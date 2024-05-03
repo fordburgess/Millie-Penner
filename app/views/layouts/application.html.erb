@@ -17,7 +17,7 @@
 
   <body data-turbo="false">
     <main>      
-      <%= render partial: "/shared/cart" if @display_cart %>  
+      <%= render partial: "/shared/cart" if @display_cart && !current_page?(root_path) %>  
       <%= yield %>      
       <%= render partial: "/shared/navbar" unless current_page?(root_path) || request.path.include?("admin")%>
     </main>
