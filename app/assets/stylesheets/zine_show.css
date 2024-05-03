@@ -25,13 +25,25 @@ body {
 
 
 
-#page-flip {    
+.page-flip {    
     /* position: absolute; */
     padding: 40px 40px 40px 340px;
     width: 100%;
     height: 100%;
     margin-bottom: 30px;
     overflow: hidden;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#page-flip-1 {
+    z-index: 5;
+}
+
+#page-flip-2 {
+    z-index: 4;
 }
 
 #r1 {
@@ -95,7 +107,7 @@ body {
     z-index: 1;
 }
 
-#page-flip:hover #s3 {
+.page-flip:hover #s3 {
     -webkit-transform-origin: 325px 500px;
     -webkit-transform: translate(-40px, -500px) rotate(0deg) translate(40px, 0);
 }
@@ -109,7 +121,7 @@ body {
     overflow: hidden;
 }
 
-#page-flip:hover #sp3 { width: 11px }
+.page-flip:hover #sp3 { width: 11px }
 
 .s {
     width: 285px;
@@ -139,9 +151,9 @@ body {
     -webkit-transition-duration: 0.5s;
 }
 
-#page-flip:hover #s4 { opacity: 0 }
+.page-flip:hover #s4 { opacity: 0 }
 
-#page-flip:hover #s2 {
+.page-flip:hover #s2 {
     -webkit-transform-origin: 300px 500px;
     -webkit-transform: translate(-15px, -500px) rotate(0deg);
 }
@@ -172,22 +184,22 @@ body {
     background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(rgba(0,0,0,.20)));
 }
 
-#page-flip:hover #r1 {
+.page-flip:hover #r1 {
     -webkit-transform-origin: 1570px 500px;
     -webkit-transform: translate(-1285px, -500px) rotate(0deg);
 }
 
-#page-flip:hover #p1 > div {
+.page-flip:hover #p1 > div {
     -webkit-transform-origin: 285px 0;
     -webkit-transform: translate(1285px, 500px) rotate(0deg);
 }
 
-#page-flip:hover #r3 {
+.page-flip:hover #r3 {
     -webkit-transform-origin: 1570px 500px;
     -webkit-transform: translate(-1285px, -500px) rotate(0deg);
 }
 
-#page-flip:hover #p3 > div {
+.page-flip:hover #p3 > div {
     -webkit-transform-origin: 0 0;
     -webkit-transform: translate(1000px, 500px) rotate(0deg);
 }
@@ -199,7 +211,7 @@ body {
 }
 
 
-#page-flip:hover #coke {
+.page-flip:hover #coke {
     -webkit-transition-delay: .8s;
     margin: 33px 0 0 14px;
 }
@@ -209,7 +221,7 @@ body {
     height: 167px;
 }
 
-#page-flip:hover #meninas {
+.page-flip:hover #meninas {
     -webkit-transition-delay: .8s;
     margin: 203px 0 0 14px;
 }
