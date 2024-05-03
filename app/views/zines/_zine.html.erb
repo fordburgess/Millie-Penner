@@ -6,32 +6,30 @@
   
       <div class="relative h-3/4 w-full">
         <div class="page-flip" id="page-flip-1">
-          <div id="r1">
-            <div id="p1">
+          <div id="r1-first">
+            <div id="p1-first">
               <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[0]) %>)"></div>
             </div>
           </div>
           
-          <div id="r3">
-            <div id="p3">
+          <div id="r3-first">
+            <div id="p3-first">
               <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[1]) %>)"></div>
             </div>
           </div>
                 
         </div>
         <div class="page-flip" id="page-flip-2">
-          <div id="r1">
-            <div id="p1">
+          <div id="r1-second">
+            <div id="p1-second">
               <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[2]) %>)"></div>
             </div>
-          </div>
-          
-          <div id="r3">
-            <div id="p3">
+          </div>          
+          <div id="r3-second">
+            <div id="p3-second">
               <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[3]) %>)"></div>
             </div>
-          </div>
-                
+          </div>                
         </div>
       </div>
     <div class="flex items-center justify-center pb-8 lg:pb-0 w-full">      
@@ -59,6 +57,34 @@
 
 <script>
   document.addEventListener("turbo:load", () => {
-    
+    var p3first = document.getElementById("p3-first");
+    var p3second = document.getElementById("p3-second");
+    var pageFlip1 = document.getElementById("page-flip-1");
+    var pageFlip1Bool = false;
+    var pageFlip2Bool = false;
+
+    var pageFlip2 = document.getElementById("page-flip-2");
+
+    p3first.addEventListener("click", () => {
+      if (!pageFlip1Bool) {
+        pageFlip1.classList.add("flipped");
+        pageFlip1Bool = true;
+      }
+      else {
+        pageFlip1.classList.remove("flipped");
+        pageFlip1Bool = false;
+      }
+    })
+
+    p3second.addEventListener("click", () => {
+      if (!pageFlip2Bool) {
+        pageFlip2.classList.add("flipped");
+        pageFlip2Bool = true;
+      }
+      else {
+        pageFlip2.classList.remove("flipped");
+        pageFlip2Bool = false;
+      }
+    })
   });
 </script>
