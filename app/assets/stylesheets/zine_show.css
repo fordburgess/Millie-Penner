@@ -45,8 +45,9 @@ body {
 
 #p1 {
     width: 1285px;
-    height: 1388px;
+    height: 1000px;
     overflow: hidden;
+    /* background-color: aqua; */
 }
 
 #p1 > div {
