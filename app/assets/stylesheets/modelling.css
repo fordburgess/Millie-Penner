@@ -10,9 +10,14 @@
     margin-bottom: 45px;
 }
 
-.border-image {
+#modelling-border {
     position: fixed;
     top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    padding-top: 20px;
 }
 
 .first-section {
