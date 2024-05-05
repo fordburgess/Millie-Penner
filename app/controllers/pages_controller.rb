@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def makeup_art
   end
+
+  def modelling
+  end
 end
