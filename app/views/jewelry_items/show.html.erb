@@ -1,15 +1,15 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @jewelry_item %>
-
-    <%= link_to "Edit this jewelry_item", edit_jewelry_item_path(@jewelry_item), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this jewelry_item", jewelry_item_path(@jewelry_item), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+<link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/sudo-var" rel="stylesheet">
+<div class="w-screen h-screen" style="background-color: #FFEE9C;">
+  <div class="py-20 px-10">
+    <h1 class="text-2xl mb-6" style="font-family: Stalinist One; color: #8A1E82;"><%= @jewelry_item.title %></h1>
+    <div>
+      <%= image_tag "ring.jpeg", class: "mb-6", style: "height: auto; width: 100%" %>
     </div>
-    <%= link_to "Back to jewelry_items", jewelry_items_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div>
+      <p style="font-family: sudo var" class="text-2xl mb-4">£<%= sprintf('%.2f', @jewelry_item.price) %></p>
+      <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.materials %></p>
+      <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.description %></p>
+    </div>
   </div>
 </div>
