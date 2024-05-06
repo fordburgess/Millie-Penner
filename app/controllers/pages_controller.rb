@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def modelling
   end
+
+  def resume
+  end
 end

@@ -1,0 +1,21 @@
+.jewelry-item {
+    height: 300px;    
+    border-width: 10px;
+    border-style: groove;    
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: sudo var;
+}
+
+#odd {
+    border-color: #FF96B6;
+    background-color: #FFDEE8;
+}
+
+#even {
+    border-color: #9AFCA6;
+    background-color: #CFFFD5;
+}

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   # one off pages
   get '/pages/makeup-art' => 'pages#makeup_art'
   get '/pages/modelling' => 'pages#modelling'
+  get '/pages/resume' => 'pages#resume'
   
 
   # for ajax requests
