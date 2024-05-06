@@ -15,7 +15,8 @@ class Admin::JewelryItemsController < ApplicationController
         respond_to do |format|
           if @jewelry_item.save
             
-            format.html { redirect_to jewelry_item_url(@jewelry_item), notice: "Jewelry Item was successfully created." }        
+            # format.html { redirect_to jewelry_item_url(@jewelry_item), notice: "Jewelry Item was successfully created." }        
+            format.html { redirect_to admin_root_url, notice: "Item successfully created." }
           else
             format.html { render :new, status: :unprocessable_entity }
             format.json { render json: @jewelry_item.errors, status: :unprocessable_entity }
@@ -40,6 +41,6 @@ class Admin::JewelryItemsController < ApplicationController
     
         # Only allow a list of trusted parameters through.
         def jewelry_item_params
-          params.require(:jewelry_item).permit(:title, :materials, :description, :price)
+          params.require(:jewelry_item).permit(:title, :materials, :description, :price, :images)
         end
 end

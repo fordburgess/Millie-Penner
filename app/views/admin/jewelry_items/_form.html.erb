@@ -1,4 +1,4 @@
-<%= form_with(model: jewelry_item, class: "contents") do |form| %>
+<%= form_for [:admin, @jewelry_item] do |form| %>
   <% if jewelry_item.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
       <h2><%= pluralize(jewelry_item.errors.count, "error") %> prohibited this jewelry_item from being saved:</h2>
@@ -13,7 +13,7 @@
 
   <div class="my-5">
     <%= form.label :title, class: "font-windowsRegular text-xl" %>
-    <%= form.text_field :title, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :title, style: "width: 100%", class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -23,7 +23,7 @@
 
   <div class="my-5">
     <%= form.label :description, class: "font-windowsRegular text-xl" %>
-    <%= form.text_area :description, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_area :description, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
   <div class="my-5">
@@ -31,8 +31,24 @@
     <%= form.text_field :price, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
+  <div class="my-5">
+    <%= form.label "Images", class: "font-windowsRegular text-xl" %>
+    <%= form.file_field :images, id: "image-input", name: "attachment[file][]", multiple: true, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>    
+  </div>
+
   <div class="inline">
     <%= form.submit class: "classic-button-1 mr-4 cursor-pointer", id: 'submit-button' %>
     <%= link_to "Back to dashboard", admin_root_path, class: "classic-button-2 mr-4", style: "padding: 10px 20px;" %>    
   </div>
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    var imageInput = document.getElementById("image-input");
+
+    imageInput.addEventListener("change", () => {
+      const files = Array.from(imageInput.files);
+      console.log(files);
+    })
+  })
+</script>
