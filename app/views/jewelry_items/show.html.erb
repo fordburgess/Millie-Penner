@@ -29,34 +29,29 @@
   document.addEventListener('turbo:load', () => {
     var imageContainer = document.getElementById("image-container");
     var primaryImage = document.getElementById("primary-image");
-    var subimages = document.querySelectorAll(".jewelry-image")
-    var images = Array.from(document.querySelectorAll(".jewelry-image"));
-    var urls = images.map(image => image.getAttribute("src"))
+    var subimages = document.querySelectorAll(".jewelry-image")    
     var index = 0;
 
-
-    primaryImage.innerHTML = `
-      <img src=\"${urls[index]}"\ class=\"primary-image\" style=\"margin-bottom: 3px; height: 400px; width: 100%; object-fit: cover; object-position: center;\" />
-    `;
+    updateImages();
 
     imageContainer.style.display = "block"
 
     subimages.forEach((subimage, i) => {
       subimage.addEventListener('click', () => {
-        index = i 
-        subimage.style.opacity = "100%";
-        
-        subimages.forEach((item, j) => {
-          if (j !== i) {
-            item.style.opacity = "50%";
-          }
-        })
+        index = i;
+        updateImages();
 
-        primaryImage.innerHTML = `
-          <img src=\"${urls[i]}"\ class=\"primary-image\" style=\"margin-bottom: 3px; height: 400px; width: 100%; object-fit: cover; object-position: center;\" />
-        `;
       })
     })
     
+    function updateImages() {
+      subimages.forEach((subimage, i) => {
+        subimage.style.opacity = i == index ? "1" : "0.5";
+      })
+
+      primaryImage.innerHTML = `
+        <img src="${subimages[index].getAttribute("src")}" class=\"primary-image\" style=\"margin-bottom: 3px; height: 400px; width: 100%; object-fit: cover; object-position: center;\" />
+      `;
+    }
   })
 </script>
