@@ -13,7 +13,7 @@
         <%= link_to "/jewelry_items/#{item.id}", class: "w-1/2 lg:w-1/3" do %>
           <div class="jewelry-item" id="<%= index.even? ? 'even' : 'odd' %>">
             <h1 class="text-xl"><%= item.title %></h1>
-            <%= image_tag "ring.jpeg", style: "height: 50%; width: 50%" %>
+            <%= image_tag item.images[0], style: "height: 50%; width: 50%" %>
             <p>£<%= sprintf('%.2f', item.price) %></p>
           </div>
         <% end %>
