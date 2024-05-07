@@ -1,15 +1,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap" rel="stylesheet">
 <link href="https://fonts.cdnfonts.com/css/sudo-var" rel="stylesheet">
 <div class="w-screen h-screen" style="background-color: #FFEE9C;">
-  <div class="py-20 px-10">
+  <div class="py-20 px-10 h-full w-full">
     <h1 class="text-2xl mb-6" style="font-family: Stalinist One; color: #8A1E82;"><%= @jewelry_item.title %></h1>
-    <div>
-      <%= image_tag "ring.jpeg", class: "mb-6", style: "height: auto; width: 100%" %>
-    </div>
-    <div>
-      <p style="font-family: sudo var" class="text-2xl mb-4">£<%= sprintf('%.2f', @jewelry_item.price) %></p>
-      <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.materials %></p>
-      <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.description %></p>
+    <div class="lg:flex lg:flex-row w-full lg:h-full">
+      <%= image_tag "ring.jpeg", class: "w-full lg:w-2/3 lg:h-3/4 mb-6" %>
+      <div class="lg:px-10">
+        <p style="font-family: sudo var" class="text-2xl mb-4">£<%= sprintf('%.2f', @jewelry_item.price) %></p>
+        <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.materials %></p>
+        <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.description %></p>
+      </div>
     </div>
   </div>
 </div>
