@@ -4,8 +4,17 @@
   <div class="py-20 px-10 h-full w-full">
     <h1 class="text-2xl mb-6" style="font-family: Stalinist One; color: #8A1E82;"><%= @jewelry_item.title %></h1>
     <div class="lg:flex lg:flex-row w-full lg:h-full">
-      <%= image_tag "ring.jpeg", class: "w-full lg:w-2/3 lg:h-3/4 mb-6" %>
-      <div class="lg:px-10">
+      <div class="w-full lg:w-[60%] bg-red-200 flex flex-col items-center">        
+        <% if @jewelry_item.images.attached? %>
+          <%= image_tag @jewelry_item.images[0], class: "h-auto w-full  lg:w-2/3" %>
+          <div class="flex w-2/3">
+              <% @jewelry_item.images.slice(1, @jewelry_item.images.length - 1).each do |image| %>
+                <%= image_tag image, style: "height: 100px; width: 100px;" %>
+              <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="w-full lg:w-[40%] lg:px-10">
         <p style="font-family: sudo var" class="text-2xl mb-4">£<%= sprintf('%.2f', @jewelry_item.price) %></p>
         <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.materials %></p>
         <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.description %></p>
