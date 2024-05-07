@@ -1,6 +1,10 @@
 .modelling-container {
     background-color: #8C8AFF;
-    padding: 25px 100px 200px 100px;
+    padding: 25px 0px 0px 0px;
+}
+
+.modelling-container section {
+    padding: 0 100px;
 }
 
 .modelling-title {
@@ -23,20 +27,25 @@
 #good-squish-1 {
     position: absolute;
     top: 50%;
-    left: -60px;
-    transform: translate(60px, -50%);
+    left: 50px;
+    transform: translate(50px, -50%);
 }
 
 #good-squish-gif {
     position: absolute;
     bottom: -40px;
-    right: 0px;
-    transform: translate(0px, 40px);
+    right: 50px;
+    transform: translate(-50px, 40px);
 }
 
 #personal-2 {
     position: absolute;
     bottom: -10px;
-    right: -50px;    
-    transform: translate(50px, 10px);
+    right: -30px;    
+    transform: translate(30px, 10px);
+}
+
+#dazed-section img {
+    object-fit: cover;
+    object-position: center;
 }

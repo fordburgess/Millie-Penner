@@ -1,5 +1,4 @@
-class JewelryItemsController < ApplicationController
-  before_action :set_jewelry_item, only: %i[ show ]
+class JewelryItemsController < ApplicationController  
 
   # GET /jewelry_items or /jewelry_items.json
   def index
