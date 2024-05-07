@@ -1,5 +1,6 @@
 class Cart < ApplicationRecord
     has_and_belongs_to_many :zines
+    has_and_belongs_to_many :jewelry_items
 
     def add_item(product_id)          
         all_zines = Zine.all
