@@ -20,7 +20,7 @@
         <p style="font-family: sudo var" class="text-2xl mb-4">£<%= sprintf('%.2f', @jewelry_item.price) %></p>
         <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.materials %></p>
         <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.description %></p>
-        <%= button_to "Add to Cart", add_to_cart_path(@jewelry_item), data: { jewelry_item_id: @jewelry_item.id }, class: "classic-button-1 w-full lg:px-[80px]", id: "add-to-cart-button" %>
+        <%= button_to "Add to Cart", add_to_cart_path("JewelryItem", @jewelry_item), data: { jewelry_item_id: @jewelry_item.id }, class: "classic-button-1 w-full lg:px-[80px]", id: "add-to-cart-button" %>
       </div>
     </div>
   </div>

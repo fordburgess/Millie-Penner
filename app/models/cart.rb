@@ -1,20 +1,23 @@
 class Cart < ApplicationRecord
-    has_and_belongs_to_many :zines
-    has_and_belongs_to_many :jewelry_items
+    has_and_belongs_to_many :zines   
+    has_and_belongs_to_many :jewelry_items 
 
-    def add_item(product_id)          
-        all_zines = Zine.all
+    def all_products        
+        zines + jewelry_items
+    end
 
-        zine_in_cart = zines.where(:id => product_id).first        
+    def add_item(type, product_id)          
+        
+        product = type.constantize.find(product_id)
 
-        if zine_in_cart
-            # zine_in_cart.quantity + 1
-            save
-        else
-            product = all_zines.where(:id => product_id).first
+        if type == "JewelryItem"
+            jewelry_items << product
+        elsif type == "Zine"
             zines << product
         end
-        save       
+
+        save
+     
     end
 
     def remove_item(product_id)
@@ -37,6 +40,6 @@ class Cart < ApplicationRecord
     end
 
     def cart_total
-        zines.sum(&:price)
+        jewelry_items.sum(&:price) + zines.sum(&:price)
     end
 end

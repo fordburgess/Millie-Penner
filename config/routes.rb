@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get '/zines/ajax/:id' => 'zines#zines_ajax'
 
   # cart functionality
-  post '/add_to_cart/:product_id' => 'carts#add_to_cart', :as => 'add_to_cart'
+  post '/add_to_cart/:product_type/:product_id' => 'carts#add_to_cart', :as => 'add_to_cart'
   delete '/remove_from_cart/:product_id' => 'carts#remove_from_cart', :as => 'remove_from_cart'
   delete '/empty_cart' => 'carts#empty_cart', :as => 'empty_cart'
 
