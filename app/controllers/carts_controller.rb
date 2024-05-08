@@ -14,7 +14,7 @@ class CartsController < ApplicationController
     end
 
     def remove_from_cart        
-        current_cart.remove_item(params[:product_id])    
+        current_cart.remove_item(params[:product_type], params[:product_id])    
         head :no_content 
     end
 

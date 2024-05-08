@@ -20,14 +20,21 @@ class Cart < ApplicationRecord
      
     end
 
-    def remove_item(product_id)
-        all_zines = Zine.all
-
-        product = zines.where(:id => product_id).first
-
-        if product
-            zines.delete(product)
-        end
+    def remove_item(type, product_id)
+        puts "HELLO HELLO"
+        puts product_id
+        
+        if type == "Zine"
+            product = zines.where(:id => product_id).first
+            if product
+                zines.delete(product)
+            end
+        elsif type == "JewelryItem"     
+            product = jewelry_items.where(:id => product_id).first
+            if product
+                jewelry_items.delete(product)
+            end
+        end        
     end
 
     def empty_items
@@ -35,8 +42,9 @@ class Cart < ApplicationRecord
             zines.clear()
         end
 
-        puts "HELLO HELLO"
-        puts zines
+        if jewelry_items.length() > 0
+            jewelry_items.clear()
+        end
     end
 
     def cart_total

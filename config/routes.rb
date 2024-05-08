@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   # cart functionality
   post '/add_to_cart/:product_type/:product_id' => 'carts#add_to_cart', :as => 'add_to_cart'
-  delete '/remove_from_cart/:product_id' => 'carts#remove_from_cart', :as => 'remove_from_cart'
+  delete '/remove_from_cart/:product_type/:product_id' => 'carts#remove_from_cart', :as => 'remove_from_cart'
   delete '/empty_cart' => 'carts#empty_cart', :as => 'empty_cart'
 
   # order functionality
