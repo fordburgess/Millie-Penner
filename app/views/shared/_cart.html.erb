@@ -12,35 +12,25 @@
     <div id="inner-cart" class="h-full flex flex-col justify-between">
         <div>
             <h1 class="font-lexendZetta text-3xl font-bold text-white mb-8">My Cart</h1>            
-            <div id="cart-items">
-                <% @current_cart.zines.each do |zine| %>
-                    <div class="flex text-white mb-6 relative" id="zine-<%= zine.id %>" data="<%= zine.id %>">
-                        <%= image_tag zine.cover_image, class: "mr-4", style: "max-height: 10rem; max-width: 5rem" %>
-                        <div class="font-kameron">
-                            <h2 class="mt-0 mb-4"><%= zine.title %></h2>
-                            <p>Price: £<%= sprintf('%.2f', zine.price) %></p>
-                        </div>
-                        <%= button_to "X", remove_from_cart_path(zine), :method => :delete, id: "delete-button", data: { id: zine.id }, class: "absolute top-0 right-0 hover:cursor-pointer" %>
-                    </div>
-                <% end %>
-                <% @current_cart.jewelry_items.each do |item| %>
-                    <div class="flex text-white mb-6 relative" id="zine-<%= zine.id %>" data="<%= item.id %>">
-                        <%= image_tag item.cover_image, class: "mr-4", style: "max-height: 10rem; max-width: 5rem" %>
+            <div id="cart-items">                
+                <% @current_cart.all_products.each do |item| %>
+                    <div class="flex text-white mb-6 relative" id="product-<%= item.id %>" data="<%= item.id %>">
+                        <%= image_tag item.class.name == "Zine" ? item.cover_image : item.images[0], class: "mr-4", style: "max-height: 10rem; max-width: 5rem" %>
                         <div class="font-kameron">
                             <h2 class="mt-0 mb-4"><%= item.title %></h2>
                             <p>Price: £<%= sprintf('%.2f', item.price) %></p>
                         </div>
-                        <%= button_to "X", remove_from_cart_path(item), :method => :delete, id: "delete-button", data: { id: item.id }, class: "absolute top-0 right-0 hover:cursor-pointer" %>
+                        <button id="delete-button", data-id="<%= item.id %>" data-type="<%= item.class.name %>" class="absolute top-0 right-0 hover:cursor-pointer">X</button>
                     </div>
-                <% end %>
+                <% end %>                
             </div>
         </div>
-        <% if @current_cart.zines.length > 0 %>
+        <% if @current_cart.zines.length > 0 || @current_cart.jewelry_items.length > 0 %>
             <div class="flex flex-col">
                 <%= link_to "Checkout", new_order_path, class: 'classic-button-1 w-full mb-4 text-center' %>                               
-                <%= link_to "Clear all", empty_cart_path,:method => :delete, id: "clear-all-button", class: "classic-button-1 w-full bg-black text-white text-center" %>
+                <%= link_to "Clear all", empty_cart_path, :method => :delete, id: "clear-all-button", class: "classic-button-1 w-full bg-black text-white text-center" %>
             </div>
-        <% end %>
+        <% end %> 
     </div>
 </div>    
 <script>
@@ -85,20 +75,25 @@
         var cartItems = document.getElementById('cart-items');
         
         if (cartItems) {
-            cartItems.addEventListener('click', (e) => {        
+            cartItems.addEventListener('click', (e) => {  
+                e.preventDefault()      
                 if (e.target.id == 'delete-button') {            
-                    var zineIdDelete = e.target.getAttribute('data-id');
-                    var zineToRemove = document.getElementById(`zine-${zineIdDelete}`);                   
+                    var productIdToDelete = e.target.getAttribute('data-id');
+                    var productType = e.target.getAttribute('data-type');
+                    console.log(productType)
+                    var productToRemove = document.getElementById(`product-${productIdToDelete}`);                   
                     
-                    cartItems.removeChild(zineToRemove);
-    
-                    fetch(`/remove_from_cart/${zineIdDelete}`, {
+                    cartItems.removeChild(productToRemove);
+                    console.log("HELLO")
+                    
+                    fetch(`/remove_from_cart/${productType}/${productIdToDelete}`, {
                         method: 'DELETE',
                         headers: { 
                             'Content-Type' : 'application/json', 
                             'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
                         }
-                    })         
+                    }) 
+                            
                 }
             })
         }

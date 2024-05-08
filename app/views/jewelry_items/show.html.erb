@@ -4,12 +4,55 @@
   <div class="py-20 px-10 h-full w-full">
     <h1 class="text-2xl mb-6" style="font-family: Stalinist One; color: #8A1E82;"><%= @jewelry_item.title %></h1>
     <div class="lg:flex lg:flex-row w-full lg:h-full">
-      <%= image_tag "ring.jpeg", class: "w-full lg:w-2/3 lg:h-3/4 mb-6" %>
-      <div class="lg:px-10">
+      <div class="w-full lg:w-[60%] h-full flex flex-col items-center">        
+        <% if @jewelry_item.images.attached? %>          
+          <div class="flex" id="image-container" style="display: none;">
+            <div id="primary-image"></div>
+            <div class="flex justify-between">
+              <% @jewelry_item.images.each_with_index do |image, index| %>
+                <%= image_tag image, id: "subimage-#{index}", class: "jewelry-image w-[33%] h-[200px] hover:cursor-pointer", style: "opacity: #{index == 0 ? "100%" : "50%" }" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="w-full lg:w-[40%] lg:px-10">
         <p style="font-family: sudo var" class="text-2xl mb-4">£<%= sprintf('%.2f', @jewelry_item.price) %></p>
         <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.materials %></p>
         <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.description %></p>
+        <%= button_to "Add to Cart", add_to_cart_path("JewelryItem", @jewelry_item), data: { jewelry_item_id: @jewelry_item.id }, class: "classic-button-1 w-full lg:px-[80px]", id: "add-to-cart-button" %>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  document.addEventListener('turbo:load', () => {
+    var imageContainer = document.getElementById("image-container");
+    var primaryImage = document.getElementById("primary-image");
+    var subimages = document.querySelectorAll(".jewelry-image")    
+    var index = 0;
+
+    updateImages();
+
+    imageContainer.style.display = "block"
+
+    subimages.forEach((subimage, i) => {
+      subimage.addEventListener('click', () => {
+        index = i;
+        updateImages();
+
+      })
+    })
+    
+    function updateImages() {
+      subimages.forEach((subimage, i) => {
+        subimage.style.opacity = i == index ? "1" : "0.5";
+      })
+
+      primaryImage.innerHTML = `
+        <img src="${subimages[index].getAttribute("src")}" class=\"primary-image\" style=\"margin-bottom: 3px; height: 400px; width: 100%; object-fit: cover; object-position: center;\" />
+      `;
+    }
+  })
+</script>
