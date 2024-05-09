@@ -1,21 +1,8 @@
-.jewelry-item {
-    height: 300px;    
-    border-width: 10px;
-    border-style: groove;    
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    font-family: sudo var;
-}
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
 
-#odd {
-    border-color: #FF96B6;
-    background-color: #FFDEE8;
-}
-
-#even {
-    border-color: #9AFCA6;
-    background-color: #CFFFD5;
+.subtitle {
+    font-family: "Libre Barcode 128 Text", system-ui;
+    font-size: 3rem;
+    padding: 6px;
+    background-color: #FFD06E;
 }
