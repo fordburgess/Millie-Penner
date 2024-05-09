@@ -6,61 +6,61 @@
         <p id="left-arrow"><--</p>
         <div class="relative h-full w-5/6">
           <div class="page-flip" id="page-flip-1">
-            <div id="r1-first">
-              <div id="p1-first">
+            <div id="r1">
+              <div id="p1">
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[0]) %>)"></div>
               </div>
             </div>          
-            <div id="r3-first">
-              <div id="p3-first">
+            <div id="r3">
+              <div id="p3">
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[1]) %>)"></div>
               </div>
             </div>                
           </div>
           <div class="page-flip" id="page-flip-2">
-            <div id="r1-second">
-              <div id="p1-second">
+            <div id="r1">
+              <div id="p1">
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[2]) %>)"></div>
               </div>
             </div>          
-            <div id="r3-second">
-              <div id="p3-second">              
+            <div id="r3">
+              <div id="p3">              
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[3]) %>)"></div>
               </div>
             </div>                
           </div> 
           <div class="page-flip" id="page-flip-3">
-            <div id="r1-second">
-              <div id="p1-second">
+            <div id="r1">
+              <div id="p1">
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[4]) %>)"></div>
               </div>
             </div>          
-            <div id="r3-second">
-              <div id="p3-second">              
+            <div id="r3">
+              <div id="p3">              
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[5]) %>)"></div>
               </div>
             </div>                
           </div>        
           <div class="page-flip" id="page-flip-4">
-            <div id="r1-second">
-              <div id="p1-second">
+            <div id="r1">
+              <div id="p1">
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[6]) %>)"></div>
               </div>
             </div>          
-            <div id="r3-second">
-              <div id="p3-second">              
+            <div id="r3">
+              <div id="p3">              
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[7]) %>)"></div>
               </div>
             </div>                
           </div>
           <div class="page-flip" id="page-flip-5">
-            <div id="r1-second">
-              <div id="p1-second">
+            <div id="r1">
+              <div id="p1">
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[8]) %>)"></div>
               </div>
             </div>          
-            <div id="r3-second">
-              <div id="p3-second">              
+            <div id="r3">
+              <div id="p3">              
                 <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[9]) %>)"></div>
               </div>
             </div>                
@@ -98,7 +98,7 @@
     var pageNumber = 1;
 
     right.addEventListener("click", () => {
-      if (pageNumber < 9) {
+      if (pageNumber < 5) {
         flipPageRight();
         pageNumber++;      
       } 
