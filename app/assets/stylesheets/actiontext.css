@@ -39,5 +39,11 @@ trix-toolbar .trix-button {
 
 .trix-content action-text-attachment .attachment {
   padding: 0 !important;
-  max-width: 100% !important;
+  max-width: 100% !important;  
+  display: flex;
+  align-items: flex-end;
+}
+
+.trix-content action-text-attachment .attachment img {
+  margin-right: 20px;
 }
