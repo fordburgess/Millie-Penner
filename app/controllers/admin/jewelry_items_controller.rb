@@ -1,4 +1,8 @@
 class Admin::JewelryItemsController < ApplicationController
+    def index
+      @jewelry_items = JewelryItem.all
+    end
+    
     def new
         @jewelry_item = JewelryItem.new
         render 'admin/jewelry_items/new'

@@ -1,0 +1,26 @@
+<div class="w-screen h-screen" style="background-image: url('<%= image_url('star-bg.jpeg')%>');">
+    <section class="px-20 h-full flex-col text-white">
+        <div class="h-1/5 flex items-center">
+            <h1 class="font-lexendZetta text-white text-3xl mr-8">All Jewelry</h1>
+            <%= link_to "Back to dashboard", admin_root_path, class: "underline font-windowsRegular" %>
+        </div>    
+        <div class="w-full h-4/5 flex-col text-white font-kameron overflow-y-scroll box-border">
+            <% @jewelry_items.each do |item| %>
+                <div class="w-full flex mb-8">
+                    <%= image_tag item.images[0], class: "mr-8", style: "max-height: 15rem; max-width: 10rem" %>
+                    <div class="flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-xl"><%= item.title %></h2>
+                            <h3 class="text-xl">Created: <%= item.created_at.strftime('%d/%m/%Y') %></h3>
+                        </div>
+                        <div class="flex">
+                            <%= link_to "Edit Item", edit_admin_jewelry_item_path(item), class: "classic-button-1 mr-4" %>
+                            <%= link_to "View Shop Page", "/jewelry_items/#{item.id}", class: "classic-button-1 mr-4" %>
+                            <%= button_to "Delete Item", admin_jewelry_item_path(item), :method => :delete, class: "underline text-white font-windowsRegular" %>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </section>
+</div>

@@ -1,8 +1,4 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing jewelry item</h1>
-
-  <%= render "form", jewelry_item: @jewelry_item %>
-
-  <%= link_to "Show this jewelry item", @jewelry_item, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to jewelry items", jewelry_items_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+<div class="w-screen h-screen overflow-y-scroll px-10 py-28 lg:px-60 text-white" style="background-image: url('<%= image_url('star-bg.jpeg')%>');">
+  <h1 class="font-bold text-4xl font-lexendZetta mb-6" id="title">Edit Jewelry Item</h1>
+  <%= render "form", jewelry_item: @jewelry_item %>  
 </div>
