@@ -42,16 +42,36 @@ body {
     z-index: 5;
 }
 
+#page-flip-2 {
+    z-index: 4;
+}
+
+#page-flip-3 {
+    z-index: 3;
+}
+
+#page-flip-4 {
+    z-index: 2;
+}
+
+#page-flip-5 {
+    z-index: 1;
+}
+
 #page-flip-1.flipped {
     z-index: 4;
     transition-delay: 1s;
 }
 
-#page-flip-2 {
+#page-flip-2.flipped {
     z-index: 4;
 }
 
-#page-flip-2.flipped {
+#page-flip-3 {
+    z-index: 4;
+}
+
+#page-flip-3.flipped {
     z-index: 5;
 }
 

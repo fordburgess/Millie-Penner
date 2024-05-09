@@ -2,35 +2,71 @@
 <div id="<%= dom_id zine %>" class="h-screen w-screen py-24 lg:p-16 flex flex-col lg:flex-row relative border-box bg-cover overflow-y-scroll" style="box-sizing: border-box">
   <%= link_to "<-- All Zines", zines_path, class: "absolute top-10 left-7 z-50 underline font-windowsRegular" %>
   <div class="w-full h-full lg:h-full lg:w-2/3 lg:mr-8" id="zine-container">
-    
-  
-      <div class="relative h-3/4 w-full">
-        <div class="page-flip" id="page-flip-1">
-          <div id="r1-first">
-            <div id="p1-first">
-              <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[0]) %>)"></div>
-            </div>
+      <div class="w-full h-3/4 flex items-center">
+        <p id="left-arrow"><--</p>
+        <div class="relative h-full w-5/6">
+          <div class="page-flip" id="page-flip-1">
+            <div id="r1-first">
+              <div id="p1-first">
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[0]) %>)"></div>
+              </div>
+            </div>          
+            <div id="r3-first">
+              <div id="p3-first">
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[1]) %>)"></div>
+              </div>
+            </div>                
           </div>
-          
-          <div id="r3-first">
-            <div id="p3-first">
-              <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[1]) %>)"></div>
-            </div>
+          <div class="page-flip" id="page-flip-2">
+            <div id="r1-second">
+              <div id="p1-second">
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[2]) %>)"></div>
+              </div>
+            </div>          
+            <div id="r3-second">
+              <div id="p3-second">              
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[3]) %>)"></div>
+              </div>
+            </div>                
+          </div> 
+          <div class="page-flip" id="page-flip-3">
+            <div id="r1-second">
+              <div id="p1-second">
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[4]) %>)"></div>
+              </div>
+            </div>          
+            <div id="r3-second">
+              <div id="p3-second">              
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[5]) %>)"></div>
+              </div>
+            </div>                
+          </div>        
+          <div class="page-flip" id="page-flip-4">
+            <div id="r1-second">
+              <div id="p1-second">
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[6]) %>)"></div>
+              </div>
+            </div>          
+            <div id="r3-second">
+              <div id="p3-second">              
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[7]) %>)"></div>
+              </div>
+            </div>                
           </div>
-                
+          <div class="page-flip" id="page-flip-5">
+            <div id="r1-second">
+              <div id="p1-second">
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[8]) %>)"></div>
+              </div>
+            </div>          
+            <div id="r3-second">
+              <div id="p3-second">              
+                <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[9]) %>)"></div>
+              </div>
+            </div>                
+          </div>
         </div>
-        <div class="page-flip" id="page-flip-2">
-          <div id="r1-second">
-            <div id="p1-second">
-              <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[2]) %>)"></div>
-            </div>
-          </div>          
-          <div id="r3-second">
-            <div id="p3-second">
-              <div style="background-image: url(<%= rails_blob_url(zine.pdf_images[3]) %>)"></div>
-            </div>
-          </div>                
-        </div>
+        <p id="right-arrow">--></p>
       </div>
     <div class="flex items-center justify-center pb-8 lg:pb-0 w-full">      
       <a target="_blank" href="<%= @zine.pdf_url %>" class="classic-button-1 mr-2 lg:mr-8 w-[150px] lg:w-auto lg:px-20 bg-black text-white text-center">Preview zine</a>      
@@ -57,34 +93,34 @@
 
 <script>
   document.addEventListener("turbo:load", () => {
-    var p3first = document.getElementById("p3-first");
-    var p3second = document.getElementById("p3-second");
-    var pageFlip1 = document.getElementById("page-flip-1");
-    var pageFlip1Bool = false;
-    var pageFlip2Bool = false;
+    var left = document.getElementById("left-arrow");
+    var right = document.getElementById("right-arrow");
+    var pageNumber = 1;
 
-    var pageFlip2 = document.getElementById("page-flip-2");
+    right.addEventListener("click", () => {
+      if (pageNumber < 9) {
+        flipPageRight();
+        pageNumber++;      
+      } 
+    })
 
-    p3first.addEventListener("click", () => {
-      if (!pageFlip1Bool) {
-        pageFlip1.classList.add("flipped");
-        pageFlip1Bool = true;
-      }
-      else {
-        pageFlip1.classList.remove("flipped");
-        pageFlip1Bool = false;
+    left.addEventListener("click", () => {
+      if (pageNumber > 1) {
+        pageNumber--;
+        flipPageLeft();
       }
     })
 
-    p3second.addEventListener("click", () => {
-      if (!pageFlip2Bool) {
-        pageFlip2.classList.add("flipped");
-        pageFlip2Bool = true;
-      }
-      else {
-        pageFlip2.classList.remove("flipped");
-        pageFlip2Bool = false;
-      }
-    })
+    const flipPageRight = () => {
+      console.log(pageNumber)
+      var pageToFlip = document.getElementById(`page-flip-${pageNumber}`);
+      pageToFlip.classList.add("flipped");
+    }
+
+    const flipPageLeft = () => {
+      console.log(pageNumber)
+      var pageToFlip = document.getElementById(`page-flip-${pageNumber}`);
+      pageToFlip.classList.remove("flipped")
+    }
   });
 </script>
