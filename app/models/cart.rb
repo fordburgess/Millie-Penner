@@ -21,9 +21,6 @@ class Cart < ApplicationRecord
     end
 
     def remove_item(type, product_id)
-        puts "HELLO HELLO"
-        puts product_id
-        
         if type == "Zine"
             product = zines.where(:id => product_id).first
             if product

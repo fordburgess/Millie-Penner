@@ -79,12 +79,10 @@
                 e.preventDefault()      
                 if (e.target.id == 'delete-button') {            
                     var productIdToDelete = e.target.getAttribute('data-id');
-                    var productType = e.target.getAttribute('data-type');
-                    console.log(productType)
+                    var productType = e.target.getAttribute('data-type');                    
                     var productToRemove = document.getElementById(`product-${productIdToDelete}`);                   
                     
-                    cartItems.removeChild(productToRemove);
-                    console.log("HELLO")
+                    cartItems.removeChild(productToRemove);                    
                     
                     fetch(`/remove_from_cart/${productType}/${productIdToDelete}`, {
                         method: 'DELETE',
