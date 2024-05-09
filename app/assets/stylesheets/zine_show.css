@@ -42,20 +42,43 @@ body {
     z-index: 5;
 }
 
-#page-flip-1.flipped {
-    z-index: 4;
-    transition-delay: 1s;
-}
-
 #page-flip-2 {
     z-index: 4;
 }
 
+#page-flip-3 {
+    z-index: 3;
+}
+
+#page-flip-4 {
+    z-index: 2;
+}
+
+#page-flip-5 {
+    z-index: 1;
+}
+
+#page-flip-1.flipped {
+    z-index: 0;
+    transition-delay: 1s;
+}
+
 #page-flip-2.flipped {
-    z-index: 5;
+    z-index: 1;
+    transition-delay: 1s;
 }
 
-#r1-first {
+#page-flip-3.flipped {
+    z-index: 2;
+    transition-delay: 1s;
+}
+
+#page-flip-4.flipped {
+    z-index: 4;
+    transition-delay: 1s;
+}
+
+#r1 {
     position: absolute;
     z-index: 2;
     -webkit-transform-origin: 1315px 500px;
@@ -64,14 +87,14 @@ body {
     -webkit-transition-duration: 1s;
 }
 
-#p1-first {
+#p1 {
     width: 1285px;
     height: 1000px;
     overflow: hidden;
     /* background-color: aqua; */
 }
 
-#p1-first > div {
+#p1 > div {
     -webkit-transform-origin: 285px 0;
     -webkit-transform: translate(1030px, 500px) rotate(32deg);
     -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
@@ -98,7 +121,7 @@ body {
     background-size: contain;
 }
 
-#r3-first {
+#r3 {
     -webkit-transform-origin: 1315px 500px;
     -webkit-transform: translate(-1030px, -500px) rotate(-32deg);
     -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
@@ -167,13 +190,13 @@ body {
     -webkit-transform: translate(-15px, -500px) rotate(0deg);
 }
 
-#p3-first {
+#p3 {
     width: 1285px;
     height: 1388px;
     overflow: hidden;
 }
 
-#p3-first > div {
+#p3 > div {
     -webkit-transform-origin: 0 0;
     -webkit-transform: translate(1255px, 500px) rotate(-32deg);
     -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
@@ -186,59 +209,34 @@ body {
     background-size: contain;
 }
 
-#p3-first > div > div {
+#p3 > div > div {
     width: 9px;
     height: 500px;
     float: right;
     background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(rgba(0,0,0,.20)));
 }
 
-#page-flip-1.flipped #r1-first {
+.page-flip.flipped #r1 {
     -webkit-transform-origin: 1570px 500px;
     -webkit-transform: translate(-1285px, -500px) rotate(0deg);
 }
 
-#page-flip-1.flipped #p1-first > div {
+.page-flip.flipped #p1 > div {
     -webkit-transform-origin: 285px 0;
     -webkit-transform: translate(1285px, 500px) rotate(0deg);
 }
 
-#page-flip-1.flipped #r3-first {
+.page-flip.flipped #r3 {
     -webkit-transform-origin: 1570px 500px;
     -webkit-transform: translate(-1285px, -500px) rotate(0deg);
 }
 
-#page-flip-1.flipped #p3-first > div {
+.page-flip.flipped #p3 > div {
     -webkit-transform-origin: 0 0;
     -webkit-transform: translate(1000px, 500px) rotate(0deg);
 }
 
-#r1-second {
-    position: absolute;
-    z-index: 2;
-    -webkit-transform-origin: 1315px 500px;
-    -webkit-transform: translate(-1030px, -500px) rotate(-32deg);
-    -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
-    -webkit-transition-duration: 1s;
-}
 
-#p1-second {
-    width: 1285px;
-    height: 1000px;
-    overflow: hidden;
-    /* background-color: aqua; */
-}
-
-#p1-second > div {
-    -webkit-transform-origin: 285px 0;
-    -webkit-transform: translate(1030px, 500px) rotate(32deg);
-    -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
-    -webkit-transition-duration: 1s;
-    width: 285px;
-    height: 388px;
-    background-position: center;
-    background-size: contain;
-}
 
 /* #p1 > div > div {
     width: 10px;
@@ -256,14 +254,6 @@ body {
     background-size: contain;
 }
 
-#r3-second {
-    -webkit-transform-origin: 1315px 500px;
-    -webkit-transform: translate(-1030px, -500px) rotate(-32deg);
-    -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
-    -webkit-transition-duration: 1s;
-    position: absolute;
-    z-index: 2;
-}
 
 #s3 {
     -webkit-transform-origin: 70px 500px;
@@ -325,51 +315,7 @@ body {
     -webkit-transform: translate(-15px, -500px) rotate(0deg);
 }
 
-#p3-second {
-    width: 1285px;
-    height: 1388px;
-    overflow: hidden;
-}
 
-#p3-second > div {
-    -webkit-transform-origin: 0 0;
-    -webkit-transform: translate(1255px, 500px) rotate(-32deg);
-    -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
-    -webkit-transition-duration: 1s;
-    -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
-    width: 285px;
-    height: 388px;    
-    overflow: hidden;
-    background-position: center;
-    background-size: contain;
-}
-
-#p3-second > div > div {
-    width: 9px;
-    height: 500px;
-    float: right;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), to(rgba(0,0,0,.20)));
-}
-
-#page-flip-2.flipped #r1-second {
-    -webkit-transform-origin: 1570px 500px;
-    -webkit-transform: translate(-1285px, -500px) rotate(0deg);
-}
-
-#page-flip-2.flipped #p1-second > div {
-    -webkit-transform-origin: 285px 0;
-    -webkit-transform: translate(1285px, 500px) rotate(0deg);
-}
-
-#page-flip-2.flipped #r3-second {
-    -webkit-transform-origin: 1570px 500px;
-    -webkit-transform: translate(-1285px, -500px) rotate(0deg);
-}
-
-#page-flip-2.flipped #p3-second > div {
-    -webkit-transform-origin: 0 0;
-    -webkit-transform: translate(1000px, 500px) rotate(0deg);
-}
 
 
 @media (min-width: 1024px) {
