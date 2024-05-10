@@ -12,15 +12,19 @@
     justify-content: center;
 }
 
-/* form {
-    width: 120px;
-} */
+form {
+    width: 100%;    
+}
 
 
 
 body {
     padding: 0;
     margin: 0;
+}
+
+#left-arrow:hover, #right-arrow:hover {
+    cursor: pointer;
 }
 
 
@@ -99,6 +103,7 @@ body {
     -webkit-transform: translate(1030px, 500px) rotate(32deg);
     -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
     -webkit-transition-duration: 1s;
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
     width: 285px;
     height: 388px;
     background-position: center;
@@ -114,7 +119,7 @@ body {
 #p2 > div {
     width: 285px;
     height: 388px;
-    -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
     position: absolute;
     z-index: 1;    
     background-position: center;
@@ -201,7 +206,7 @@ body {
     -webkit-transform: translate(1255px, 500px) rotate(-32deg);
     -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
     -webkit-transition-duration: 1s;
-    -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
     width: 285px;
     height: 388px;    
     overflow: hidden;
@@ -224,6 +229,7 @@ body {
 .page-flip.flipped #p1 > div {
     -webkit-transform-origin: 285px 0;
     -webkit-transform: translate(1285px, 500px) rotate(0deg);
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
 }
 
 .page-flip.flipped #r3 {
@@ -238,16 +244,16 @@ body {
 
 
 
-/* #p1 > div > div {
+#p1 > div > div {
     width: 10px;
     height: 388px;
     background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0,0,0,0)));
-} */
+}
 
 #p2 > div {
     width: 285px;
     height: 388px;
-    -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
     position: absolute;
     z-index: 1;    
     background-position: center;
