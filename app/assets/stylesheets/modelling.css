@@ -1,6 +1,7 @@
 .modelling-container {
     background-color: #8C8AFF;     
     padding-top: 50px;  
+    overflow-x: hidden;
 }
 
 .modelling-container section {
