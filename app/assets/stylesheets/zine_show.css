@@ -1,15 +1,16 @@
-.book {
+/* .book {
     height: 75%;
     margin-bottom: 4rem;
     width: 100%;
     position: relative;    
-}
+} */
 
 
-.zine-container {   
+#zine-container {   
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 75vh;
 }
 
 form {
@@ -29,17 +30,15 @@ body {
 
 
 
-.page-flip {    
-    /* position: absolute; */
-    padding: 40px 40px 40px 340px;
+.page-flip {            
     width: 100%;
     height: 100%;
     margin-bottom: 30px;
     overflow: hidden;
     position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
 }
 
 #page-flip-1 {
@@ -326,7 +325,7 @@ body {
 
 @media (min-width: 1024px) {
     .zine-container {
-        height: 100%;
+        height: 100%;        
     }
 
     form {
@@ -335,5 +334,12 @@ body {
 
     #second-page {
         display: block;
+    }
+
+    .page-flip {
+        padding: 40px 40px 40px 340px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
