@@ -60,6 +60,37 @@
     width: 190px;
 }
 
+#yoga-2, #yoga-3, #yoga-4 {
+    position: absolute;
+}
+
+#yoga-1 {
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#yoga-2 {    
+    top: -50px;
+    left: -10px;
+    height: 75px;
+    width: 120px;
+}
+
+#yoga-3 {
+    height: 130px;
+    width: 180px;
+    bottom: -60px;
+    right: -10px;
+}
+
+#yoga-4 {
+    height: 100px;
+    width: 150px;
+    top: -50px;
+    right: -10px;
+}
+
 #dazed-section img {
     object-fit: cover;
     object-position: center;
@@ -129,5 +160,31 @@
         bottom: -10px;
         right: -30px;    
         transform: translate(30px, 10px);
+    }
+
+    #yoga-1 {
+        height: 450px;
+        width: 700px;
+    }
+
+    #yoga-2 {
+        top: -60px; 
+        left: -50px; 
+        height: 120px; 
+        width: 200px;
+    }
+
+    #yoga-3 {        
+        bottom: -60px; 
+        right: 5px; 
+        height: 200px; 
+        width: 300px
+    }
+
+    #yoga-4 {        
+        top: -70px; 
+        right: 5px; 
+        height: 225px; 
+        width: 350px;
     }
 }
