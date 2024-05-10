@@ -1,31 +1,36 @@
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-<div class="w-screen" style="background-image: url('<%= image_url('stripe-bg.webp')%>');">
+<link href="https://fonts.cdnfonts.com/css/porter-sans-block" rel="stylesheet">
+<style>
+  form {
+    width: 100%;
+  }
+</style>
+<div class="w-screen h-screen overflow-y-scroll" style="background-image: url('<%= image_url('stripe-bg.webp')%>');">
   <div class="py-20 px-20 h-screen w-full">
     <%= link_to "<-- All Jewelry", jewelry_items_path, class: "absolute top-10 left-7 z-50 underline font-windowsRegular" %>
-    <h1 class="text-2xl mb-6" style="font-family: Stalinist One; color: #8A1E82;"><%= @jewelry_item.title %></h1>
     <div class="lg:flex lg:flex-row w-full lg:h-full">
-      <div class="w-full lg:w-[60%] h-full flex flex-col items-center">        
+      <div class="w-full lg:w-[60%] h-full flex flex-col items-center mb-4 lg:mb-0">        
+        <h1 class="text-2xl lg:text-4xl bg-black p-2 mb-4" style="color: #FFD06E; font-family: Porter Sans Block"><%= @jewelry_item.title %></h1>
         <% if @jewelry_item.images.attached? %>          
           <div class="flex" id="image-container" style="display: none;">
-            <div id="primary-image"></div>
+            <div id="primary-image" class="h-[250px] lg:h-[370px]" style="margin-bottom: 3px; object-position: center; object-fit: cover;"></div>
             <div class="flex justify-between">
               <% @jewelry_item.images.each_with_index do |image, index| %>
-                <%= image_tag image, id: "subimage-#{index}", class: "jewelry-image w-[33%] h-[200px] hover:cursor-pointer", style: "opacity: #{index == 0 ? "100%" : "50%" }" %>
+                <%= image_tag image, id: "subimage-#{index}", class: "jewelry-image w-[33%] h-[100px] lg:h-[200px] hover:cursor-pointer", style: "opacity: #{index == 0 ? "100%" : "50%" }" %>
               <% end %>
             </div>
           </div>
         <% end %>
       </div>
-      <div class="w-full lg:w-[40%] lg:px-10">
-        <p style="font-family: sudo var" class="text-2xl mb-4">£<%= sprintf('%.2f', @jewelry_item.price) %></p>
-        <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.materials %></p>
-        <p style="font-family: sudo var" class="text-2xl mb-4"><%= @jewelry_item.description %></p>
-        <%= button_to "Add to Cart", add_to_cart_path("JewelryItem", @jewelry_item), data: { jewelry_item_id: @jewelry_item.id }, class: "classic-button-1 w-full lg:px-[80px]", id: "add-to-cart-button" %>
+      <div class="w-full lg:w-[40%] lg:px-10 lg:h-full lg:flex lg:flex-col lg:justify-center" style="font-family: UnifrakturCook;">
+        <p style="background-color: #FFFFFF;"class="text-lg lg:text-2xl mb-4"><%= @jewelry_item.description %></p>
+        <p style="background-color: #FFFFFF;"class="text-lg lg:text-2xl mb-4">Materials: <%= @jewelry_item.materials %></p>
+        <p style="background-color: #FFFFFF;"class="text-lg lg:text-2xl mb-8">£<%= sprintf('%.2f', @jewelry_item.price) %></p>
+        <%= button_to "Add to Cart", add_to_cart_path("JewelryItem", @jewelry_item), data: { jewelry_item_id: @jewelry_item.id }, class: "classic-button-1 w-full", id: "add-to-cart-button" %>
       </div>
     </div>
   </div>
 </div>
-
 <script>
   document.addEventListener('turbo:load', () => {
     var imageContainer = document.getElementById("image-container");
@@ -51,7 +56,7 @@
       })
 
       primaryImage.innerHTML = `
-        <img src="${subimages[index].getAttribute("src")}" class=\"primary-image\" style=\"margin-bottom: 3px; height: 400px; width: 100%; object-fit: cover; object-position: center;\" />
+        <img src="${subimages[index].getAttribute("src")}" class=\"primary-image h-full\" style=\"width: 100%; object-fit: cover; object-position: center;\" />
       `;
     }
   })
