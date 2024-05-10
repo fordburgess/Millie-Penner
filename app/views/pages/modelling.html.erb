@@ -21,19 +21,20 @@
             <p class="font-lexendZetta text-sm text-right text-white lg:text-xl">Chopova Lowena<br class="block lg:hidden"/> SS24 Runway</p>
         </div>
     </section>
-    <section class="second-section relative w-full flex flex-col items-center justify-center" style="margin-bottom: 150px;">
+    <section class="second-section relative w-full flex flex-col items-center justify-center">
         <%= image_tag "good-squish-large.webp", class: "w-[90%] h-auto lg:h-[500px] lg:w-4/5" %>
         <p class="font-lexendZetta text-sm text-right text-white lg:text-xl">Good Squish E-Shop</p>
         <%= image_tag "good-squish-1.png", id: "good-squish-1" %>
         <%= image_tag "good-squish.gif", id: "good-squish-gif" %>
     </section>
     <section class="third-section text-center mb-28">
-        <div class="w-full flex justify-between mb-14">
-            <div class="relative">
-                <%= image_tag "bathtub-1.webp", style: "height: 270px; width: 350px" %>
-                <%= image_tag "bathtub-2.webp", id: "personal-2", style: "height: 120px; width: 160px;" %>
+        <div class="w-full flex flex-col lg:flex-row justify-between mb-14">
+            <p class="font-lexendZetta text-white text-sm" id="personal-title-mobile">Various Personal Shoots</p>    
+            <div class="relative mb-20 lg:mb-0">
+                <%= image_tag "bathtub-1.webp", id: "personal-1" %>
+                <%= image_tag "bathtub-2.webp", id: "personal-2" %>
             </div>
-            <div class="flex">
+            <div class="flex mb-10 lg:mb-0">
                 <%= image_tag "personal-3.webp", style: "height: 270px; width: 200px" %>
                 <%= image_tag "personal-4.webp", style: "height: 270px; width: 200px" %>
             </div>
@@ -42,7 +43,7 @@
                 <%= image_tag "boxer-2.webp", style: "height: 225px; width: 175px; margin-left: -20px" %>
             </div>
         </div>
-        <p class="font-lexendZetta text-white">Various Personal Shoots</p>
+        <p class="font-lexendZetta text-white text-xl" id="personal-title-desktop">Various Personal Shoots</p>
     </section>  
     <section class="fourth-section w-full flex flex-col items-end mb-28">
         <div class="relative mb-20 pr-36">
