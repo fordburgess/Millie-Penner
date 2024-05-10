@@ -7,6 +7,10 @@
     padding: 0 20px;
 }
 
+.sixth-section {
+    padding: 0;
+}
+
 .modelling-title {
     color: #FFC876;
     font-family: Lexend Zetta;    
@@ -91,6 +95,13 @@
     right: -10px;
 }
 
+#hysteric-rooms-2 {
+    height: 120px;
+    width: 200px;
+    margin-left: -125px;
+    margin-bottom: -50px;
+}
+
 #dazed-section img {
     object-fit: cover;
     object-position: center;
@@ -100,6 +111,10 @@
     .modelling-container {
         padding-top: 100px;
     } 
+
+    .sixth-section {
+        padding: 0 20px;
+    }
 
     #modelling-border {
         display: block;
@@ -186,5 +201,12 @@
         right: 5px; 
         height: 225px; 
         width: 350px;
+    }
+
+    #hysteric-rooms-2 {
+        margin-left: -150px; 
+        margin-bottom: -75px;
+        height: 250px; 
+        width: 450px;
     }
 }
