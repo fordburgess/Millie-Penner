@@ -2,18 +2,24 @@
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap" rel="stylesheet">
 <%= stylesheet_link_tag 'jewelry_index.css' %>
-<div class="w-screen h-screen relative" style="background-image: url('<%= image_url('stripe-bg.webp')%>');"> 
-  <section class="w-screen h-[30vh] flex items-center justify-center py-44">
+<div class="w-screen h-screen relative overflow-y-scroll" style="background-image: url('<%= image_url('stripe-bg.webp')%>');"> 
+  <%= image_tag "ketchup.gif", class: "h-[100px] w-[100px] lg:h-[150px] lg:w-[150px]", style: "position: absolute; top: 1000px; left: 50%; transform: translateX(-50%);" %>
+  <%= image_tag "packet.gif", class: "h-[100px] w-[100px] lg:h-[150px] lg:w-[150px]", style: "position: absolute; top: 700px; right: 5%; transform: translateX(-5%);" %>
+  <%= image_tag "mustard.gif", class: "h-[100px] w-[100px] lg:h-[150px] lg:w-[150px]", style: "position: absolute; top: 1200px; left: 4%; transform: translateX(-4%);" %>
+  <%= image_tag "mayo.gif", class: "h-[100px] w-[100px] lg:h-[150px] lg:w-[150px]", style: "position: absolute; top: 1200px; right: 4%; transform: translateX(-4%);" %>
+  <section class="w-screen h-[30vh] flex items-center justify-around py-44">
+    <%= image_tag "fries.gif", class: "h-[100px] w-[100px] lg:h-[150px] lg:w-[150px]" %>
     <div class="text-center">
       <h1 class="text-6xl bg-black p-2 mb-4" style="color: #FFD06E; font-family: Porter Sans Block">Jewellery</h1>
       <p class="subtitle">Here’s some yummy jewellery I made :p</p>
     </div>
+    <%= image_tag "cheeseburger.gif", class: "h-[100px] w-[100px] lg:h-[150px] lg:w-[150px]" %>
   </section>
   <section class="w-full px-24" style="display: flex; flex-wrap: wrap;">
     <% @jewelry_items.each_with_index do |item, index| %>
-        <%= link_to "/jewelry_items/#{item.id}", class: "w-1/2 lg:w-1/3" do %>
+        <%= link_to "/jewelry_items/#{item.id}", class: "w-1/2" do %>
           <div class="jewelry-item w-full flex flex-col items-center" style="font-family: UnifrakturCook;">
-            <%= image_tag item.images[0], class: "h-[225px] lg:h-[275px]", style: "width: 75%" %>
+            <%= image_tag item.images[0], class: "h-[225px] lg:h-[350px]", style: "width: 75%" %>
             <h1 class="text-2xl"><%= item.title %></h1>
             <p class="text-xl">£<%= sprintf('%.2f', item.price) %></p>
           </div>
