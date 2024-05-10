@@ -5,81 +5,83 @@
       <h1 class="modelling-title">Modelling</h1>
     </section>
     <section class="first-section w-full">
-        <div class="flex items-center">
+        <div class="flex items-center mb-10 lg:mb-0">
             <div>
-                <%= image_tag "knwls.webp", style: "height: 600px; width: 500px" %>
-                <p class="font-lexendZetta text-center text-white">KNWLS PROXY 2.0</p>
+                <%= image_tag "knwls.webp", class: "h-[225px] w-[175px] lg:h-[600px] lg:w-[500px]" %>
+                <p class="font-lexendZetta text-center text-white text-sm lg:text-xl">KNWLS PROXY 2.0</p>
             </div>
-            <%= image_tag "knwls.gif", style: "height: 350px; width: 171px; margin-left: -30px" %>
+            <%= image_tag "knwls.gif", class: "h-[175px] w-[88px] ml-[-40px] lg:h-[350px] lg:w-[170px] lg:ml-[-30px]" %>
         </div>
-        <div class="flex flex-col items-end w-full text-right" style="margin-top: -100px; margin-bottom: 150px;">
+        <div class="flex flex-col items-end w-full text-right lg:mt-[-100px]" style="margin-bottom: 150px;">
             <div class="flex relative">
-                <%= image_tag "chopova-1.webp", style: "height: 500px; width: 400px" %>
-                <%= image_tag "chopova-2.webp", style: "height: 500px; width: 400px" %>
-                <%= image_tag "runway.webp", style: "height: 300px; width: 200px; position: absolute; left: 30px; bottom: -100px;" %>
+                <%= image_tag "chopova-1.webp", class: "h-[250px] w-1/2 lg:h-[500px] lg:w-[400px]" %>
+                <%= image_tag "chopova-2.webp", class: "h-[250px] w-1/2 lg:h-[500px] lg:w-[400px]" %>
+                <%= image_tag "runway.webp", class: "h-[200px] w-[150px] lg:h-[300px] lg:w-[200px]", style: "position: absolute; left: 30px; bottom: -100px;" %>
             </div>
-            <p class="font-lexendZetta text-center text-white">Chopova Lowena SS24 Runway</p>
+            <p class="font-lexendZetta text-sm text-right text-white lg:text-xl">Chopova Lowena<br class="block lg:hidden"/> SS24 Runway</p>
         </div>
     </section>
-    <section class="second-section relative w-full flex justify-center" style="margin-bottom: 150px;">
-        <%= image_tag "good-squish-large.webp", style: "height: 500px; width: 80%;" %>
-        <%= image_tag "good-squish-1.png", id: "good-squish-1", style: "height: 300px; width: 200px;" %>
-        <%= image_tag "good-squish.gif", id: "good-squish-gif", style: "height: 175px; width: 300px;" %>
+    <section class="second-section relative w-full flex flex-col items-center justify-center">
+        <%= image_tag "good-squish-large.webp", class: "w-[90%] h-auto lg:h-[500px] lg:w-4/5" %>
+        <p class="font-lexendZetta text-sm text-right text-white lg:text-xl">Good Squish E-Shop</p>
+        <%= image_tag "good-squish-1.png", id: "good-squish-1" %>
+        <%= image_tag "good-squish.gif", id: "good-squish-gif" %>
     </section>
     <section class="third-section text-center mb-28">
-        <div class="w-full flex justify-between mb-14">
-            <div class="relative">
-                <%= image_tag "bathtub-1.webp", style: "height: 270px; width: 350px" %>
-                <%= image_tag "bathtub-2.webp", id: "personal-2", style: "height: 120px; width: 160px;" %>
+        <div class="w-full flex flex-col lg:flex-row justify-between mb-14">
+            <p class="font-lexendZetta text-white text-sm" id="personal-title-mobile">Various Personal Shoots</p>    
+            <div class="relative mb-20 lg:mb-0">
+                <%= image_tag "bathtub-1.webp", id: "personal-1" %>
+                <%= image_tag "bathtub-2.webp", id: "personal-2" %>
             </div>
-            <div class="flex">
-                <%= image_tag "personal-3.webp", style: "height: 270px; width: 200px" %>
-                <%= image_tag "personal-4.webp", style: "height: 270px; width: 200px" %>
+            <div class="flex mb-10 lg:mb-0">
+                <%= image_tag "personal-3.webp", class: "w-1/2 lg:w-[270px]" %>
+                <%= image_tag "personal-4.webp", class: "w-1/2 lg:w-[270px]" %>
             </div>
             <div class="flex items-end">
                 <%= image_tag "boxer-1.webp", style: "height: 270px; width: 200px" %>
                 <%= image_tag "boxer-2.webp", style: "height: 225px; width: 175px; margin-left: -20px" %>
             </div>
         </div>
-        <p class="font-lexendZetta text-white">Various Personal Shoots</p>
+        <p class="font-lexendZetta text-white text-xl" id="personal-title-desktop">Various Personal Shoots</p>
     </section>  
-    <section class="fourth-section w-full flex flex-col items-end mb-28">
-        <div class="relative mb-20 pr-36">
-            <%= image_tag "pregnant-yoga.webp", style: "height: 450px; width: 700px" %>
-            <%= image_tag "food.webp", style: "position: absolute; top: -60px; left: -50px; height: 120px; width: 200px" %>
-            <%= image_tag "pregnant-yoga-2.webp", style: "position: absolute; bottom: -60px; right: 5px; height: 200px; width: 300px" %>
-            <%= image_tag "daily-things.webp", style: "position: absolute; top: -70px; right: 5px; height: 225px; width: 350px" %>
+    <section class="fourth-section w-full flex flex-col items-end mb-10 lg:mb-28">
+        <div class="relative mb-20 pr-0 lg:pr-36">
+            <%= image_tag "pregnant-yoga.webp", id: "yoga-1" %>
+            <%= image_tag "food.webp", id: "yoga-2" %>
+            <%= image_tag "pregnant-yoga-2.webp", id: "yoga-3" %>
+            <%= image_tag "daily-things.webp", id: "yoga-4" %>
         </div>
-        <p class="font-lexendZetta text-white">Editorial for Daily Things Journal Volume 3</p>
+        <p class="font-lexendZetta text-sm lg:text-xl text-white">Editorial for Daily Things Journal Volume 3</p>
     </section>
     <section class="fifth-section w-full mb-28">        
-        <div class="flex items-end">
-            <%= image_tag "hysteric-rooms-1.webp", style: "height: 500px; width: 875px;" %>
-            <%= image_tag "hysteric-rooms-2.webp", style: "margin-bottom: -75px; margin-left: -150px; height: 250px; width: 450px;" %>
+        <div class="flex items-end w-[90%] lg:w-full" style="margin: 0 auto;">
+            <%= image_tag "hysteric-rooms-1.webp", class: "h-auto w-[full] lg:w-[875px] lg:h-[500px]" %>
+            <%= image_tag "hysteric-rooms-2.webp", id: "hysteric-rooms-2" %>
         </div>
-        <p class="font-lexendZetta text-white">Hysteric Rooms zine @hysteric.fashion<br/> feat. in Dazed</p>
+        <p class="font-lexendZetta text-white text-xs pl-4 lg:pl-0 lg:text-xl">Hysteric Rooms zine @hysteric.fashion<br/> feat. in Dazed</p>
     </section>
-    <section class="sixth-section w-full px-10 mb-96">
-        <div class="w-full flex flex-col items-center lg:flex-row justify-between mb-20">
+    <section class="sixth-section w-full px-10 mb-48 lg:mb-96">
+        <div class="w-full flex justify-between mb-10 lg:mb-20">
             <div class="text-center">
-                <%= image_tag "vogue-1.webp", style: "height: 350px; width: 275px; margin-bottom: 15px;" %>
-                <p class="font-lexendZetta text-white">Vogue</p>
+                <%= image_tag "vogue-1.webp", class: "w-[33vw] h-[200px] lg:w-[275px] lg:h-[350px] mb-1 lg:mb-4" %>
+                <p class="font-lexendZetta text-white text-sm lg:text-xl">Vogue</p>
             </div>
             <div class="text-center">
-                <div id="dazed-section"class="flex" style="margin-bottom: 15px;">
-                    <%= image_tag "dazed-1.webp", style: "height: 350px; width: 175px;" %>
-                    <%= image_tag "dazed-2.webp", style: "height: 350px; width: 175px;" %>
+                <div id="dazed-section"class="flex mb-1 lg:mb-4">
+                    <%= image_tag "dazed-1.webp", class: "w-[16.9vw] h-[200px] lg:w-[175px] lg:h-[350px]", style: "object-position: center; object-fit: cover;" %>
+                    <%= image_tag "dazed-2.webp", class: "w-[16.9vw] h-[200px] lg:w-[175px] lg:h-[350px]", style: "object-position: center; object-fit: cover;" %>
                 </div>
-                <p class="font-lexendZetta text-white">Dazed</p>
+                <p class="font-lexendZetta text-white text-sm lg:text-xl">Dazed</p>
             </div>
             <div class="text-center">
-                <%= image_tag "the-face.webp", style: "height: 350px; width: 275px; margin-bottom: 15px;" %>
-                <p class="font-lexendZetta text-white">The Face</p>
+                <%= image_tag "the-face.webp", class: "w-[33vw] h-[200px] lg:w-[275px] lg:h-[350px] mb-1 lg:mb-4" %>
+                <p class="font-lexendZetta text-white text-sm lg:text-xl">The Face</p>
             </div>
         </div>
-        <p class="font-lexendZetta text-white text-right">From STREET FLASH by William E. Wright</p>
+        <p class="font-lexendZetta text-white text-right text-sm lg:text-xl">From STREET FLASH by William E. Wright</p>
     </section>
-    <section class="w-full flex justify-center" style="margin-bottom: 700px;">
+    <section class="w-full flex justify-center mb-[350px] lg:mb-[700px]">
         <%= image_tag "food.gif" %>
     </section>
     <%= image_tag "boxer-large.webp", style: "width: 100vw; height: auto;" %>    

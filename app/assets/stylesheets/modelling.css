@@ -1,51 +1,212 @@
 .modelling-container {
-    background-color: #8C8AFF;
-    padding: 25px 0px 0px 0px;
+    background-color: #8C8AFF;     
+    padding-top: 50px;  
 }
 
 .modelling-container section {
-    padding: 0 100px;
+    padding: 0 20px;
+}
+
+.sixth-section {
+    padding: 0;
 }
 
 .modelling-title {
     color: #FFC876;
     font-family: Lexend Zetta;    
-    font-size: 10rem;
-    margin-bottom: 45px;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 #modelling-border {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    height: 100vh;
-    width: 100vw;
-    z-index: 10;
-    padding-top: 20px;
+    display: none;
+}
+
+.second-section {
+    margin-bottom: 50px;
 }
 
 #good-squish-1 {
     position: absolute;
-    top: 50%;
-    left: 50px;
-    transform: translate(50px, -50%);
+    height: 125px;
+    width: 75px;
+    left: 10px;
+    top: 30px;    
 }
 
 #good-squish-gif {
     position: absolute;
-    bottom: -40px;
-    right: 50px;
-    transform: translate(-50px, 40px);
+    height: 80px;
+    width: 150px;
+    top: -20px;
+    right: 10px;
 }
 
-#personal-2 {
+#personal-title-mobile {
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+#personal-title-desktop {
+    display: none;
+}
+
+#personal-1 {
+    height: auto;
+    width: 80%;
+}
+
+#personal-2 {    
     position: absolute;
-    bottom: -10px;
-    right: -30px;    
-    transform: translate(30px, 10px);
+    bottom: -50px;
+    right: 0px;
+    height: 150px;
+    width: 190px;
+}
+
+#yoga-2, #yoga-3, #yoga-4 {
+    position: absolute;
+}
+
+#yoga-1 {
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+}
+
+#yoga-2 {    
+    top: -50px;
+    left: -10px;
+    height: 75px;
+    width: 120px;
+}
+
+#yoga-3 {
+    height: 130px;
+    width: 180px;
+    bottom: -60px;
+    right: -10px;
+}
+
+#yoga-4 {
+    height: 100px;
+    width: 150px;
+    top: -50px;
+    right: -10px;
+}
+
+#hysteric-rooms-2 {
+    height: 120px;
+    width: 200px;
+    margin-left: -125px;
+    margin-bottom: -50px;
 }
 
 #dazed-section img {
     object-fit: cover;
     object-position: center;
+}
+
+@media (min-width: 1024px) {   
+    .modelling-container {
+        padding-top: 100px;
+    } 
+
+    .sixth-section {
+        padding: 0 20px;
+    }
+
+    #modelling-border {
+        display: block;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 100vh;
+        width: 100vw;
+        z-index: 10;
+        padding-top: 20px;
+    }
+
+    .modelling-title {
+        font-size: 10rem;
+        margin-bottom: 45px;
+    }
+
+    .modelling-container section {
+        padding: 0 100px;
+    }
+
+    .second-section {
+        margin-bottom: 150px;
+    }
+
+    #good-squish-1 {
+        top: 50%;
+        left: 50px;
+        transform: translate(50px, -50%);
+        height: 300px;
+        width: 200px;
+    }
+
+    #good-squish-gif {
+        bottom: -40px;
+        right: 50px;
+        transform: translate(-50px, 40px);
+        height: 175px;
+        width: 300px;
+    }
+
+    #personal-title-mobile {
+        display: none;
+    }
+
+    #personal-title-desktop {
+        display: block;
+    }
+
+    #personal-1 {
+        height: 270px; 
+        width: 350px;
+    }   
+
+    #personal-2 {
+        height: 120px; 
+        width: 160px;
+        bottom: -10px;
+        right: -30px;    
+        transform: translate(30px, 10px);
+    }
+
+    #yoga-1 {
+        height: 450px;
+        width: 700px;
+    }
+
+    #yoga-2 {
+        top: -60px; 
+        left: -50px; 
+        height: 120px; 
+        width: 200px;
+    }
+
+    #yoga-3 {        
+        bottom: -60px; 
+        right: 5px; 
+        height: 200px; 
+        width: 300px
+    }
+
+    #yoga-4 {        
+        top: -70px; 
+        right: 5px; 
+        height: 225px; 
+        width: 350px;
+    }
+
+    #hysteric-rooms-2 {
+        margin-left: -150px; 
+        margin-bottom: -75px;
+        height: 250px; 
+        width: 450px;
+    }
 }
