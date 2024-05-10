@@ -1,20 +1,21 @@
-.book {
+/* .book {
     height: 75%;
     margin-bottom: 4rem;
     width: 100%;
     position: relative;    
-}
+} */
 
 
-.zine-container {   
+#zine-container {   
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 60vh;
 }
 
-/* form {
-    width: 120px;
-} */
+form {
+    width: 30%;    
+}
 
 
 
@@ -23,19 +24,22 @@ body {
     margin: 0;
 }
 
+#left-arrow:hover, #right-arrow:hover {
+    cursor: pointer;
+}
 
 
-.page-flip {    
-    /* position: absolute; */
-    padding: 40px 40px 40px 340px;
+
+.page-flip {           
+    padding: 0 0 0 100px; 
     width: 100%;
     height: 100%;
     margin-bottom: 30px;
     overflow: hidden;
     position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
 }
 
 #page-flip-1 {
@@ -99,6 +103,7 @@ body {
     -webkit-transform: translate(1030px, 500px) rotate(32deg);
     -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
     -webkit-transition-duration: 1s;
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
     width: 285px;
     height: 388px;
     background-position: center;
@@ -114,7 +119,7 @@ body {
 #p2 > div {
     width: 285px;
     height: 388px;
-    -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
     position: absolute;
     z-index: 1;    
     background-position: center;
@@ -130,66 +135,6 @@ body {
     z-index: 2;
 }
 
-#s3 {
-    -webkit-transform-origin: 70px 500px;
-    -webkit-transform: translate(215px, -500px) rotate(-32deg) translate(40px, 0);
-    -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
-    -webkit-transition-duration: 1s;
-    position: absolute;
-    z-index: 1;
-}
-
-.page-flip:hover #s3 {
-    -webkit-transform-origin: 325px 500px;
-    -webkit-transform: translate(-40px, -500px) rotate(0deg) translate(40px, 0);
-}
-
-#sp3 {
-    width: 25px;
-    height: 1000px;
-    background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0,0,0,0)));
-    -webkit-transition-property: width;
-    -webkit-transition-duration: 1s;
-    overflow: hidden;
-}
-
-.page-flip:hover #sp3 { width: 11px }
-
-.s {
-    width: 285px;
-    height: 388px;
-    position: absolute;
-    overflow: hidden;
-    z-index: 3;
-}
-
-#s2 {
-    -webkit-transform-origin: 45px 500px;
-    -webkit-transform: translate(240px, -500px) rotate(-32deg);
-    -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
-    -webkit-transition-duration: 1s;
-    position: absolute;
-}
-
-#sp2 {
-    width: 15px;
-    height: 1000px;
-    background: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, .18)), to(rgba(0,0,0,0)));
-    overflow: hidden;
-}
-
-#s4 {
-    opacity: 1;
-    -webkit-transition-duration: 0.5s;
-}
-
-.page-flip:hover #s4 { opacity: 0 }
-
-.page-flip:hover #s2 {
-    -webkit-transform-origin: 300px 500px;
-    -webkit-transform: translate(-15px, -500px) rotate(0deg);
-}
-
 #p3 {
     width: 1285px;
     height: 1388px;
@@ -201,7 +146,7 @@ body {
     -webkit-transform: translate(1255px, 500px) rotate(-32deg);
     -webkit-transition-property: -webkit-transform, -webkit-transform-origin;
     -webkit-transition-duration: 1s;
-    -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
     width: 285px;
     height: 388px;    
     overflow: hidden;
@@ -224,6 +169,7 @@ body {
 .page-flip.flipped #p1 > div {
     -webkit-transform-origin: 285px 0;
     -webkit-transform: translate(1285px, 500px) rotate(0deg);
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
 }
 
 .page-flip.flipped #r3 {
@@ -238,16 +184,16 @@ body {
 
 
 
-/* #p1 > div > div {
+#p1 > div > div {
     width: 10px;
     height: 388px;
     background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, .25)), to(rgba(0,0,0,0)));
-} */
+}
 
 #p2 > div {
     width: 285px;
     height: 388px;
-    -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5);
+    /* -webkit-box-shadow: 0 0 11px rgba(0, 0, 0, .5); */
     position: absolute;
     z-index: 1;    
     background-position: center;
@@ -319,8 +265,8 @@ body {
 
 
 @media (min-width: 1024px) {
-    .zine-container {
-        height: 100%;
+    #zine-container {
+        height: 100%;        
     }
 
     form {
@@ -329,5 +275,12 @@ body {
 
     #second-page {
         display: block;
+    }
+
+    .page-flip {
+        padding: 40px 40px 40px 340px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
