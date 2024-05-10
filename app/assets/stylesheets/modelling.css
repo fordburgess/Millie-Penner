@@ -20,16 +20,18 @@
 
 #good-squish-1 {
     position: absolute;
-    top: 50%;
-    left: 50px;
-    transform: translate(50px, -50%);
+    height: 125px;
+    width: 75px;
+    left: 10px;
+    top: 30px;    
 }
 
 #good-squish-gif {
     position: absolute;
-    bottom: -40px;
-    right: 50px;
-    transform: translate(-50px, 40px);
+    height: 80px;
+    width: 150px;
+    top: -20px;
+    right: 10px;
 }
 
 #personal-2 {
@@ -67,5 +69,21 @@
 
     .modelling-container section {
         padding: 0 100px;
+    }
+
+    #good-squish-1 {
+        top: 50%;
+        left: 50px;
+        transform: translate(50px, -50%);
+        height: 300px;
+        width: 200px;
+    }
+
+    #good-squish-gif {
+        bottom: -40px;
+        right: 50px;
+        transform: translate(-50px, 40px);
+        height: 175px;
+        width: 300px;
     }
 }
