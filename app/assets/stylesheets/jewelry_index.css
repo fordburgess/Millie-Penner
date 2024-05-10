@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
 
 .subtitle {
+    font-size: 2rem;
     font-family: "Libre Barcode 128 Text", system-ui;
-    font-size: 3rem;
-    padding: 6px;
     background-color: #FFD06E;
+}
+
+@media (min-width: 1024px) {
+    .subtitle {
+        font-family: "Libre Barcode 128 Text", system-ui;
+        font-size: 3rem;
+        padding: 6px;
+    }
 }
