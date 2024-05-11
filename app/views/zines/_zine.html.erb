@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag 'zine_show.css' %>
-<div id="<%= dom_id zine %>" class="h-auto w-screen py-24 lg:h-screen lg:p-16 flex flex-col lg:flex-row relative border-box bg-cover overflow-y-scroll" style="box-sizing: border-box">
+<div id="<%= dom_id zine %>" class="h-auto w-screen py-20 lg:h-screen lg:p-16 flex flex-col lg:flex-row relative border-box bg-cover overflow-y-scroll" style="box-sizing: border-box">
   <%= link_to "<-- All Zines", zines_path, class: "absolute top-10 left-7 z-50 underline font-windowsRegular" %>
   <div class="w-full h-full lg:w-2/3 lg:mr-8" id="zine-container">
-      <div class="w-full h-[80%] lg:h-[87%] flex items-center lg:pl-12 lg:pt-12 lg:mb-8">
+      <div class="w-full h-[60%] lg:h-[87%] flex items-center justify-center lg:pl-12 lg:pt-12 lg:mb-8">
         <p id="left-arrow" class="font-bold text-sm lg:text-xl"><--</p>
-        <div class="relative h-full w-full lg:w-5/6">
+        <div class="relative h-full w-[84%] lg:w-5/6">
           <div class="page-flip" id="page-flip-1">
             <div id="r1">
               <div id="p1">
@@ -68,8 +68,8 @@
         </div>
         <p id="right-arrow" class="font-bold text-sm lg:text-xl">--></p>
       </div>
-    <div class="flex items-center justify-center pb-8 lg:pb-0 w-full">      
-      <a target="_blank" href="<%= @zine.pdf_url %>" class="classic-button-1 mr-2 lg:mr-8 w-[150px] lg:w-auto lg:px-20 bg-black text-white text-center">Preview zine</a>      
+    <div class="flex flex-col lg:flex-row items-center justify-center w-full">      
+      <a target="_blank" href="<%= @zine.pdf_url %>" class="classic-button-1 mb-2 lg:mb-0 lg:mr-8 w-[150px] lg:w-auto lg:px-20 bg-black text-white text-center">Preview zine</a>      
       <%= button_to "Add to Cart", add_to_cart_path("Zine", zine), data: { zine_id: zine.id }, class: "classic-button-1 lg:px-[80px]", id: "add-to-cart-button", data: { zine_id: zine.id } %>
     </div>
   </div>
