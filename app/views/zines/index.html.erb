@@ -1,21 +1,19 @@
 <style type="text/css">
-  body {
-    height: 100vh;
-    overflow-y: scroll;
-    background-image: url('<%= image_url('zines-index-bg.png')%>');
-    padding: 2rem 0;
-    color: rgb(295, 295, 295);
+  html {
+    height: 100%;
+    overflow: hidden;
   }
 
-  @media (min-width: 1024px) {
-    body {
-      background-image: "my-photo";
-      padding: 3rem 7rem;
-    }
+  body {
+    height: 100%;    
+    overflow-y: auto;
+    margin: 0;
+    background-image: url('<%= image_url('zines-index-bg.png')%>');    
+    color: rgb(295, 295, 295);
   }
 </style>
 
-  <section class="flex flex-col text-center items-center mb-6">
+  <section class="flex flex-col text-center items-center mb-6" style="padding-top: 3rem;">
     <h1 class="font-kameron text-xl lg:text-4xl font-bold mb-4">ZINES</h1>
     <h3 class="font-kameron text-xl lg:text-2xl font-bold mb-4">Friend Application</h3>
     <h6 class="font-kameron text-xl lg:text-2xl">Self illustrated, written, photographed, published, and distributed</h6>
@@ -23,7 +21,7 @@
   <section class="h-auto w-full">     
     <%= render partial: "zine_latest", locals: { zines: @zines, images: @images } %>
   </section>
-  <section class="px-10 lg:px-24">
+  <section class="px-10 lg:px-24" style="padding-bottom: 3rem;">
     <h3 class="font-lexendZetta text-xl mb-6">Distributed at...</h3>
     <div class="w-full font-lexendZetta text-base">
       <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
