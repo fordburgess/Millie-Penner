@@ -17,7 +17,6 @@ class Cart < ApplicationRecord
         end
 
         save
-     
     end
 
     def remove_item(type, product_id)
@@ -31,7 +30,9 @@ class Cart < ApplicationRecord
             if product
                 jewelry_items.delete(product)
             end
-        end        
+        end
+        
+        all_products.length()
     end
 
     def empty_items
