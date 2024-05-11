@@ -13,13 +13,11 @@
     height: 60vh;
 }
 
-form {
+.button_to {
     width: 100%;
     display: flex; 
     justify-content: center;
 }
-
-
 
 body {
     padding: 0;
@@ -519,7 +517,7 @@ body {
         height: 100%;        
     }
 
-    form {
+    .button_to {
         width: auto;
     }
 

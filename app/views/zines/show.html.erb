@@ -1,5 +1,18 @@
-<div class="h-auto w-full text-white bg-cover" style="background-image:  url(<%= rails_blob_url(@zine.background_image) %>)">
-  <div class="bg-black bg-opacity-20">  
-    <%= render @zine %>
-  </div>
+<style type="text/css">
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    height: 100%;    
+    overflow-y: auto;
+    margin: 0;
+    background-image: url(<%= rails_blob_url(@zine.background_image) %>);    
+    color: rgb(295, 295, 295);
+  }
+</style>
+<div class="bg-black bg-opacity-20">  
+  <%= render @zine %>
 </div>
+
