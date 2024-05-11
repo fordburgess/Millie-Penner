@@ -39,7 +39,7 @@
         var cartSidebar = document.getElementById("cart-sidebar");
         var clearAllButton = document.getElementById("clear-all-button");
         var cartItems = document.getElementById("cart-items")
-        var cartOpen = false;
+        var cartOpen = false;        
 
         if (cartIcon) {
             cartIcon.addEventListener('click', (e) => {    
@@ -69,9 +69,7 @@
                 cartItems.innerHTML = '';
             })
         }
-    })  
-
-    document.addEventListener('turbo:load', function () {
+    
         var cartItems = document.getElementById('cart-items');
         
         if (cartItems) {
@@ -91,7 +89,13 @@
                             'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
                         }
                     }) 
-                            
+                    .then((res) => {
+                        return res.json()
+                    })
+                    .then((data) => {
+                        cartIcon.textContent = `Cart (${data.cart_total})`;
+                    })
+                       
                 }
             })
         }

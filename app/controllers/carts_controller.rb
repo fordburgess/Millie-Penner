@@ -15,7 +15,8 @@ class CartsController < ApplicationController
 
     def remove_from_cart        
         current_cart.remove_item(params[:product_type], params[:product_id])    
-        head :no_content 
+        
+        render json: { cart_total: current_cart.all_products.length() }
     end
 
     def empty_cart
