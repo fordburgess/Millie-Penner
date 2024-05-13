@@ -5,7 +5,7 @@
         top: 0;
         left: 0;
         box-sizing: border-box;
-        background-color: rgb(27, 29, 30);
+        background-color: rgb(255, 181, 251);
         z-index: 30;
     }
 
@@ -14,25 +14,21 @@
         width: 1.2rem;
     }
 
-    p {
-        font-size: 1.2rem;
-    }
-
-    .cart-icon:hover {
+    #cart-icon:hover {
         cursor: pointer;
     }
 </style>
 <div class="navbar-container w-screen">
-    <div class="w-full flex items-center justify-around text-white p-0 text-xl" style="font-family: Cute Font">
+    <div class="w-full flex items-center justify-around text-white" style="font-family: Kameron; font-size: 0.9rem;">
         <%= link_to "Home", root_path %>                
-        <%= image_tag "ufo.png" %>
+        <p style="padding-top: 2.5px; font-size: 0.95rem">★</p>
         <%= link_to "Zines", zines_path %>                
-        <%= image_tag "ufo.png" %>
+        <p style="padding-top: 2.5px; font-size: 0.95rem">★</p>
         <%= link_to "Jewelry", jewelry_items_path %>
-        <%= image_tag "ufo.png" %>
+        <p style="padding-top: 2.5px; font-size: 0.95rem">★</p>
         <%= link_to "Contact", pages_contact_path %>
-        <%= image_tag "ufo.png" %>
-        <p class="cart-icon" id="cart-icon">Cart (<%= @current_cart.zines.length + @current_cart.jewelry_items.length %>)</p>
+        <p style="padding-top: 2.5px; font-size: 0.95rem">★</p>
+        <p id="cart-icon">Cart (<%= @current_cart.zines.length + @current_cart.jewelry_items.length %>)</p>
     </div>    
 </div>
 <script>
