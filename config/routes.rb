@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/pages/makeup-art' => 'pages#makeup_art'
   get '/pages/modelling' => 'pages#modelling'
   get '/pages/resume' => 'pages#resume'
+  get '/pages/contact' => 'pages#contact'
   
 
   # for ajax requests
