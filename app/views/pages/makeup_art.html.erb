@@ -1,12 +1,26 @@
-<div class="h-auto w-screen bg-cover bg-center" style="background-image: url('<%= image_url('makeup-art-bg.webp')%>');">
-  <div class="h-full w-full flex flex-col justify-center items-center pt-96 lg:pt-[53vh] pb-28">
+<style>
+    html {
+        overflow: hidden;
+    }
+
+    body {
+        min-height: 100vh;    
+        overflow-y: auto !important;
+        margin: 0;
+        background-image: url('<%= image_url('makeup-art-bg.webp')%>');
+        background-position: top center;
+        background-size: cover;
+    }
+</style>
+
+  <div class="w-full flex flex-col justify-center items-center pt-96 lg:pt-[53vh] pb-28">
     <section class="font-playfair">
         <h1 class="text-4xl text-center mb-24">Press spacebar to pause on a look. Press again to continue slides.</h1>
     </section>
     <%= video_tag "FacesMUA.mov", size: "400x930", autoplay: true, muted: true, loop: :loop, id: 'makeup-video', style: 'margin-bottom: 8rem;' %>
     <%= image_tag "makeup-gif.gif", style: "height: 22rem; width: 14rem" %>   
   </div>
-</div>
+
 <script>
     window.onload = function () {
         var makeupVideo = document.getElementById("makeup-video");
