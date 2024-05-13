@@ -3,13 +3,25 @@
         background-color: #FFFFFF;
         display: flex;
         justify-content: center;
-        overflow-y: scroll;
-        padding-bottom: 10rem;
+        overflow-y: scroll;        
     }
 
     .resume-image {
         width: 100%;        
     }
 
+    .resume-container {
+        padding: 5rem 0;
+    }
+
+    @media (min-width: 1024px) {
+        .resume-container {
+            padding: 10rem 0;
+        }
+    }
+
 </style>
-<%= image_tag "resume.jpeg", class: "resume-image" %>
+
+<div class="resume-container">
+    <%= image_tag "resume.webp", class: "resume-image" %>
+</div>
