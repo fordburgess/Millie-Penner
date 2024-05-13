@@ -1,12 +1,13 @@
-body {
+/* body {
     background-color: #8C8AFF;
-}
+} */
 
 .modelling-container {
     padding-top: 50px;  
     overflow-x: hidden;
     height: 100vh;
     overflow-y: scroll;    
+    background-color: #8C8AFF;
 }
 
 .modelling-container section {
