@@ -25,7 +25,7 @@
     margin-bottom: 20px;
 }
 
-#modelling-border-1, #modelling-border-2 {
+#modelling-border-1, #modelling-border-2, #modelling-border-3, #modelling-border-4 {
     display: none;
 }
 
@@ -142,8 +142,28 @@
         left: 10px;
         height: 95vh;
         width: 5vw;
+        z-index: 5;                
+    }
+
+    #modelling-border-3 {
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 10px;
+        height: 95vh;
+        width: 5vw;
+        z-index: 5;                
+    }
+
+    #modelling-border-4 {
+        display: block;
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        height: 10vh;
+        width: 87vw;
         z-index: 5;        
-        /* transform: translateX(-50%);     */
+        transform: translateX(-50%);
     }
 
     .modelling-title {
