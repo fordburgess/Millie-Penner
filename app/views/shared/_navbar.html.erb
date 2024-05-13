@@ -17,27 +17,96 @@
     #cart-icon:hover {
         cursor: pointer;
     }
+
+    .desktop-link, .star {
+        display: none;
+    }
+
+    .mobile-drawer {
+        position: relative;
+        display: block;
+        height: 100vh;
+        width: 75vw;
+        background-color: rgb(255, 181, 251);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 31;
+        transition: 0.2s;
+        padding: 5rem 20px;   
+        transform: translateX(-100%);     
+    }
+
+    .mobile-link {
+        font-family: Kameron;
+        color: #FFFFFF;
+        font-size: 2rem;        
+    }
+
+    .mobile-link p {
+        margin-bottom: 20px;
+    }
+
+    @media (min-width: 1024px) {
+        .desktop-link, .star {
+            display: block;
+        }
+
+        .mobile-drawer {
+            display: none;
+        }
+
+        #hamburger-menu {
+            display: none;
+        }
+    }
 </style>
 <div class="navbar-container w-screen">
-    <div class="w-full flex items-center justify-around text-white" style="font-family: Kameron; font-size: 0.9rem;">
-        <%= link_to "Home", root_path %>                
-        <p style="padding-top: 2.5px; font-size: 0.95rem">★</p>
-        <%= link_to "Zines", zines_path %>                
-        <p style="padding-top: 2.5px; font-size: 0.95rem">★</p>
-        <%= link_to "Jewelry", jewelry_items_path %>
-        <p style="padding-top: 2.5px; font-size: 0.95rem">★</p>
-        <%= link_to "Contact", pages_contact_path %>
-        <p style="padding-top: 2.5px; font-size: 0.95rem">★</p>
+    <div class="w-full flex items-center px-6 lg:px-0 justify-between lg:justify-around text-white" style="font-family: Kameron; font-size: 0.9rem;">
+        <div id="hamburger-menu">
+            <p>Menu</p>
+        </div>
+        <%= link_to "Home", root_path, class: "desktop-link" %>                
+        <p class="star" style="padding-top: 2.5px; font-size: 0.95rem">★</p>
+        <%= link_to "Zines", zines_path, class: "desktop-link" %>                
+        <p class="star" style="padding-top: 2.5px; font-size: 0.95rem">★</p>
+        <%= link_to "Jewelry", jewelry_items_path, class: "desktop-link" %>
+        <p class="star" style="padding-top: 2.5px; font-size: 0.95rem">★</p>
+        <%= link_to "Contact", pages_contact_path, class: "desktop-link" %>
+        <p class="star" style="padding-top: 2.5px; font-size: 0.95rem">★</p>
         <p id="cart-icon">Cart (<%= @current_cart.zines.length + @current_cart.jewelry_items.length %>)</p>
     </div>    
+</div>
+<div class="mobile-drawer" id="mobile-drawer">
+    <p id="drawer-close" style="font-size: 2.35rem; color: #FFFFFF; position: absolute; top: 0px; right: 10px;">X</p>    
+    <%= link_to root_path, class: "mobile-link" do %><p>Home ★</p><% end %>
+    <%= link_to zines_path, class: "mobile-link" do %><p>Zines ★</p><% end %>
+    <%= link_to jewelry_items_path, class: "mobile-link" do %><p>Jewelry ★</p><% end %>
+    <%= link_to pages_contact_path, class: "mobile-link" do %><p>Contact ★</p><% end %>
+    <%= link_to pages_modelling_path, class: "mobile-link" do %><p>Modelling ★</p><% end %>
+    <%= link_to pages_makeup_art_path, class: "mobile-link" do %><p>Makeup Art ★</p><% end %>
+    <%= link_to pages_resume_path, class: "mobile-link" do %><p>Resume ★</p><% end %>    
 </div>
 <script>
     document.addEventListener('turbo:load', () => {
         var cartIcon = document.getElementById("cart-icon");        
         var cartSidebar = document.getElementById("cart-sidebar");
         var clearAllButton = document.getElementById("clear-all-button");
-        var cartItems = document.getElementById("cart-items")
+        var cartItems = document.getElementById("cart-items");
+        var hamburger = document.getElementById("hamburger-menu");
+        var drawer = document.getElementById("mobile-drawer");
+        var drawerClose = document.getElementById("drawer-close");
         var cartOpen = false;
+
+        hamburger.addEventListener('click', () => {            
+            drawer.style.transform = 'translateX(0%)';      
+        });
+
+        drawerClose.addEventListener('click', () => {
+            drawer.style.transform = 'translateX(-100%)';              
+            
+        })
+
 
         if (cartIcon) {
             cartIcon.addEventListener('click', (e) => {    
