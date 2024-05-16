@@ -19,7 +19,7 @@
     }
   }
 </style>
-<div class="h-auto w-screen py-16 px-8" style="background-color: #<%= @article.background_color %>;">
+<div class="h-screen overflow-y-scroll w-screen py-16 px-8" style="background-color: #<%= @article.background_color %>;">
   <%= link_to "Back to Articles ->", articles_path,  class: "desktop-link", style: "color: ##{ @article.accent_color }; font-family: Porter Sans Block; position: fixed; top: 40px; right: 20px;" %>
   <%= link_to "Back ->", articles_path, class: "mobile-link", style: "color: ##{ @article.accent_color }; font-family: Porter Sans Block; position: fixed; top: 40px; right: 20px;" %>
   <section class="w-full lg:w-3/4" style="color: #<%= @article.accent_color %>; word-wrap: break-word;">
