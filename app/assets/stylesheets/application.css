@@ -14,7 +14,6 @@
  *= require_self
  */
 
-:root {
-   --body-bg-color: red;
+html {
+   overflow: hidden;
 }
-
