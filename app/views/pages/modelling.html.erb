@@ -10,7 +10,7 @@
     <section class="first-section w-full">
         <div class="flex items-center mb-10 lg:mb-0">
             <div>
-                <%= image_tag "knwls.webp", class: "h-[225px] w-[175px] lg:h-[600px] lg:w-[500px]" %>
+                <%= image_tag "knwls.webp", class: "h-[225px] w-[175px] lg:h-auto lg:w-[500px]" %>
                 <p class="font-lexendZetta text-center text-white text-sm lg:text-xl">KNWLS PROXY 2.0</p>
             </div>
             <%= image_tag "knwls.gif", class: "h-[175px] w-[88px] ml-[-40px] lg:h-[350px] lg:w-[170px] lg:ml-[-30px]" %>
@@ -19,13 +19,13 @@
             <div class="flex relative">
                 <%= image_tag "chopova-1.webp", class: "h-[250px] w-1/2 lg:h-[500px] lg:w-[400px]" %>
                 <%= image_tag "chopova-2.webp", class: "h-[250px] w-1/2 lg:h-[500px] lg:w-[400px]" %>
-                <%= image_tag "runway.webp", class: "h-[200px] w-[150px] lg:h-[300px] lg:w-[200px]", style: "position: absolute; left: 15px; bottom: -100px;" %>
+                <%= image_tag "runway.webp", class: "h-[200px] w-[150px] lg:h-auto lg:w-[175px]", style: "position: absolute; left: 15px; bottom: -120px;" %>
             </div>
             <p class="font-lexendZetta text-sm text-right text-white lg:text-xl">Chopova Lowena<br class="block lg:hidden"/> SS24 Runway</p>
         </div>
     </section>
     <section class="second-section relative w-full flex flex-col items-center justify-center">
-        <%= image_tag "good-squish-large.png", class: "w-[90%] h-auto lg:h-[500px] lg:w-4/5" %>
+        <%= image_tag "good-squish-large.png", class: "w-[90%] h-auto lg:w-4/5" %>
         <p class="font-lexendZetta text-sm text-right text-white lg:text-xl">Good Squish E-Shop</p>
         <%= image_tag "good-squish-1.png", id: "good-squish-1" %>
         <%= image_tag "good-squish.gif", id: "good-squish-gif" %>
@@ -42,8 +42,8 @@
                 <%= image_tag "personal-4.webp", class: "w-1/2 lg:h-[300px] lg:w-[48%]" %>
             </div>
             <div class="flex items-end">
-                <%= image_tag "boxer-1.webp", style: "height: 300px; width: 240px" %>
-                <%= image_tag "boxer-2.webp", style: "height: 225px; width: 175px; margin-left: -20px" %>
+                <%= image_tag "boxer-1.webp", style: "height: 300px; width: auto" %>
+                <%= image_tag "boxer-2.webp", style: "height: 225px; width: auto; margin-left: -20px" %>
             </div>
         </div>
         <p class="font-lexendZetta text-white text-xl" id="personal-title-desktop">Various Personal Shoots</p>
