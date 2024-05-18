@@ -1,19 +1,17 @@
 <style>
-    html {
-        overflow: hidden;
+    body {
+        overflow: scroll;        
     }
 
-    body {
-        min-height: 100vh;    
-        overflow-y: auto !important;
-        margin: 0;
-        background-image: url('<%= image_url('makeup-art-bg.webp')%>');
+    #mua-container {
+        background: url('<%= image_url('makeup-art-bg.webp')%>');
         background-position: top center;
         background-size: cover;
+        width: 100vw;
     }
 </style>
 
-  <div class="w-full flex flex-col justify-center items-center pt-96 lg:pt-[53vh] pb-28">
+  <div id="mua-container" class="w-full flex flex-col justify-center items-center pt-96 lg:pt-[53vh] pb-28">
     <section class="font-playfair">
         <h1 class="text-4xl text-center mb-24">Press spacebar to pause on a look. Press again to continue slides.</h1>
     </section>
