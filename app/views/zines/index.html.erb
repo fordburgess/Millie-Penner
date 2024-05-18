@@ -1,23 +1,21 @@
 <style type="text/css">
-  html {
-    height: 100%;
-    overflow: hidden;
+  body {
+    overflow-y: scroll;
+    color: #FFFFFF;
   }
 
-  body {
-    height: 100%;    
-    width: 100vw;
-    overflow-y: hidden;
-    margin: 0;
-    background-image: url('<%= image_url('zines-index-bg.png')%>');    
-    color: rgb(295, 295, 295);
+  #zine-index-container {
+    background: url('<%= image_url('zines-index-bg.png')%>');
+    background-position: top center;
+    background-size: cover;
   }
 
   a:hover {
     text-decoration: underline;
   }
+
 </style>
-  <div style="height: 100vh; overflow-y: scroll">
+  <div id="zine-index-container" style="height: 100vh; overflow-y: scroll">
     <section class="flex flex-col text-center items-center mb-6" style="padding-top: 3rem;">
       <h1 class="font-kameron text-xl lg:text-4xl font-bold mb-4">ZINES</h1>
       <h3 class="font-kameron text-xl lg:text-2xl font-bold mb-4">Friend Application</h3>
