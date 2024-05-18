@@ -12,6 +12,10 @@
     background-image: url('<%= image_url('zines-index-bg.png')%>');    
     color: rgb(295, 295, 295);
   }
+
+  a:hover {
+    text-decoration: underline;
+  }
 </style>
   <div style="height: 100vh; overflow-y: scroll">
     <section class="flex flex-col text-center items-center mb-6" style="padding-top: 3rem;">
@@ -25,33 +29,39 @@
     <section class="w-screen px-10 lg:px-48" style="padding-bottom: 3rem;">
       <h3 class="font-lexendZetta text-xl mb-6">Distributed at...</h3>
       <div class="w-full font-lexendZetta text-base">
+        <p class="mb-6 underline text-2xl">NYC:</p>
         <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
-          <p class="mb-6 lg:mb-0">Donlon Books <br/>75 Broadway Market, E8 4PH</p>                    
-          <p class="w-full lg:w-1/3">Rye Books <br/>47 N Cross Rd, SE22 9ET</p>          
+          <a href="https://www.google.com/search?q=printed+matter%2C+inc+new+york&sca_esv=8272a6fbd46d38f9&sxsrf=ADLYWILoVgmRTa0aEdHPUtqrTjEhxZforA%3A1716034178539&ei=gppIZvW-ILWwhbIP_YSMuAo&ved=0ahUKEwj1h4m9lZeGAxU1WEEAHX0CA6cQ4dUDCBA&uact=5&oq=printed+matter%2C+inc+new+york&gs_lp=Egxnd3Mtd2l6LXNlcnAiHHByaW50ZWQgbWF0dGVyLCBpbmMgbmV3IHlvcmsyBhAAGBYYHjIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRI6hNQ4AdY9xFwAXgBkAEAmAGHAaABkgaqAQM4LjG4AQPIAQD4AQGYAgqgArAGwgIHECMYsAMYJ8ICChAAGLADGNYEGEfCAgQQIxgnwgIFEAAYgATCAgsQABiABBiGAxiKBZgDAIgGAZAGCZIHAzkuMaAH5h8&sclient=gws-wiz-serp" target="_blank" class="w-full lg:w-[40%]">Printed Matter, 231 11th Ave.</a> 
+          <a href="https://www.google.com/search?q=vinyl+fantasy+knickerbocker+ave&oq=vinyl+fantasy+knickerbocker+ave&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCDYzMzdqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8" target="_blank" class="w-full lg:w-1/3">Vinyl Fantasy, 194<br/> Knickerbocker Ave</a> 
         </div>
         <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
-          <p class="mb-6 lg:mb-0">BOOKS <br/>20 Maxted Rd, SE15 4FL</p>
-          <p class="w-full lg:w-1/3">All Ages Records <br/>27A Pratt St, NW1 0BG</p>
+          <a href="https://www.google.com/search?q=bureau+of+general+services+queer+division+&sca_esv=8272a6fbd46d38f9&sxsrf=ADLYWIJxw2U6wSC9yJPAitsFEvoCEUYuvA%3A1716034253528&ei=zZpIZuPsH9iYhbIP7o2SgA8&ved=0ahUKEwijh-rglZeGAxVYTEEAHe6GBPAQ4dUDCBA&uact=5&oq=bureau+of+general+services+queer+division+&gs_lp=Egxnd3Mtd2l6LXNlcnAiKmJ1cmVhdSBvZiBnZW5lcmFsIHNlcnZpY2VzIHF1ZWVyIGRpdmlzaW9uIDIGEAAYFhgeMggQABiABBiiBDIIEAAYgAQYogRIjwJQAFgAcAB4AZABAJgBbqABbqoBAzAuMbgBA8gBAPgBAZgCAaACc5gDAJIHAzAuMaAHzwI&sclient=gws-wiz-serp" target="_blank" class="w-full lg:w-1/2">Bureau of General Services- <br/> Queer Division, 208 W 13th St.</a>
+        </div>
+        <p class="mb-6 underline text-2xl">London:</p>
+        <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
+          <a href="https://www.google.com/search?gs_ssp=eJzj4tZP1zcsy8lKKynKNmC0UjWoMLEwNzNMTkm2MDVJS0wxSrMyqLA0NTVMsrBISbFIMjA1Tk314knJz8vJz1NIys_PLgYAkTUUSQ&q=donlon+books&oq=donlon&gs_lcrp=EgZjaHJvbWUqEAgBEC4YrwEYxwEYgAQYjgUyCQgAEEUYORiABDIQCAEQLhivARjHARiABBiOBTIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIJCAUQABgKGIAEMgcIBhAAGIAEMg0IBxAuGK8BGMcBGIAEMg0ICBAuGK8BGMcBGIAE0gEIMjE2M2owajmoAgCwAgA&sourceid=chrome&ie=UTF-8" target="_blank" class="mb-6 lg:mb-0">Donlon Books <br/>75 Broadway Market, E8 4PH</a> 
+          <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TDIvqMouLE4zYLRSNagwsTA3MzBOSjU3MzI2SDK0tDKoSDRPNrAwNDKxTDJIS0pLtvDiLKpMVUjKz88uBgBXtRLR&q=rye+books&oq=rye+book&gs_lcrp=EgZjaHJvbWUqFQgBEC4YFBivARjHARiHAhiABBiOBTIPCAAQABgUGIcCGOMCGIAEMhUIARAuGBQYrwEYxwEYhwIYgAQYjgUyBggCEEUYOTINCAMQLhivARjHARiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIJCAkQLhgKGIAE0gEIMjUyNGowajmoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" class="w-full lg:w-1/3">Rye Books <br/>47 N Cross Rd, SE22 9ET</a>          
         </div>
         <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
-          <p class="mb-6 lg:mb-0">Waste Store <br/>270 Hackney Road, E2 7SD</p>
-          <p class="w-full lg:w-1/3">Flashback Records<br/>26 Topsfield Parade, N8 8PT</p>
+          <a href="https://www.google.com/search?gs_ssp=eJzj4tVP1zc0TK_IqijMMcg1YLRSNqgwsTA3MzA2NLVMNjazSDRIszKoSEwzTEsxNTIztzA3N0j1EkzKz88uVshNrChJTVEoyk9MAQDTcBUb&q=books+maxted+road&oq=BOOKS+maxted&gs_lcrp=EgZjaHJvbWUqEAgBEC4YrwEYxwEYgAQYjgUyCggAEAAY4wIYgAQyEAgBEC4YrwEYxwEYgAQYjgUyBggCEEUYOTIICAMQABgWGB4yDQgEEAAYhgMYgAQYigUyDQgFEAAYhgMYgAQYigUyDQgGEAAYhgMYgAQYigUyDQgHEAAYhgMYgAQYigUyCggIEAAYgAQYogQyCggJEAAYgAQYogTSAQgzOTA5ajBqOagCALACAQ&sourceid=chrome&ie=UTF-8" target="_blank" class="mb-6 lg:mb-0">BOOKS <br/>20 Maxted Rd, SE15 4FL</a>
+          <a href="https://www.google.com/search?gs_ssp=eJzj4tZP1zcstzRLNyupMGC0UjWoMLEwNzNMMkxLNk8ztTA3sLQyqDAzSLFITTWzSDU0SjU1NTPwEkjMyVFITE8tVihKTc4vSikGAKZRFEE&q=all+ages+records&oq=all+ages+re&gs_lcrp=EgZjaHJvbWUqEAgBEC4YrwEYxwEYgAQYjgUyCggAEAAY4wIYgAQyEAgBEC4YrwEYxwEYgAQYjgUyBggCEEUYOTIHCAMQABiABDIHCAQQLhiABDINCAUQLhivARjHARiABDIHCAYQABiABDIHCAcQABiABDINCAgQABiGAxiABBiKBTINCAkQABiGAxiABBiKBdIBCDIyMzBqMGo5qAIAsAIA&sourceid=chrome&ie=UTF-8" target="_blank" class="w-full lg:w-1/3">All Ages Records <br/>27A Pratt St, NW1 0BG</a>
         </div>
         <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
-          <p class="mb-6 lg:mb-0">Houseman&apos;s <br/>5 Caledonian Rd, N1 9DY</p>
-          <p class="w-full lg:w-1/3">Jam Books <br/>61A Hackney Rd, E2 7NX</p>
+          <a href="https://www.google.com/search?q=waste+store+london&oq=waste+store&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMhAIARAuGK8BGMcBGIAEGI4FMgYIAhBFGDkyBwgDEAAYgAQyBwgEEAAYgAQyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDyoAgCwAgA&sourceid=chrome&ie=UTF-8" target="_blank" class="mb-6 lg:mb-0">Waste Store <br/>270 Hackney Road, E2 7SD</a>
+          <a href="https://www.google.com/search?q=flashback+records+topsfield+parade&oq=flashback+records+topsfiel&gs_lcrp=EgZjaHJvbWUqCQgBECEYChigATIGCAAQRRg5MgkIARAhGAoYoAEyCQgCECEYChigATIJCAMQIRgKGKAB0gEIMzY4OWowajmoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" class="w-full lg:w-1/3">Flashback Records<br/>26 Topsfield Parade, N8 8PT</a>
         </div>
         <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
-          <p class="mb-6 lg:mb-0">Boom Cat Books <br/>70 Camden Lock, NW1 8AF</p>      
-          <p class="w-full lg:w-1/3">Freedom Press <br/>84b Whitechapel High St, E1 7QX</p>
+          <a href="https://www.google.com/search?gs_ssp=eJzj4tZP1zcsybKwqCgvM2C0UjGoMLEwNzNMMk5LM7e0SDQxSLMyqLAwT0uzTEpLSUoyNDdLsvDiyMgvLc5NzCsGACADEnI&q=housmans&oq=housemans&gs_lcrp=EgZjaHJvbWUqDwgBEC4YChivARjHARiABDIGCAAQRRg5Mg8IARAuGAoYrwEYxwEYgAQyBwgCEAAYgAQyBwgDEAAYgAQyDwgEEC4YChivARjHARiABDIJCAUQABgKGIAEMgcIBhAAGIAEMg0IBxAuGMcBGNEDGIAEMgcICBAAGIAE0gEIMzQwNGowajmoAgCwAgA&sourceid=chrome&ie=UTF-8" target="_blank" class="mb-6 lg:mb-0">Houseman&apos;s <br/>5 Caledonian Rd, N1 9DY</a>
+          <a href="https://www.google.com/search?gs_ssp=eJzj4tZP1zcsyUqvKstLMmC0UjWoMLEwNzNMTDVOSzUwM042SrIyqLBMTUqzTE1NTDI1STRJszDx4kvKz89VSE4sUQAysosBwoMVIA&q=boom+cat+books&oq=boom+cat+book&gs_lcrp=EgZjaHJvbWUqEAgBEC4YrwEYxwEYgAQYjgUyCggAEAAY4wIYgAQyEAgBEC4YrwEYxwEYgAQYjgUyBggCEEUYOTIHCAMQABiABDIICAQQABgWGB4yCAgFEAAYFhgeMg0IBhAAGIYDGIAEGIoFMg0IBxAAGIYDGIAEGIoFMg0ICBAAGIYDGIAEGIoFMg0ICRAAGIYDGIAEGIoF0gEIMjQ3NmowajmoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" class="w-full lg:w-1/3">Boom Cat Books <br/>70 Camden Lock, NW1 8AF</a>        
         </div>
         <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
-          <p class="mb-6 lg:mb-0">Review Bookshop <br/>131 Bellend Road, SE15</p>
-          <p class="w-full lg:w-1/3">Chener Books <br/>14 Lordship Ln, SE22 8HN</p>
-        </div>      
-        <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
-          <p>Burley Fischer <br/>400 Kingsland Rd, E8 4AA</p>
+          <a href="https://www.google.com/search?gs_ssp=eJzj4tZP1zcsyUgxMykuNmC0UjWoMLEwNzNMTk5MNDdNTDVMsbQyqEgyt7AwN00yTU1JSzUzNTL1EkkrSk1Nyc9VKChKLS5WyMnPS8nPAwAmZxbx&q=freedom+press+london&oq=freedom+press+&gs_lcrp=EgZjaHJvbWUqFQgBEC4YFBivARjHARiHAhiABBiOBTIGCAAQRRg5MhUIARAuGBQYrwEYxwEYhwIYgAQYjgUyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgATSAQg0MzU0ajBqOagCALACAA&sourceid=chrome&ie=UTF-8" target="_blank" class="mb-6 lg:mb-0">Freedom Press <br/>84b Whitechapel High St, E1 7QX</a>
+          <a href="https://www.google.com/search?q=review+bellenden+road&sca_esv=8272a6fbd46d38f9&sxsrf=ADLYWII30HqXvKs5FQn34T_52qF6LmKP4A%3A1716034969484&ei=mZ1IZriVHfO3hbIP-OqwsAk&ved=0ahUKEwj4xZy2mJeGAxXzW0EAHXg1DJYQ4dUDCBA&uact=5&oq=review+bellenden+road&gs_lp=Egxnd3Mtd2l6LXNlcnAiFXJldmlldyBiZWxsZW5kZW4gcm9hZDIOEC4YgAQYxwEYjgUYrwEyCBAAGAcYCBgeMggQABiABBiiBDIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIdEC4YgAQYxwEYjgUYrwEYlwUY3AQY3gQY4ATYAQFIqwlQuwRYuwRwAngBkAEAmAF7oAF7qgEDMC4xuAEDyAEA-AEBmAIDoAKNAcICChAAGLADGNYEGEfCAg0QABiwAxjWBBhHGMkDwgIOEAAYgAQYsAMYkgMYigWYAwCIBgGQBgm6BgYIARABGBSSBwMyLjGgB6cH&sclient=gws-wiz-serp" target="_blank" class="w-full lg:w-1/3">Review Bookshop <br/>131 Bellenden Road, SE15</a>
         </div>
+        <div class="w-full flex flex-col lg:flex-row justify-between mb-6">
+          <a href="https://www.google.com/search?q=chener+books&oq=chener+bo&gs_lcrp=EgZjaHJvbWUqDwgAEAAYFBiHAhjjAhiABDIPCAAQABgUGIcCGOMCGIAEMhUIARAuGBQYrwEYxwEYhwIYgAQYjgUyBggCEEUYOTIHCAMQABiABDIICAQQABgWGB4yCggFEAAYgAQYogQyCggGEAAYgAQYogQyCggHEAAYogQYiQWoAgCwAgE&sourceid=chrome&ie=UTF-8" target="_blank" class="mb-6 lg:mb-0">Chener Books <br/>14 Lordship Ln, SE22 8HN</a>
+          <a href="https://www.google.com/search?q=burley+fisher+books&oq=burley+fis&gs_lcrp=EgZjaHJvbWUqDwgAEAAYFBiHAhjjAhiABDIPCAAQABgUGIcCGOMCGIAEMhUIARAuGBQYrwEYxwEYhwIYgAQYjgUyBggCEEUYOTIHCAMQABiABDINCAQQLhivARjHARiABDIHCAUQABiABDIJCAYQABgKGIAEMgcIBxAAGIAEMgcICBAAGIAEMgcICRAAGIAEqAIAsAIB&sourceid=chrome&ie=UTF-8" target="_blank" class="w-full lg:w-1/3">Burley Fischer <br/>400 Kingsland Rd, E8 4AA</a>
+        </div>              
       </div>
     </section>
 
