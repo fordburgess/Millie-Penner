@@ -29,22 +29,26 @@ class Admin::JewelryItemsController < ApplicationController
     end
 
     def destroy
-        @jewelry_item.destroy!
+        @jewelry_item = JewelryItem.find(params[:id])
+
+        if @jewelry_item.present?
+          @jewelry_item.destroy
+        end
 
         respond_to do |format|
-            format.html { redirect_to jewelry_items_url, notice: "Jewelry item was successfully destroyed." }
+            format.html { redirect_to admin_jewelry_items_url, notice: "Jewelry item was successfully destroyed." }
             format.json { head :no_content }
         end
     end
     
-      private
-        # Use callbacks to share common setup or constraints between actions.
-        def set_jewelry_item
-          @jewelry_item = JewelryItem.find(params[:id])
-        end
-    
-        # Only allow a list of trusted parameters through.
-        def jewelry_item_params
-          params.require(:jewelry_item).permit(:title, :materials, :description, :price, images: [])
-        end
+    private
+      # Use callbacks to share common setup or constraints between actions.
+      def set_jewelry_item
+        @jewelry_item = JewelryItem.find(params[:id])
+      end
+  
+      # Only allow a list of trusted parameters through.
+      def jewelry_item_params
+        params.require(:jewelry_item).permit(:title, :materials, :description, :price, images: [])
+      end
 end
