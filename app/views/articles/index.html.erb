@@ -5,6 +5,7 @@
         background-size: cover;
         padding: 5rem;        
         box-sizing: border-box;
+        overflow-y: scroll;
     }
 
     .batman, .mask, .notebook, .catguy {
@@ -69,14 +70,14 @@
             <% end %>
         <% end %>
         <% @pdf_articles.each do |article| %>
-            <%= link_to article_path(article), class: "w-1/2 lg:w-[33%]" do %>
+            <a href="<%= article.link %>" target="_blank" class="w-1/2 lg:w-[33%]">                
                 <div class="w-full flex flex-col items-center mb-8">                
                     <%= image_tag article.cover_image, class: "h-80 w-[98%] lg:w-[75%] object-cover" %>
                     <div class="bg-black w-[98%] lg:w-[75%] p-2 text-white">
                         <p style="font-family: Poor Story"><%= article.title %></p>
                     </div>
                 </div>
-            <% end %>
+            </a>
         <% end %>
     </div>
 </section>
