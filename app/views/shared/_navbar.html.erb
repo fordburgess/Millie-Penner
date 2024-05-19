@@ -66,15 +66,15 @@
         <div id="hamburger-menu">
             <p>Menu</p>
         </div>
-        <%= link_to "Home", root_path, class: "desktop-link" %>                
+        <%= link_to "Home", root_path, class: "desktop-link font-bold" %>                
         <p class="star" style="padding-top: 2.5px; font-size: 0.95rem">★</p>
-        <%= link_to "Zines", zines_path, class: "desktop-link" %>                
+        <%= link_to "Zines", zines_path, class: "desktop-link font-bold" %>                
         <p class="star" style="padding-top: 2.5px; font-size: 0.95rem">★</p>
-        <%= link_to "Jewelry", jewelry_items_path, class: "desktop-link" %>
+        <%= link_to "Jewelry", jewelry_items_path, class: "desktop-link font-bold" %>
         <p class="star" style="padding-top: 2.5px; font-size: 0.95rem">★</p>
-        <%= link_to "Contact", pages_contact_path, class: "desktop-link" %>
+        <%= link_to "Contact", pages_contact_path, class: "desktop-link font-bold" %>
         <p class="star" style="padding-top: 2.5px; font-size: 0.95rem">★</p>
-        <p id="cart-icon">Cart (<%= @current_cart.zines.length + @current_cart.jewelry_items.length %>)</p>
+        <p id="cart-icon" class="font-bold">Cart (<%= @current_cart.zines.length + @current_cart.jewelry_items.length %>)</p>
     </div>    
 </div>
 <div class="mobile-drawer" id="mobile-drawer">
