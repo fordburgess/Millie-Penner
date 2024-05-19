@@ -4,19 +4,36 @@
   form {
     width: 100%;
   }
+
+  .jewelry-image {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  #image-container {    
+    width: 80vw;
+  }
+
+  @media (min-width: 1024px) {
+    #image-container {
+      width: 450px;
+      height: 700px;
+    }
+  }
 </style>
 <div class="w-screen h-screen overflow-y-scroll" style="background-image: url('<%= image_url('stripe-bg.webp')%>');">
   <div class="py-20 px-20 h-screen w-full">
     <%= link_to "<-- All Jewelry", jewelry_items_path, class: "absolute top-10 left-7 z-50 underline font-windowsRegular" %>
     <div class="lg:flex lg:flex-row w-full lg:h-full">
       <div class="w-full lg:w-[60%] h-full flex flex-col items-center mb-4 lg:mb-0">        
-        <h1 class="text-2xl lg:text-4xl bg-black p-2 mb-4" style="color: #FFD06E; font-family: Porter Sans Block"><%= @jewelry_item.title %></h1>
+        <h1 class="text-2xl bg-black p-2 mb-4" style="color: #FFD06E; font-family: Porter Sans Block"><%= @jewelry_item.title %></h1>
         <% if @jewelry_item.images.attached? %>          
           <div class="flex" id="image-container" style="display: none;">
-            <div id="primary-image" class="h-[250px] lg:h-[370px]" style="margin-bottom: 3px; object-position: center; object-fit: cover;"></div>
+            <div id="primary-image" class="h-[350px] lg:h-[475px]" style="margin-bottom: 3px; object-position: center; object-fit: cover;"></div>
             <div class="flex justify-between">
               <% @jewelry_item.images.each_with_index do |image, index| %>
-                <%= image_tag image, id: "subimage-#{index}", class: "jewelry-image w-[33%] h-[100px] lg:h-[200px] hover:cursor-pointer", style: "opacity: #{index == 0 ? "100%" : "50%" }" %>
+                <% image_width = (100 / @jewelry_item.images.length()) - 0.25 %>
+                <%= image_tag image, id: "subimage-#{index}", class: "jewelry-image h-[100px] lg:h-[100px] hover:cursor-pointer", style: "width: #{image_width}%; opacity: #{index == 0 ? "100%" : "50%" }" %>
               <% end %>
             </div>
           </div>

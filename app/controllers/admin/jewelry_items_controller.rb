@@ -28,6 +28,20 @@ class Admin::JewelryItemsController < ApplicationController
         end
     end
 
+    def update
+      @jewelry_item = JewelryItem.find(params[:id])        
+
+      respond_to do |format|
+          if @jewelry_item.update(jewelry_item_params)
+              format.html { redirect_to "/jewelry_items/#{@jewelry_item.id}", notice: "Jewelry Item was successfully updated." }
+              format.json { render :show, status: :ok, location: @jewelry_item }
+          else
+              format.html { render :edit, status: :unprocessable_entity }
+              format.json { render json: @jewelry.errors, status: :unprocessable_entity }
+          end
+      end
+    end
+
     def destroy
         @jewelry_item = JewelryItem.find(params[:id])
 
