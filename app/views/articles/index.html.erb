@@ -1,11 +1,15 @@
 <style type="text/css">
     body {
-        background-image: url('<%= image_url('articles-bg.webp')%>');
+        overflow: scroll;            
+    }
+
+    .article-container {
+        background: url('<%= image_url('articles-bg.webp')%>');
         background-position: top;
         background-size: cover;
-        padding: 5rem;        
-        box-sizing: border-box;
-        overflow-y: scroll;
+        padding-top: 4rem;   
+        padding-bottom: 5rem; 
+        position: relative;    
     }
 
     .batman, .mask, .notebook, .catguy {
@@ -13,17 +17,22 @@
     }
 
     @media (min-width: 1024px) {
+        .article-container {
+            position: relative;
+        }
+
         .batman, .mask, .notebook, .catguy {
             display: block;
             position: absolute;            
         }
 
         .batman {
-            top: 10;
+            top: 50px;
             right: 100px;
             width: 10rem;
             height: 7rem;
             transform: rotate(-20deg);
+            z-index: 1;
         }
 
         .mask {
@@ -52,11 +61,11 @@
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poor+Story&display=swap" rel="stylesheet">
-<%= image_tag "batman.gif", class: 'batman' %>
-<%= image_tag "mask.gif", class: 'mask' %>
-<%= image_tag "notebook.gif", class: 'notebook' %>
-<%= image_tag "catguy.gif", class: 'catguy' %>
-<section class="w-screen px-8 lg:px-16">
+<section class="article-container w-screen px-8 lg:px-16">
+    <%= image_tag "batman.gif", class: 'batman' %>
+    <%= image_tag "mask.gif", class: 'mask' %>
+    <%= image_tag "notebook.gif", class: 'notebook' %>
+    <%= image_tag "catguy.gif", class: 'catguy' %>
     <h1 class="text-5xl lg:text-7xl mb-8" style="font-family: Niconne">Writing</h1>
     <div class="flex flex-wrap justify-start">
         <% @articles.each do |article| %>
