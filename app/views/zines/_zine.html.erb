@@ -3,7 +3,7 @@
   <%= link_to "<-- All Zines", zines_path, class: "absolute top-10 left-7 z-30 underline font-windowsRegular" %>
   <div class="w-full h-full lg:w-2/3 lg:mr-8" id="zine-container">
       <div class="w-full h-[67%] lg:h-[87%] flex items-center justify-center lg:pl-12 lg:pt-12 lg:mb-8">
-        <%= image_tag "chevron-right.png", id: "left-arrow", style: "height: 30px; width: 30px; transform: rotate(180deg);" %>
+        <%= image_tag "chevron-right.png", id: "left-arrow", style: "visibility: hidden; height: 30px; width: 30px; transform: rotate(180deg);" %>
         <div class="relative h-full mb-10 lg:mb-0 w-[84%] lg:w-5/6">
           <div class="page-flip" id="page-flip-1">
             <div id="r1">
@@ -95,32 +95,46 @@
   document.addEventListener("turbo:load", () => {
     var left = document.getElementById("left-arrow");
     var right = document.getElementById("right-arrow");
-    var pageNumber = 1;
+    var pageNumber = 1;    
 
     right.addEventListener("click", () => {
       if (pageNumber < 5) {
         flipPageRight();
-        pageNumber++;      
+        pageNumber++;    
+
+        if (pageNumber == 5) {
+          right.style.visibility = 'hidden'
+        }
+        
+        if (pageNumber > 1) {
+          left.style.visibility = 'visible';
+        }
       } 
     })
 
     left.addEventListener("click", () => {
       if (pageNumber > 1) {
-        pageNumber--;
+        pageNumber--;        
         flipPageLeft();
+        
+        if (pageNumber < 5) {
+          right.style.visibility = 'visible';
+        }
       }
     })
 
-    const flipPageRight = () => {
-      console.log(pageNumber)
+    const flipPageRight = () => {      
       var pageToFlip = document.getElementById(`page-flip-${pageNumber}`);
-      pageToFlip.classList.add("flipped");
+      pageToFlip.classList.add("flipped");      
     }
 
-    const flipPageLeft = () => {
-      console.log(pageNumber)
+    const flipPageLeft = () => {      
       var pageToFlip = document.getElementById(`page-flip-${pageNumber}`);
-      pageToFlip.classList.remove("flipped")
+      pageToFlip.classList.remove("flipped");
+
+      if (pageNumber == 1) {
+        left.style.visibility = 'hidden'
+      }
     }
   });
 </script>
