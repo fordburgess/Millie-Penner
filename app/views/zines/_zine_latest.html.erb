@@ -5,7 +5,10 @@
         <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full" style="height: 100%;">
             <a href="/zines/<%= zine_vol_one.id %>" class="w-full flex h-full flex-col justify-end items-center">
                 <%= image_tag zine_vol_one.cover_image, style: "height: 25rem; width: 17rem" %>
-                <h1 class="font-kameron text-xl">Vol. 1</h1>        
+                <h1 class="font-kameron text-xl">Vol. 1</h1>
+                <% if !zine_vol_one.in_stock %>
+                  <p class="font-kameron">Out of Stock :(</p>
+                <% end %>
             </a>
         </div>
     <% end %>
@@ -15,6 +18,9 @@
             <a href="/zines/<%= zine_vol_three.id %>" class="w-full flex h-full flex-col justify-start items-center">
                 <%= image_tag zine_vol_three.cover_image, style: "height: 28rem; width: 20rem" %>
                 <h1 class="font-kameron text-xl">Vol. 3</h1>
+                <% if !zine_vol_three.in_stock %>
+                  <p class="font-kameron">Out of Stock :(</p>
+                <% end %>
             </a>
         </div>
     <% end %>
@@ -24,6 +30,9 @@
             <a href="/zines/<%= zine_vol_two.id %>" class="w-full flex h-full flex-col justify-end items-center">
                 <%= image_tag zine_vol_two.cover_image, style: "height: 20rem; width: 20rem" %>
                 <h1 class="font-kameron text-xl">Vol. 2</h1>
+                <% if !zine_vol_two.in_stock %>
+                  <p class="font-kameron">Out of Stock :(</p>
+                <% end %>
             </a>
         </div>
     <% end %>

@@ -49,12 +49,17 @@
     <%= form.file_field :background_image, rows: 4, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="mt-5 mb-8">
+  <div class="mt-5 mb-5">
     <%= form.label "Zine PDF", class: "font-windowsRegular text-xl" %>
     <%= form.file_field :zine_pdf, rows: 4, id: "zine-input", class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>
     <div class="bg-white bg-opacity-90 text-red-500 px-3 py-2 mt-4 font-lexendZetta hidden" id="zine-size-error">
       <p class="text-sm">Error: file too large, please ensure that your file is less than 10MB</p>
     </div>
+  </div>
+
+  <div class="mt-5 mb-8 flex items-center">
+    <%= form.label "In Stock?", class: "font-windowsRegular text-xl mr-4" %>
+    <%= form.check_box :in_stock %>
   </div>
 
   <div class="inline">
