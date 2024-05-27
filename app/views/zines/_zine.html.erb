@@ -2,6 +2,9 @@
 <div id="<%= dom_id zine %>" class="h-auto w-screen py-20 lg:h-screen lg:p-16 flex flex-col lg:flex-row relative border-box bg-cover overflow-y-scroll" style="box-sizing: border-box">
   <%= link_to "<-- All Zines", zines_path, class: "absolute top-10 left-7 z-30 underline font-windowsRegular" %>
   <div class="w-full h-full lg:w-2/3 lg:mr-8" id="zine-container">
+      <% if !@zine.in_stock %>
+        <p class="font-lexendZetta text-center" style="margin: 0 auto">Sorry, this zine is out of stock at the moment :(</p>
+      <% end %>
       <div class="w-full h-[67%] lg:h-[87%] flex items-center justify-center lg:pl-12 lg:pt-12 lg:mb-8">
         <%= image_tag "chevron-right.png", id: "left-arrow", style: "visibility: hidden; height: 30px; width: 30px; transform: rotate(180deg);" %>
         <div class="relative h-full mb-10 lg:mb-0 w-[84%] lg:w-5/6">
@@ -69,12 +72,14 @@
         <%= image_tag "chevron-right.png", id: "right-arrow", style: "height: 30px; width: 30px;" %>
       </div>
       <div class="flex flex-col lg:flex-row items-center justify-center w-full">      
-        <a target="_blank" href="<%= @zine.pdf_url %>" class="classic-button-1 mb-2 lg:mb-0 lg:mr-8 w-[150px] lg:w-auto lg:px-20 bg-black text-white text-center">Preview zine</a>      
-        <%= button_to "Add to Cart", add_to_cart_path("Zine", zine), data: { zine_id: zine.id }, class: "classic-button-1 lg:px-[80px]", id: "add-to-cart-button", data: { zine_id: zine.id } %>
+        <a target="_blank" href="<%= @zine.pdf_url %>" class="classic-button-1 mb-2 lg:mb-0 lg:mr-8 w-[150px] lg:w-auto lg:px-20 bg-black text-white text-center">Preview zine</a>
+        <% if @zine.in_stock %>
+          <%= button_to "Add to Cart", add_to_cart_path("Zine", zine), data: { zine_id: zine.id }, class: "classic-button-1 lg:px-[80px]", id: "add-to-cart-button", data: { zine_id: zine.id } %>
+        <% end %>
       </div>
   </div>
   <div class="w-screen h-auto lg:w-1/3 px-8 lg:px-0 text-left font-lexendZetta box-border">
-    <h1 class="text-lg lg:text-4xl font-bold lg:font-thin mb-4 lg:mb-8"><%= zine.title %></h1>
+    <h1 class="text-lg lg:text-4xl font-bold lg:font-thin mb-4 lg:mb-8"><%= zine.title %></h1>    
     <p class="price mb-4 lg:mb-8 text-base lg:text-xl"><strong>Price:</strong> <%= sprintf('%.2f', zine.price) %> GBP</p>
     <p class="mb-4 lg:mb-8 text-base lg:text-xl"><strong>Size:</strong> <%= zine.size %></p>
     <p class="mb-4 lg:mb-8 text-base lg:text-xl"><strong>Pages:</strong> <%= zine.pages %></p>
