@@ -20,7 +20,7 @@
         display: none;
     }
 
-    .title {
+    #title {
         display: none;
     }
 
@@ -33,14 +33,14 @@
             display: none;
         }
 
-        .title {
+        #title {
             display: block;
         }
     }
 </style>
 
   <div id="mua-container" class="w-full flex flex-col justify-center items-center pt-96 lg:pt-[53vh] pb-28">
-    <section class="font-playfair title">
+    <section class="font-playfair" id="title">
         <h1 class="text-4xl text-center mb-24">Press spacebar to pause on a look. Press again to continue slides.</h1>
     </section>
     <%= video_tag "FacesMUA.mov", class: "desktop-video", size: "400x930", autoplay: true, muted: true, loop: :loop, id: 'makeup-video', style: 'margin-bottom: 8rem;' %>
