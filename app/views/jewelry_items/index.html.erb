@@ -17,12 +17,14 @@
   </section>
   <section class="w-full px-4 lg:px-24" style="display: flex; flex-wrap: wrap;">
     <% @jewelry_items.each_with_index do |item, index| %>
-        <%= link_to "/jewelry_items/#{item.id}", class: "w-1/2 mb-20" do %>
-          <div class="jewelry-item w-full flex flex-col items-center" style="font-family: UnifrakturCook;">
-            <%= image_tag item.images[0], class: "h-[200px] lg:h-[350px] w-[95%] lg:w-3/4 object-cover" %>
-            <h1 class="text-2xl"><%= item.title %></h1>
-            <p class="text-xl">£<%= sprintf('%.2f', item.price) %></p>
-          </div>
+        <% if item.in_stock != false %>
+          <%= link_to "/jewelry_items/#{item.id}", class: "w-1/2 mb-20" do %>
+            <div class="jewelry-item w-full flex flex-col items-center" style="font-family: UnifrakturCook;">
+              <%= image_tag item.images[0], class: "h-[200px] lg:h-[350px] w-[95%] lg:w-3/4 object-cover" %>
+              <h1 class="text-2xl"><%= item.title %></h1>
+              <p class="text-xl">£<%= sprintf('%.2f', item.price) %></p>
+            </div>
+          <% end %>
         <% end %>
     <% end %>
   </section>
