@@ -63,6 +63,6 @@ class Admin::JewelryItemsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def jewelry_item_params
-        params.require(:jewelry_item).permit(:title, :materials, :description, :price, images: [])
+        params.require(:jewelry_item).permit(:title, :materials, :description, :price, :in_stock, images: [])
       end
 end

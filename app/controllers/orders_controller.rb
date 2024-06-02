@@ -11,6 +11,15 @@ class OrdersController < ApplicationController
     OrderMailer.order_confirmation(@order).deliver_now
     # allowed_referer = 'https://millicentpenner.xyz/orders/new'
     # if request.referer.present? && request.referer == allowed_referer
+      products = current_cart.all_products()
+
+      products.each do |product|
+        if product.class.name == "JewelryItem"
+          product.update(in_stock: false)
+        end
+      end
+      
+
       current_cart.empty_items()
       render 'orders/show'
     # else      

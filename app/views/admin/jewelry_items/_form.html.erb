@@ -36,6 +36,11 @@
     <%= form.file_field :images, id: "image-input", multiple: true, class: "block border-2 border-white bg-transparent outline-none px-3 py-2 mt-2 w-full" %>    
   </div>
 
+  <div class="mt-5 mb-8 flex items-center">
+    <%= form.label "In Stock?", class: "font-windowsRegular text-xl mr-4" %>
+    <%= form.check_box :in_stock %>
+  </div>
+
   <div class="inline">
     <%= form.submit class: "classic-button-1 mr-4 cursor-pointer", id: 'submit-button' %>
     <%= link_to "Back to dashboard", admin_root_path, class: "classic-button-2 mr-4", style: "padding: 10px 20px;" %>    
