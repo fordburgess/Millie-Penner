@@ -1,6 +1,14 @@
 <style>
+    body {
+        overflow-y: scroll;
+    }
+
     .header-images {
         display: none;
+    }
+
+    #text-box p {
+        margin: 0;        
     }
 
     @media (min-width: 1024px) {
@@ -12,26 +20,62 @@
 
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-<div class="w-screen h-screen py-16 lg:py-20" style="background-image: url('<%= image_url('newspaper-bg.webp')%>'); background-size: cover;"> 
-<section class="w-full px-8 lg:px-20 text-center">
-    <div class="flex justify-center lg:justify-between pb-4 lg:pb-8 mb-2 items-end" style="border-bottom: solid 6px #000000"> 
-        <div class="header-images" style="height: 30px; width: 30px; background-color: #B02E14; border-radius: 50px;"></div>
-        <%= image_tag "blue-diamond.png", class: "header-images", style: "height: 80px; width: 80px;" %>
-        <%= image_tag "pink-diamond.png", class: "header-images", style: "height: 120px; width: 120px;" %>
-        <h1 class="text-5xl lg:text-9xl" style="font-family: UnifrakturCook;">Jewellery Art</h1>        
-        <%= image_tag "pink-diamond.png", class: "header-images", style: "height: 120px; width: 120px;" %>
-        <%= image_tag "blue-diamond.png", class: "header-images", style: "height: 80px; width: 80px;" %>
-        <div class="header-images" style="height: 30px; width: 30px; background-color: #B02E14; border-radius: 50px;"></div>
+<div class="w-screen h-auto py-16 lg:py-20 lg:px-12 box-border" style="background-image: url('<%= image_url('newspaper-bg.webp')%>'); background-size: cover;"> 
+    <div class="w-full px-4" style="border-left: solid 8px #000000; border-right: solid 8px #000000;">
+        <section class="w-full text-center mb-20">
+            <div class="flex justify-center lg:justify-between pb-4 lg:pb-8 mb-2 items-end" style="border-bottom: solid 6px #000000"> 
+                <div class="header-images" style="height: 30px; width: 30px; background-color: #B02E14; border-radius: 50px;"></div>
+                <%= image_tag "blue-diamond.png", class: "header-images", style: "height: 80px; width: 80px;" %>
+                <%= image_tag "pink-diamond.png", class: "header-images", style: "height: 120px; width: 120px;" %>
+                <h1 class="text-5xl lg:text-9xl" style="font-family: UnifrakturCook;">Jewellery Art</h1>        
+                <%= image_tag "pink-diamond.png", class: "header-images", style: "height: 120px; width: 120px;" %>
+                <%= image_tag "blue-diamond.png", class: "header-images", style: "height: 80px; width: 80px;" %>
+                <div class="header-images" style="height: 30px; width: 30px; background-color: #B02E14; border-radius: 50px;"></div>
+            </div>
+            <div class="flex justify-between">
+                <p class="text-md lg:text-3xl" style="font-family: UnifrakturCook">All hand-sourced materials</p>
+                <p class="text-md lg:text-3xl" style="font-family: UnifrakturCook">...and illustrated charms</p>
+            </div>
+            <%= link_to jewelry_items_path do %>
+                <div class="inline-block p-8" style="background-color: #EA6BFF; border-radius: 50%;">
+                    <p class="text-md lg:text-xl" style="font-family: Uncial Antiqua; color: #B2FFE3">Click here to visit the Jewellery Shop</p>
+                </div>
+            <% end %>
+        </section>
+        <section class="w-full flex justify-between">
+          <div class="flex" id="photos">
+            <div class="flex flex-col justify-between" style="height: 850px;">
+              <% 7.times do |i| %>
+                <% if (i == 0 || i % 2 == 0) %>
+                    <%= image_tag "blue-rock-1.png" %>
+                <% else %>
+                    <%= image_tag "blue-rock-2.png" %>
+                <% end %>
+              <% end %>
+            </div>
+            <div>
+              <%= image_tag "starboob.png", style: "width: 400px; height: 550px" %>
+              <%= image_tag "drawings.png", style: "width: 400px; height: 300px" %>
+            </div>
+            <div class="flex flex-col justify-between" style="height: 850px;">
+              <% 7.times do |i| %>
+                <% if (i == 0 || i % 2 == 0) %>
+                    <%= image_tag "blue-rock-1.png" %>
+                <% else %>
+                    <%= image_tag "blue-rock-2.png" %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+          <div style="text-align: right; position: relative;">
+            <%= image_tag "detachable-star.png", style: "position: absolute; top: -100px; left: -150px; width: 400px; height: 200px;" %>
+            <%= image_tag "bracelet.png", style: "width: 600px; height: 350px" %>
+            <div style="background-color: #0D082D; color: #1AC5FF; display: inline-block;" id="text-box">
+              <p style="font-size: 3rem; line-height: 50px;">Before the Hit</p>
+              <p style="font-size: 2rem; line-height: 50px;">neck brace and <br/> detachable bead <br/> chains, 2023</p>
+              <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> Gum <br/> shaped lampwork glass, <br/> porcelain, ceramic,<br/> acrylic, mother of pearl, <br/> steel, miyuki glass, <br/> shrinky dinks.</p>
+            </div>
+          </div>
+        </section>
     </div>
-    <div class="flex justify-between">
-        <p class="text-md lg:text-3xl" style="font-family: UnifrakturCook">All hand-sourced materials</p>
-        <p class="text-md lg:text-3xl" style="font-family: UnifrakturCook">...and illustrated charms</p>
-    </div>
-    <%= link_to jewelry_items_path do %>
-        <div class="inline-block p-8" style="background-color: #EA6BFF; border-radius: 50%;">
-            <p class="text-md lg:text-2xl" style="font-family: Uncial Antiqua; color: #B2FFE3">Click here to visit the Jewellery Shop</p>
-        </div>
-    <% end %>
-</section>
-
 </div>
