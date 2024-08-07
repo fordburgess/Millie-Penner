@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/pages/modelling' => 'pages#modelling'
   get '/pages/resume' => 'pages#resume'
   get '/pages/contact' => 'pages#contact'
+  get '/jewelry-art' => 'pages#jewelry_art'
   
 
   # for ajax requests

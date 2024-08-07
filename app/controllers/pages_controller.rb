@@ -13,4 +13,7 @@ class PagesController < ApplicationController
   
   def contact
   end
+
+  def jewelry_art
+  end
 end
