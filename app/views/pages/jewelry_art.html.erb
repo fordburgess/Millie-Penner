@@ -11,6 +11,11 @@
         margin: 0;        
     }
 
+    .squished-text {
+      letter-spacing: -1px;
+      font-stretch: condensed;      
+    }
+
     @media (min-width: 1024px) {
         .header-images {
             display: block;
@@ -71,16 +76,16 @@
             <%= image_tag "detachable-star.png", style: "position: absolute; top: -100px; left: -150px; width: 400px; height: 200px;" %>
             <%= image_tag "bracelet.png", style: "width: 600px; height: 350px" %>
             <div style="background-color: #0D082D; color: #1AC5FF; display: inline-block;" id="text-box">
-              <p style="font-size: 3rem; line-height: 50px;">Before the Hit</p>
-              <p style="font-size: 2rem; line-height: 50px;">neck brace and <br/> detachable bead <br/> chains, 2023</p>
+              <p class="squished-text" style="font-size: 3rem; line-height: 50px;">Before the Hit</p>
+              <p class="squished-text" style="font-size: 2rem; line-height: 50px;">neck brace and <br/> detachable bead <br/> chains, 2023</p>
               <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> Gum <br/> shaped lampwork glass, <br/> porcelain, ceramic,<br/> acrylic, mother of pearl, <br/> steel, miyuki glass, <br/> shrinky dinks.</p>
             </div>
           </div>
         </section>
-        <section class="flex justify-between">
-           <div style="background-color: #2D0003; color: #FFC876;">
-            <p style="font-size: 3rem; line-height: 50px;">His Last Day</p>
-            <p style="font-size: 2rem; line-height: 50px;">Zeotrope-Necklace,<br/> 2024</p>
+        <section class="flex justify-between mb-20">
+           <div style="background-color: #2D0003; color: #FFC876; padding-right: 40px;">
+            <p class="squished-text" style="font-size: 3rem; line-height: 50px;">His Last Day</p>
+            <p class="squished-text" style="font-size: 2rem; line-height: 50px;">Zeotrope-Necklace,<br/> 2024</p>
             <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> Glass,<br/> acrylic, ceramic,<br/> Swarovski crystal and <br/> hand-drawn shrinky<br/> dinks.</p>
            </div>
            <%= image_tag "necklace-1.png", style: "height: 320px;" %> 
@@ -89,6 +94,59 @@
             <%= image_tag "necklace-3.png", style: "" %> 
             <%= image_tag "stop-motion-star.png", style: "position: absolute; bottom: -50px; right: 10px; height: 100px; width: 120px;" %> 
            </div>
+        </section>
+        <section class="px-12 mb-20">
+          <div class="flex justify-between">
+            <%= image_tag "black-necklace-1.png", style: "" %> 
+            <%= image_tag "black-necklace-2.png", style: "" %> 
+          </div>
+          <div class="flex justify-between">
+            <div style="background-color: #E5DEDA; color: #000000; display: inline-block; padding: 0 20px 100px 0" id="text-box">
+              <p class="squished-text" style="font-size: 2.25rem; line-height: 50px;">Costume Necklace, <br/> 2023</p>              
+              <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> Bone, <br/> mother of pearl, <br/> freshwater pearl,<br/>Swarovski crystal, glass <br/>brass, porcelain</p>
+            </div> 
+            <div style="background-color: #E5DEDA; color: #000000; display: inline-block; padding: 0 0 100px 20px; text-align: right;" id="text-box">
+              <p class="squished-text" style="font-size: 2.25rem; line-height: 50px;">Dress Choker, <br/> 2023</p>              
+              <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> antler, <br/> seashell, brass, lampwork <br/> glass, miyuki glass,<br/>Swarovski crystal</p>
+            </div>            
+          </div>
+        </section>
+        <section class="px-12 flex mb-20">
+          <div class="w-1/2">
+            <div style="background-image: url('<%= image_url('horse-necklace-2.png')%>'); height: 500px; width: 100%; background-size: cover; position: relative;">
+              <%= image_tag "horse-necklace-1.png", style: "position: absolute; right: 0; bottom: 0;" %> 
+              <%= image_tag "they-gallop.png", style: "position: absolute; right: -150px; bottom: 90px; height: 170px; width: 350px;" %> 
+            </div>
+            <%= image_tag "tent.png", style: "width: 100%;" %> 
+          </div>
+          <div class="w-1/2 flex flex-col justify-between">
+            <div>
+              <% (2..5).each do |i| %>
+                <div class="flex mb-4">
+                  <% i.times do %>
+                    <%= image_tag "horse.png", class: "m-2" %> 
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div style="background-color: #93004F; color: #C4B0FD; padding: 0 40px 120px 0; width: 50%;" id="text-box">
+              <p class="squished-text" style="font-size: 3rem; line-height: 50px;">The Carousel</p>
+              <p class="squished-text" style="font-size: 2rem; line-height: 50px;">Zeotrope-Necklace,<br/> 2024</p>
+              <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> Glass,<br/> acrylic, ceramic,<br/> Swarovski crystal and <br/> hand-drawn shrinky<br/> dinks.</p>
+            </div>
+          </div>
+        </section>
+        <section class="flex px-4 w-full justify-between" style="height: 500px;">
+          <div style="width: 20%; background-color: #150B4E; color: #CB77FF; text-align: right;" id="text-box">
+            <p class="squished-text" style="font-size: 3rem; line-height: 50px;">Girls of the Valley</p>
+            <p class="squished-text" style="font-size: 2rem; line-height: 50px;">Doubled Necklace,<br/> 2024</p>
+            <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> Dog<br/> teeth, hematite, wood,<br/> acrylic, ceramic,<br/> freshwater-pearl<br/> Wonder <br/>beads, and hand-drawn<br/> shrinky dinks.</p>
+          </div>
+          <%= image_tag "girls-of-valley-1.png", style: "width: 58%" %> 
+          <div class="flex flex-col justify-between" style="height: 100%; width: 20%;">
+            <%= image_tag "girls-of-valley-2.png", style: "height: 40%" %> 
+            <%= image_tag "girls-of-valley-3.png", style: "height: 58%;" %> 
+          </div>
         </section>
     </div>
 </div>
