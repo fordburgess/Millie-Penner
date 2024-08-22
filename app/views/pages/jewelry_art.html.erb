@@ -1,6 +1,6 @@
 <style>
     body {
-        overflow-y: scroll;
+      overflow-y: scroll;        
     }
 
     .header-images {
@@ -8,7 +8,7 @@
     }
 
     #text-box p {
-        margin: 0;        
+      margin: 0;        
     }
 
     .squished-text {
@@ -17,15 +17,15 @@
     }
 
     @media (min-width: 1024px) {
-        .header-images {
-            display: block;
-        }
+      .header-images {
+          display: block;
+      }
     }
 </style>
 
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
-<div class="w-screen h-auto py-16 lg:py-20 lg:px-12 box-border" style="background-image: url('<%= image_url('newspaper-bg.webp')%>'); background-size: cover;"> 
+<div class="w-screen py-16 lg:py-20 lg:px-12 box-border" style="background-image: url('<%= image_url('newspaper-bg.webp')%>'); background-size: contain;"> 
     <div class="w-full px-4" style="border-left: solid 8px #000000; border-right: solid 8px #000000;">
         <section class="w-full text-center mb-20">
             <div class="flex justify-center lg:justify-between pb-4 lg:pb-8 mb-2 items-end" style="border-bottom: solid 6px #000000"> 
@@ -136,7 +136,7 @@
             </div>
           </div>
         </section>
-        <section class="flex px-4 w-full justify-between" style="height: 500px;">
+        <section class="flex px-4 w-full justify-between mb-20" style="height: 500px;">
           <div style="width: 20%; background-color: #150B4E; color: #CB77FF; text-align: right;" id="text-box">
             <p class="squished-text" style="font-size: 3rem; line-height: 50px;">Girls of the Valley</p>
             <p class="squished-text" style="font-size: 2rem; line-height: 50px;">Doubled Necklace,<br/> 2024</p>
@@ -147,6 +147,82 @@
             <%= image_tag "girls-of-valley-2.png", style: "height: 40%" %> 
             <%= image_tag "girls-of-valley-3.png", style: "height: 58%;" %> 
           </div>
+        </section>
+        <section class="flex justify-between w-full px-4 mb-20" style="height: 600px;">
+          <%= image_tag "the-fighter-1.png", style: "height: 100%; width: 39%" %> 
+          <div class="flex flex-col items-center justify-between pb-20" style="height: 100%; width: 34%; box-sizing: border-box">
+           <%= image_tag "the-fighter-2.png", style: "height: 70%; width: 100%; object-fit: cover;" %> 
+           <%= image_tag "boxing-gloves.png", style: "height: 20%; object-fit: cover;" %> 
+          </div>
+          <div class="flex" style="width: 24%">
+            <div class="flex flex-col items-center justify-between">
+              <%= image_tag "boxing-gloves.png", style: "height: 20%; object-fit: cover;" %> 
+              <div style="background-color: #E39B58; color: #860000; padding-bottom: 100px;" id="text-box">
+                <p class="squished-text" style="font-size: 3rem; line-height: 50px;">The Fighter</p>
+                <p class="squished-text" style="font-size: 2rem; line-height: 50px;">Necklace Poem,<br/> 2023</p>
+                <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> Mother of<br/> pearl, freshwater pearl,<br/> acrylic, glass, dog teeth,<br/> freshwater-pearl<br/> wood, ceramic, shrinky<br/>dinks.</p>
+              </div>
+            </div>
+            <div class="flex flex-col justify-between">
+              <% 6.times do |i| %>                
+                <%= image_tag "red-star.png", style: "height: 70px; width: 70px;" %>                
+              <% end %>            
+            </div>
+          </div>
+        </section>
+        <section class="w-full mb-36">
+          <div class="w-full flex items-center" style="justify-content: space-between; margin-bottom: 20px;">
+            <div class="flex flex-col items-center" style="width: 23%">
+              <div style="display: flex; width: 100%; justify-content: flex-end; margin-bottom: 10px;">
+                <%= image_tag "high-school.png", style: "" %>  
+              </div>
+              <div class="flex w-full justify-between" style="margin-bottom: 10px;">
+                <%= image_tag "holstein-cow.png", style: "" %>               
+                <%= image_tag "high-school.png", style: "" %>  
+                <%= image_tag "holstein-cow.png", style: "" %>  
+              </div>
+              <%= image_tag "living-space-1.png", style: "" %>  
+            </div>
+            <div style="width: 50%">
+              <div class="flex justify-between" style="margin-bottom: 10px;">
+                <% 7.times do |i| %>
+                  <% if (i == 0 || i % 2 == 0) %>
+                      <%= image_tag "holstein-cow.png" %>
+                  <% else %>
+                      <%= image_tag "high-school.png" %>
+                  <% end %>
+                <% end %>
+              </div>
+              <%= image_tag "living-space-2.png", style: "" %>  
+            </div>
+            <div class="flex flex-col items-center" style="width: 23%;">
+              <div style="width: 100%; justify-content: flex-start; margin-bottom: 10px;">
+                <%= image_tag "high-school.png", style: "" %>  
+              </div>
+              <div class="flex w-full justify-between" style="margin-bottom: 10px;">
+                <%= image_tag "holstein-cow.png", style: "" %>  
+                <%= image_tag "high-school.png", style: "" %>  
+                <%= image_tag "holstein-cow.png", style: "" %>  
+              </div>
+              <%= image_tag "living-space-3.png", style: "" %>  
+            </div>
+          </div>
+          <div style="background-color: #BCE7FF; color: #0702CD; padding-bottom: 100px; width: 45%; margin: 0 auto; text-align: center;">
+            <p class="squished-text" style="font-size: 3rem; line-height: 50px;">Living Space</p>
+            <p class="squished-text" style="font-size: 2rem; line-height: 50px;">Necklace and Choker, 2024</p>
+            <p style="font-family: Times New Roman; font-size: 1.5rem; line-height: 30px;"><strong>Materials</strong> Glass, wood, acrylic, ceramic, aluminum, hand drawn and printed shrinky dinks.</p>
+          </div>
+        </section>
+        <section class="flex justify-center items-end">
+          <%= image_tag "betty-boop.png", class: "h-[300px]" %>  
+          <div class="h-[450px] w-[600px] flex items-center justify-center" style="margin: 0 20px; background-image: url('<%= image_url('sparkle-rocks.png')%>'); background-size: contain;">
+            <%= link_to jewelry_items_path do %>
+                <div class="inline-block p-8" style="background-color: #EA6BFF; border-radius: 50%;">
+                    <p class="text-md lg:text-xl" style="font-family: Uncial Antiqua; color: #B2FFE3">Visit the Jewellery Shop</p>
+                </div>
+            <% end %>
+          </div>
+          <%= image_tag "betty-boop-2.png", class: "h-[300px]" %>  
         </section>
     </div>
 </div>
