@@ -24,6 +24,17 @@
     <section class="h-auto w-full">     
       <%= render partial: "zine_latest", locals: { zines: @zines, images: @images } %>
     </section>
+    <section class="w-full text-center px-10 lg:px-48 mb-16">
+      <h3 class="font-kameron text-xl lg:text-2xl mb-10">Other Zines</h3>
+      <div class="flex flex-wrap justify-around lg:justify-between">
+        <% @zines.each do |zine| %>
+          <%= link_to zine_path(zine), class: "flex flex-col items-center mb-10" do %>            
+            <%= image_tag zine.cover_image, style: "height: 18rem; width: 14rem; margin-bottom: 10px; object-fit: cover" %>
+            <h3 class="font-kameron text-xl"><%= zine.title %></h3>          
+          <% end %>
+        <% end %>
+      </div>
+    </section>
     <section class="w-screen px-10 lg:px-48" style="padding-bottom: 3rem;">
       <h3 class="font-lexendZetta text-xl mb-6">Distributed at...</h3>
       <div class="w-full font-lexendZetta text-base">
