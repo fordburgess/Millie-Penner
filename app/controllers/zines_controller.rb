@@ -3,7 +3,13 @@ class ZinesController < ApplicationController
 
   # GET /zines or /zines.json
   def index
-    @zines = Zine.all
+    @filtered_zines = Zine.all.reject { |z| 
+      ["friend application vol. 1", "friend application vol. 2", "friend application vol. 3"].include?(z.title.downcase)    
+    }
+
+    @latest_zines = Zine.all.select { |z|
+      ["friend application vol. 1", "friend application vol. 2", "friend application vol. 3"].include?(z.title.downcase)    
+    }
   end
 
   # GET /zines/1 or /zines/1.json
