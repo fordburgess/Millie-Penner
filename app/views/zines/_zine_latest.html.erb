@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag 'zine_latest.css' %>
-<div class="h-auto lg:h-[35rem] lg:flex justify-center w-full mb-12">
-    <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol. 1" } %>
-        <% zine_vol_one = zines.find { |item| item[:title] == "FRIEND APPLICATION Vol. 1" } %>
+<div class="h-auto lg:h-[35rem] lg:flex justify-center w-full mb-12">    
+    <% if zines.find { |item| item.title.downcase == "friend application vol. 1" } %>
+        <% zine_vol_one = zines.find { |item| item.title.downcase == "friend application vol. 1" } %>
         <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full" style="height: 100%;">
             <a href="/zines/<%= zine_vol_one.id %>" class="w-full flex h-full flex-col justify-end items-center">
                 <%= image_tag zine_vol_one.cover_image, style: "height: 25rem; width: 17rem" %>
@@ -12,8 +12,8 @@
             </a>
         </div>
     <% end %>
-    <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.3" } %>
-        <% zine_vol_three = zines.find { |item| item[:title] == "FRIEND APPLICATION Vol.3" } %>
+    <% if zines.find { |item| item.title.downcase == "friend application vol. 3" } %>
+        <% zine_vol_three = zines.find { |item| item.title.downcase == "friend application vol. 3" } %>
         <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full">
             <a href="/zines/<%= zine_vol_three.id %>" class="w-full flex h-full flex-col justify-start items-center">
                 <%= image_tag zine_vol_three.cover_image, style: "height: 28rem; width: 20rem" %>
@@ -24,9 +24,9 @@
             </a>
         </div>
     <% end %>
-    <% if zines.find { |item| item[:title] == "FRIEND APPLICATION Vol. 2" } %>        
-        <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full">
-            <% zine_vol_two = zines.find { |item| item[:title] == "FRIEND APPLICATION Vol. 2" } %>
+    <% if zines.find { |item| item.title.downcase == "friend application vol. 2" } %>        
+        <div class="w-full mb-12 lg:mb-0 lg:w-1/3 lg:h-full">            
+            <% zine_vol_two = zines.find { |item| item.title.downcase == "friend application vol. 2" } %>
             <a href="/zines/<%= zine_vol_two.id %>" class="w-full flex h-full flex-col justify-end items-center">
                 <%= image_tag zine_vol_two.cover_image, style: "height: 20rem; width: 20rem" %>
                 <h1 class="font-kameron text-xl">Vol. 2</h1>
