@@ -1,15 +1,15 @@
 <style type="text/css">
     body {
-        overflow: scroll;            
+        overflow: scroll;
     }
 
     .article-container {
         background: url('<%= image_url('articles-bg.webp')%>');
         background-position: top;
         background-size: cover;
-        padding-top: 4rem;   
-        padding-bottom: 5rem; 
-        position: relative;    
+        padding-top: 4rem;
+        padding-bottom: 5rem;
+        position: relative;
         box-sizing: border-box;
         min-height: 100vh;
     }
@@ -25,7 +25,7 @@
 
         .batman, .mask, .notebook, .catguy {
             display: block;
-            position: absolute;            
+            position: absolute;
         }
 
         .batman {
@@ -72,8 +72,8 @@
     <div class="flex flex-wrap justify-start">
         <% @articles.each do |article| %>
             <%= link_to article_path(article), class: "w-1/2 lg:w-[33%]" do %>
-                <div class="w-full flex flex-col items-center mb-8">                
-                    <%= image_tag article.cover_photo, class: "h-80 w-[98%] lg:w-[75%] object-cover" %>
+                <div class="w-full flex flex-col items-center mb-8">
+                    <%= image_tag article.cover_photo.attached? ? article.cover_photo : "placeholder-image.webp", class: "h-80 w-[98%] lg:w-[75%] object-cover" %>
                     <div class="bg-black w-[98%] lg:w-[75%] p-2 text-white">
                         <p style="font-family: Poor Story"><%= article.title %></p>
                     </div>
@@ -81,8 +81,8 @@
             <% end %>
         <% end %>
         <% @pdf_articles.each do |article| %>
-            <a href="<%= article.link %>" target="_blank" class="w-1/2 lg:w-[33%]">                
-                <div class="w-full flex flex-col items-center mb-8">                
+            <a href="<%= article.link %>" target="_blank" class="w-1/2 lg:w-[33%]">
+                <div class="w-full flex flex-col items-center mb-8">
                     <%= image_tag article.cover_image, class: "h-80 w-[98%] lg:w-[75%] object-cover" %>
                     <div class="bg-black w-[98%] lg:w-[75%] p-2 text-white">
                         <p style="font-family: Poor Story"><%= article.title %></p>

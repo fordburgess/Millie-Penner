@@ -7,7 +7,7 @@
         <div class="w-full h-4/5 flex flex-wrap text-white font-kameron overflow-y-scroll box-border">
             <% @articles.each do |article| %>
                 <div class="w-1/3 mb-8">
-                    <%= image_tag article.cover_photo, class: "h-80 w-[98%] lg:w-[75%] object-cover mb-4" %>
+                    <%= image_tag article.cover_photo.attached? ? article.cover_photo : "placeholder-image.webp", class: "h-80 w-[98%] lg:w-[75%] object-cover mb-4" %>
                     <h1 class="text-3xl font-kameron"><%= article.title %></h1>
                     <h2 class="text-xl font-kameron"><%= article.author %></h2>
                     <p class="mb-4"><%= article.created_at.strftime('%b %d, %Y') %></p>
